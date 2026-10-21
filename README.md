@@ -39,9 +39,13 @@ Deep links switch to the right tab and scroll to the target, on first load, on `
 (`#yi-other-tts`, `#yi-other-asr`, `#yi-other-ocr-htr`, `#yi-other-datasets-corpora`, `#yi-other-models-llms`,
 `#yi-other-community-orgs`) and single entries (`#e-<entry id>`, e.g. `#e-dicta-iluy`).
 
-UI notes: light and dark themes follow `prefers-color-scheme` until you use the toggle (the choice is saved in
-`localStorage`). The tabs are ARIA tabs (arrow keys, Home/End). Press `/` to jump to search and `Esc` to clear it.
-Motion is turned off under `prefers-reduced-motion`.
+UI notes: a minimal layout (Inter, plus Noto Sans Hebrew for Hebrew/Yiddish). It has a top bar with a Torah / Yiddish
+switch and a theme toggle, one search box with the status / open-source / Hasidic filters behind **Filters**, section pills,
+and cards that show the name, a short description and at most two tags. Repo, license, dialect, metrics, notes and sources
+are under **Details** on each card. The benchmark table shows Tool, Task, Metric, Value and Source; expand a row for
+access, Yiddish support, dialect and test set. Light and dark themes follow `prefers-color-scheme` until you use the toggle
+(saved in `localStorage`). The tabs are ARIA tabs (arrow keys, Home/End). Press `/` to jump to search and `Esc` to clear it.
+Deep links to an entry (`#e-<id>`) open its details.
 
 ## Adding or editing entries
 
