@@ -12,14 +12,18 @@ Only public information is listed, with no private contact details.
 ## Structure
 
 ```
-index.html            page shell (tabs, sidebar filters, section nav)
-css/style.css         styles (RTL-aware, responsive)
-js/app.js             rendering, search/filter, hash routing, sortable benchmark table
-data.js               window.DIRECTORY_DATA = {...}  (generated; loaded by index.html)
-data.json             same data as JSON (generated)
-tools/build_data.py   SOURCE OF TRUTH: entries, benchmark rows, people -> data.json + data.js
-tools/verify_links.py checks every URL with curl, records status in link_checks
-screenshot.png        headless-Chrome screenshot of the Yiddish tab
+index.html                 page shell: hero, tabs, sidebar filters (also a declarative WebMCP form), JSON-LD
+css/style.css              styles: light/dark themes, RTL-aware, responsive, reduced-motion aware
+js/app.js                  rendering, search/filter, hash routing + deep links, sortable benchmark table, theme
+js/webmcp.js               WebMCP tools (document.modelContext.registerTool) for in-browser AI agents
+vendor/mcp-b-global-6.0.3.iife.js   MCP-B WebMCP polyfill (MIT), loaded only when the browser has no native WebMCP
+data.js                    window.DIRECTORY_DATA = {...}  (generated; loaded by index.html)
+data.json                  same data as JSON (generated): the public, stable data API
+llms.txt                   plain-text guide to the site and data for language models (generated)
+tools/build_data.py        SOURCE OF TRUTH: entries, benchmark rows, people -> data.json + data.js (+ llms.txt, JSON-LD)
+tools/build_agent_files.py writes the schema.org JSON-LD block in index.html and llms.txt from data.json
+tools/verify_links.py      checks every URL with curl, records status in link_checks
+screenshot.png             headless-Chrome screenshot of the Yiddish tab
 ```
 
 There's no build step for the site itself. Open `index.html` directly, or serve it with
@@ -28,9 +32,16 @@ There's no build step for the site itself. Open `index.html` directly, or serve 
 Tabs:
 - **Torah:** AI search & Q&A · AI-assisted libraries · typesetting, nikud & OCR
 - **Yiddish:** writing tools · translation · speech/OCR/data/models/community (sub-grouped) ·
-  benchmarks (sortable table of published metrics with sources) · people & orgs / collaborators wanted
+  benchmarks (sortable, filterable table of published metrics with sources) · people & orgs / collaborators wanted
 
-You can deep-link to a tab or section, e.g. `#yiddish`, `#yi-bench`, `#yi-people`, `#torah-typesetting`.
+Deep links switch to the right tab and scroll to the target, on first load, on `hashchange`, and with back/forward:
+`#torah`, `#yiddish`, any section id (`#yi-bench`, `#yi-people`, `#torah-typesetting`, ...), Yiddish sub-categories
+(`#yi-other-tts`, `#yi-other-asr`, `#yi-other-ocr-htr`, `#yi-other-datasets-corpora`, `#yi-other-models-llms`,
+`#yi-other-community-orgs`) and single entries (`#e-<entry id>`, e.g. `#e-dicta-iluy`).
+
+UI notes: light and dark themes follow `prefers-color-scheme` until you use the toggle (the choice is saved in
+`localStorage`). The tabs are ARIA tabs (arrow keys, Home/End). Press `/` to jump to search and `Esc` to clear it.
+Motion is turned off under `prefers-reduced-motion`.
 
 ## Adding or editing entries
 
@@ -45,6 +56,7 @@ You can deep-link to a tab or section, e.g. `#yiddish`, `#yi-bench`, `#yi-people
    ```
    python3 tools/build_data.py && python3 tools/verify_links.py
    ```
+   Both scripts also regenerate `llms.txt` and the JSON-LD block in `index.html`.
    `verify_links.py` rewrites `data.json`/`data.js` with fresh `link_checks`. Some sites block curl.
    If you have checked a page by hand, add it to the `MANUAL` dict with a note.
 3. Open the page and check your entry.
@@ -53,7 +65,60 @@ You can deep-link to a tab or section, e.g. `#yiddish`, `#yi-bench`, `#yi-people
 
 Push the folder to a repo, then go to Settings → Pages → "Deploy from a branch" → `main` / root.
 All paths are relative, so it also works under `https://<user>.github.io/<repo>/`.
-(This repo has only been initialised locally. Nothing has been pushed.)
+Live: https://pinta-partners.github.io/torah-yiddish-ai-directory/ (served from `main`, root; `.nojekyll` is set).
+
+## Data API for agents and scripts
+
+- **`data.json`** (https://pinta-partners.github.io/torah-yiddish-ai-directory/data.json) is the stable, public API.
+  Top-level keys: `generated`, `sections`, `entries`, `benchmarks`, `people`, `link_checks`. Field names are kept stable;
+  new fields may be added. Entry fields: `id, sections[], name, name_native, url, by, category, description, sources[],
+  status (active|beta|archived), open_source (yes|partial|no), repo, dialect, metrics, unverified, notes, license, subcat`.
+- **`llms.txt`** describes the site, data fields, deep links and tools in plain text for language models.
+- **JSON-LD**: `index.html` embeds schema.org `WebSite` + `Dataset` (with `DataDownload` links) + an `ItemList` of every entry.
+
+## WebMCP tools for AI agents
+
+The page implements [WebMCP](https://github.com/webmachinelearning/webmcp) (W3C Web Machine Learning Community Group
+draft), so an AI agent running in the browser can call the site's own functions instead of scraping it.
+Following the current draft, tools are registered with
+`document.modelContext.registerTool({name, title, description, inputSchema, annotations, execute}, {signal})`, and each
+`execute` returns a plain JSON object, which the browser serialises for the agent.
+
+Feature detection in `js/webmcp.js`:
+1. If the browser has native `document.modelContext` (the Chrome 149 / Edge 150 origin trials, or Chrome's
+   `about:flags#enable-webmcp-testing`), the tools are registered there. An older experimental `navigator.modelContext`
+   (`registerTool` or `provideContext`) is also accepted.
+2. If not, the vendored [MCP-B](https://docs.mcp-b.ai/) polyfill [`@mcp-b/global` 6.0.3](https://www.npmjs.com/package/@mcp-b/global)
+   (MIT) is loaded after page load. It installs `document.modelContext`, so the MCP-B browser extension and in-page agents can
+   use the tools.
+3. If that fails, nothing breaks. The footer shows the WebMCP status.
+
+| Tool | Inputs (all optional unless noted) | Returns |
+|---|---|---|
+| `search_directory` | `query`, `tab` (torah\|yiddish), `section` (section id or Yiddish sub-category such as `TTS`, `ASR`), `open_source` (yes\|partial\|no), `status` (active\|beta\|archived), `dialect` (`hasidic` or free text such as `YIVO`), `limit`, `apply_to_page` | matching entries (id, name, org, status, open source, dialect, URL, deep link), plus counts of matching benchmark rows and people |
+| `list_sections` | none | tabs, sections, sub-categories, counts, deep links, data API URL |
+| `get_entry` | `id_or_name` (required) | the full entry with every source URL and its link-check result, or candidate ids if the name is ambiguous |
+| `get_benchmarks` | `task` (asr\|tts\|translation\|llm\|ocr\|all), `query`, `published_only`, `sort_by_value` (asc\|desc), `show_in_page` | benchmark rows with `numeric_value`, the source and the comparability caveat |
+| `list_collaborators` | `focus` (speech\|text\|all), `query` | people & orgs (public links only) and what help the Yiddish TTS project needs |
+| `switch_tab` | `tab` (required) | switches the visible tab |
+| `navigate_to_section` | `target` (required): section id, sub-category id or entry id | switches tab, scrolls to the target, updates the URL |
+
+Read-only tools carry `annotations: {readOnlyHint: true}`. Bad arguments return `{error, ...}` with the valid values,
+so an agent can retry.
+
+**Declarative tool (proposal).** The sidebar search form carries the
+[declarative WebMCP](https://github.com/webmachinelearning/webmcp/blob/main/declarative-api-explainer.md) attributes
+(`toolname="filter_directory_view"`, `tooldescription`, `toolparamdescription`, `toolautosubmit`). On an agent-invoked
+submit it calls `SubmitEvent.respondWith()` with a summary of the visible results. The MCP-B polyfill already supports
+this; native browsers will pick it up as the proposal lands.
+
+Try it in DevTools (polyfill or native):
+```js
+const tools = await document.modelContext.getTools();
+await document.modelContext.executeTool(tools.find(t => t.name === "get_benchmarks"), {task: "asr", published_only: true});
+// or, without WebMCP plumbing:
+await TYD_WEBMCP.call("search_directory", {query: "whisper", tab: "yiddish"});
+```
 
 ## Contribute / collaborate on Yiddish TTS
 
@@ -73,5 +138,5 @@ Help is especially welcome with:
 - **Native-speaker listeners** for MOS tests
 
 If you work in this space (see the "People & orgs" section), open an issue or PR on this
-directory once it's public, or reach out through the public profiles linked on my GitHub.
+directory, or reach out through the public profiles linked on my GitHub.
 Corrections to any entry are welcome. Please include a source URL.

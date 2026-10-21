@@ -1,0 +1,45 @@
+# Torah + Yiddish AI Directory
+
+> A sourced, static directory of AI for Torah study and for the Yiddish language: 117 entries, 35 published Yiddish benchmark rows and 22 people/orgs working on Yiddish speech & NLP. Every entry links to the source where it was checked; nothing is invented, and missing metrics are marked "not published". Data last checked 2026-10-20.
+
+The site is maintained by Chezky Kohn, who is building open-source Yiddish text-to-speech (a NotebookLM-style Yiddish podcast generator) and Yiddish speech recognition. Collaborators are wanted (see the People & orgs section).
+
+## Data (stable JSON API)
+
+- [data.json](https://pinta-partners.github.io/torah-yiddish-ai-directory/data.json): the whole dataset. Top-level keys: `generated` (date checked), `sections` (`torah`/`yiddish` -> list of {id,title,blurb}), `entries`, `benchmarks`, `people`, `link_checks` (url -> {code, checked, manual?}).
+- Entry fields: id, sections[], name, name_native, url, by, category, description, sources[], status (active|beta|archived), open_source (yes|partial|no), repo, dialect, metrics, unverified, notes, license, subcat (TTS|ASR|OCR & HTR|Datasets & corpora|Models & LLMs|Community & orgs, Yiddish 'other' section only).
+- Benchmark fields: type (ASR|TTS|MT/LLM|OCR), system, access, yi (Yiddish support), dialect, metric, value (as published, or 'not published'/'n/a'), test, source.
+- People fields: name, role, works_on, links[] (public profiles only), fit, speech (bool), existing (already collaborating).
+- Schema.org JSON-LD (Dataset + ItemList) is embedded in [https://pinta-partners.github.io/torah-yiddish-ai-directory/](https://pinta-partners.github.io/torah-yiddish-ai-directory/).
+
+## Sections (deep links)
+
+- [Torah: AI search & Q&A for Torah](https://pinta-partners.github.io/torah-yiddish-ai-directory/#torah-search): Tools that use AI (LLMs, retrieval, semantic search) to find and explain Torah sources. (19 entries)
+- [Torah: AI-assisted Torah libraries](https://pinta-partners.github.io/torah-yiddish-ai-directory/#torah-libraries): Large digital seforim libraries and what AI features (if any) they document. (7 entries)
+- [Torah: Typesetting, nikud & OCR for seforim](https://pinta-partners.github.io/torah-yiddish-ai-directory/#torah-typesetting): AI-assisted / AI-native layout, vocalization (nikud), proofreading and OCR of seforim. (10 entries)
+- [Yiddish: Yiddish writing tools](https://pinta-partners.github.io/torah-yiddish-ai-directory/#yi-writing): Spellcheck, grammar, keyboards, transliteration/orthography, LLM writing help. (16 entries)
+- [Yiddish: Yiddish translation](https://pinta-partners.github.io/torah-yiddish-ai-directory/#yi-translation): Machine translation to/from Yiddish: services, open models, community tools. (12 entries)
+- [Yiddish: Speech, OCR, data, models & community](https://pinta-partners.github.io/torah-yiddish-ai-directory/#yi-other): TTS, ASR, OCR/HTR, datasets, language models, organizations and communities. (56 entries)
+- [Yiddish: Benchmarks & comparison](https://pinta-partners.github.io/torah-yiddish-ai-directory/#yi-bench): Published metrics (WER/CER/COMET...) with sources. 'not published' means we could not find a public number. (5 entries, 35 benchmark rows)
+- [Yiddish: People & orgs / collaborators wanted](https://pinta-partners.github.io/torah-yiddish-ai-directory/#yi-people): Public profiles of people and groups working on Yiddish speech & NLP. Public links only. (0 entries, 22 people/orgs)
+
+Any entry can be linked as `#e-<entry id>`; Yiddish sub-categories as `#yi-other-tts`, `#yi-other-asr`, `#yi-other-ocr-htr`, `#yi-other-datasets-corpora`, `#yi-other-models-llms`, `#yi-other-community-orgs`.
+
+## WebMCP tools (for in-browser agents)
+
+The page registers WebMCP tools with `document.modelContext.registerTool()` (W3C Web Machine Learning CG draft, https://github.com/webmachinelearning/webmcp). In browsers without native WebMCP it loads the MCP-B polyfill (@mcp-b/global). All tools return JSON.
+
+- `search_directory(query?, tab?, section?, open_source?, status?, dialect?, limit?, apply_to_page?)`: search entries.
+- `list_sections()`: tabs, sections, sub-categories and counts.
+- `get_entry(id_or_name)`: one full entry with sources and link-check results.
+- `get_benchmarks(task?, query?, published_only?, sort_by_value?, show_in_page?)`: Yiddish benchmark rows (asr|tts|translation|llm|ocr|all).
+- `list_collaborators(focus?, query?)`: people & orgs (speech|text|all) plus what help is wanted.
+- `switch_tab(tab)`, `navigate_to_section(target)`: change what the user sees.
+- Declarative form tool `filter_directory_view` (the sidebar search form: q, status, open_source, hasidic).
+
+## Notes for agents
+
+- Metrics are copied as published. Benchmark numbers are only comparable when the test set matches.
+- No public Yiddish ASR or TTS leaderboard exists as of the check date.
+- Only public information is listed. Do not infer private contact details for people.
+- Source code, corrections and contributions: https://github.com/pinta-partners/torah-yiddish-ai-directory
