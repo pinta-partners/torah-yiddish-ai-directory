@@ -23,7 +23,7 @@
   const tabsOf = e => [...new Set(e.sections.map(s => T.sectionTab[s]))];
   function linkStatus(u){ const c = (D.link_checks||{})[u]; return c ? {url:u, http_status:c.code, checked:c.checked, ok: T.linkOk(u)} : {url:u, http_status:null, checked:null, ok:null}; }
   function summary(e){
-    return {id:e.id, name:e.name, name_native:e.name_native||undefined, by:e.by, category:e.category, tab:tabsOf(e)[0], sections:e.sections,
+    return {id:e.id, name:e.name, name_native:e.name_native||undefined, plain:e.plain||undefined, by:e.by, category:e.category, tab:tabsOf(e)[0], sections:e.sections,
       subcategory:e.subcat||undefined, status:e.status, open_source:e.open_source, dialect:e.dialect||undefined, metrics:e.metrics||undefined,
       unverified:e.unverified||undefined, url:e.url, repo:e.repo||undefined, description:e.description, page_url:pageUrl("e-"+e.id)};
   }
@@ -99,7 +99,7 @@
     annotations:{readOnlyHint:true},
     execute(){
       const tabs = TABS.map(t => ({tab:t, page_url:pageUrl(t), sections:D.sections[t].map(s => {
-        const o = {id:s.id, title:s.title, description:s.blurb, entries:D.entries.filter(e=>e.sections.includes(s.id)).length, page_url:pageUrl(s.id)};
+        const o = {id:s.id, title:s.title, label:s.label, description:s.blurb, plain_description:s.plain, entries:D.entries.filter(e=>e.sections.includes(s.id)).length, page_url:pageUrl(s.id)};
         if (s.id==="yi-other"){ o.subcategories = SUBCATS.map(k => ({name:k, id:"yi-other-"+T.slug(k), entries:D.entries.filter(e=>e.sections.includes("yi-other") && e.subcat===k).length})); }
         if (s.id==="yi-bench") o.benchmark_rows = D.benchmarks.length;
         if (s.id==="yi-people") o.people = D.people.length;
@@ -171,7 +171,7 @@
         collaborators_wanted:{project:"Open-source Yiddish text-to-speech for a NotebookLM-style Yiddish podcast generator, plus Yiddish ASR to evaluate it.",
           most_needed:["Hasidic-accent speech data and speakers","G2P / loshn-koydesh pronunciation expertise","TTS model training (VibeVoice, F5, Chatterbox, Piper)","Help setting up a public Yiddish ASR/TTS benchmark modelled on ivrit.ai's leaderboards"],
           how_to_help:"Open an issue or PR on https://github.com/pinta-partners/torah-yiddish-ai-directory (see the README's Contribute section)."},
-        people:ppl.map(p => ({name:p.name, role:p.role, works_on:p.works_on, fit:p.fit, focus:p.speech?"speech":"text", already_collaborating:!!p.existing, public_links:p.links})),
+        people:ppl.map(p => ({name:p.name, role:p.role, works_on:p.works_on, plain:p.plain, fit:p.fit, focus:p.speech?"speech":"text", already_collaborating:!!p.existing, public_links:p.links})),
         note:"Public profile links only; reach people through the channels they publish.", page_url:pageUrl("yi-people")};
     }
   },

@@ -512,12 +512,191 @@ PEOPLE = [
  P("rexelardo","Data engineer","TTSYiddish dataset-building scripts",["https://github.com/rexelardo"],"Low-medium"),
  P("Commercial Yiddish speech vendors","YiddishLabs, Yiddish Tools, Heimish Geredt, DerVort, Sofer.ai","Closed Yiddish ASR/TTS products",["https://app.yiddishlabs.com/","https://yiddish.tools/","https://heimishgeredt.com/","https://dervort.com/","https://www.sofer.ai/"],"Potential benchmark participants / data partners; individuals not identified"),
 ]
+# ---------------------------------------------------------------------------
+# Plain-language text shown on the site's surface (cards, section names, people).
+# One simple sentence per entry, rewritten from `description` without adding facts.
+# The original technical fields stay in the data and are shown under "Details".
+# ---------------------------------------------------------------------------
+SECTION_PLAIN = {
+ "torah-search":     ("Ask & search", "Ask questions and find sources with AI."),
+ "torah-libraries":  ("Digital libraries", "Online seforim libraries, and which AI features they offer."),
+ "torah-typesetting":("Typesetting & vowels (nikud)", "Tools that add nikud, lay out seforim, proofread, or turn page scans into text."),
+ "yi-writing":       ("Writing help", "Spellcheckers, keyboards, spelling converters and other help with writing Yiddish."),
+ "yi-translation":   ("Translation", "Tools that translate to and from Yiddish."),
+ "yi-other":         ("Speech, scanning, data & community", "Voices that read aloud, transcription, reading old books, data, and the groups behind them."),
+ "yi-bench":         ("How the tools compare", "Published scores, each with a link to where it comes from. “Not published” means we could not find a score."),
+ "yi-people":        ("People", "People and groups working on Yiddish speech and language tools. We list public links only."),
+}
+PLAIN = {
+ # Torah: ask & search
+ "dicta-iluy": "Ask a question about Torah, Talmud or halacha and get an answer with links to the sources it used; Dicta says it is a study aid, not a halachic ruling.",
+ "koppel-rules": "Essays by Dicta's founder on how AI Torah tools should behave: always show sources, show every opinion, and don't decide for you.",
+ "dicta-topics": "Automatic lists of the topics in each sefer of responsa, so you can see which simanim discuss a subject.",
+ "dicta-bible-search": "Search Tanakh for words, phrases, verses or names.",
+ "sefaria-assistant": "An experimental chat helper on Sefaria that finds sources with citations, suggests commentaries and can translate texts that have no translation yet; you need to sign in on a computer.",
+ "sefaria-mcp": "Lets AI assistants like ChatGPT and Claude search and quote the Sefaria library; Sefaria says you need a paid AI assistant account.",
+ "bar-ilan-smart": "A huge paid library of responsa and seforim where you can type a question in everyday words and get relevant sources.",
+ "binata": "A Torah chat that finds sources, explains sugyot and compares opinions; free to start, with paid plans.",
+ "rabbi-ai": "A chat app that answers Jewish questions with sources from Torah, Talmud and Midrash, offered in 10 languages.",
+ "torah-ai-org": "An AI helper for Torah and Talmud study that says it draws on the whole Sefaria library.",
+ "rabbi-ari": "A phone chat app for questions about Torah, Talmud, halacha and Jewish life.",
+ "ohrbit": "The Orthodox Union's AI Torah companion, which recommends and discusses shiurim from its own checked library.",
+ "bekiut": "Read the Talmud phrase by phrase, with a study chat helper that is still in testing.",
+ "derekh": "Daily learning (Daf Yomi, Mishnah, Rambam and more) prepared by AI at different depths, with audio and a source for every point; free, with a paid tier.",
+ "chattorah": "A Torah learning chat app; you need to sign in or get early access.",
+ "rabbai": "A free study partner for computer users that runs as a text-only program, giving sourced answers and every side of a disagreement.",
+ "berel": "Free building blocks from Dicta that developers use to make Hebrew and rabbinic-text tools, including adding vowels.",
+ "sofer-ai": "Turns recorded shiurim into searchable text you can edit, even when they mix English, Hebrew, Yiddish and Aramaic; users say its Yiddish is so-so.",
+ "torahanytime-yeshivish": "A free speech-to-text model from TorahAnytime named for Yeshivish speech; how it was trained and how well it works is not stated.",
+ # Torah: libraries
+ "sefaria": "The big free online Torah library, which uses AI to link citations, build topic pages, sort source sheets and help with translations that experts review.",
+ "dicta-library": "A free library of Talmudic and rabbinic texts that Dicta's tools turned from scans into text, added vowels and punctuation to, and linked to their sources.",
+ "otzar": "A paid library of about 156,000 scanned seforim, now testing a new tool that turns page scans into text.",
+ "alhatorah": "Interactive Tanakh with Mikraot Gedolot, a concordance and learning tools; it does not advertise AI features.",
+ "otzaria": "A free app for reading and studying seforim on computer and phone, with fast search, commentaries and community proofreading; no AI features listed.",
+ "hebrewbooks": "Over 40,000 seforim to download free as PDFs; no AI features listed.",
+ # Torah: typesetting & nikud
+ "dicta-nakdan": "Adds nikud (vowels) to Hebrew text automatically as you type, for free.",
+ "dicta-rashi-ocr": "Upload a page in Rashi script and get text you can copy.",
+ "otzar-ocr": "Upload a picture or PDF of a Torah text and get typed text back; 5 free pages a day.",
+ "nakdimon": "A free tool that adds nikud to Hebrew text right in your browser.",
+ "dictabert-menaked": "A free AI model that developers can use to add nikud to Hebrew text.",
+ "ravtext": "A Word add-on for laying out seforim, with automatic nikud and finished print files; the makers say it is still being built.",
+ "ariach": "Describe in plain Hebrew how you want your book to look, and its AI assistant lays out the pages; free for now while it launches.",
+ "mugah": "Proofreads Torah texts in Word and checks that source references are correct; open to testers.",
+ "shefa-layout": "A free tool that turns a sefer's text into a finished, traditionally laid-out page as a PDF.",
+ "ivrit-hw-ocr-lb": "A public scoreboard and test set for reading handwritten Hebrew, useful for manuscripts.",
+ # Yiddish: writing help
+ "refoyl": "Long-running free Yiddish web tools, including a spellchecker you can paste text into.",
+ "yivo-hunspell": "A Yiddish spellchecker in standard YIVO spelling for Firefox and OpenOffice.",
+ "hunspell-yi": "The source files of a Yiddish spelling dictionary; last updated in 2022.",
+ "heimish-geredt": "Talk and it types Yiddish, plus read-aloud (in testing) and grammar checks, made for Hasidic Yiddish; 30 days free, then $4 a month.",
+ "yiddish-py": "A toolkit for programmers that cleans up Yiddish text, converts between spelling styles and writes it in Latin letters.",
+ "hasidifier": "Converts standard (YIVO) Yiddish spelling into Hasidic-style spelling.",
+ "klal-keyboards": "Standard Yiddish keyboards for Mac, iPhone/iPad and Chromebook.",
+ "giellalt-kbd": "Yiddish keyboard layouts from the GiellaLT language-tools project, updated October 2026.",
+ "linux-kbd": "Yiddish keyboard layouts for Linux computers; not updated since 2022.",
+ "bookmarklets": "Browser buttons that give you an on-screen Yiddish keyboard, show any web page in Latin letters, and look up words.",
+ "meturgaman": "Fetches Hebrew, Aramaic and Yiddish texts and writes them in Latin letters using any of eight standard systems.",
+ "yiddish-grammar-handbook": "A free handbook, in Yiddish, for Yiddish writers and proofreaders.",
+ "tachlisai": "'Kosher' AI you use by text message, with a Yiddish page, for help with writing and everyday questions.",
+ "verterbukh": "A large online Yiddish–English dictionary (not AI).",
+ "yiddish-tools": "Paid, private Windows programs that work without internet: talk-to-type, translation, nikud and natural Yiddish read-aloud, plus a free online playground.",
+ # Yiddish: translation
+ "google-translate": "Google's translation service, which officially supports Yiddish.",
+ "nllb": "Meta's free translation models, which include Yiddish (not for commercial use).",
+ "yt-nllb-onnx": "A free Yiddish–English translator that runs in your browser; its makers warn it is a draft and can confidently get the names of things wrong.",
+ "mameloshnlm": "The first large AI language model trained especially on Yiddish, released by researchers for non-commercial use.",
+ "lingvanex": "Free ready-made models for translating English into Yiddish and back.",
+ "apertium-yid": "Yiddish grammar data for a rule-based translation system (a building block, not an app).",
+ "marianmt-he2yid": "An online demo that translates Biblical Hebrew into Yiddish.",
+ "heimish-translate": "Translates English into Heimish Yiddish using Google's Gemini AI.",
+ "yiddishkeit-skill": "An add-on for the Claude AI coding assistant that translates social-media posts into Hasidic Yiddish.",
+ "yiddish-pdf-translator": "A program that translates Yiddish PDF books into English using Claude.",
+ "general-llms": "Community tips on everyday AI chatbots: people found Claude best at Yiddish and Qwen good for word-by-word translation; these are opinions, not tests.",
+ # Yiddish: read aloud
+ "reyd": "The first Yiddish read-aloud system (2022), trained on about 8 hours of Yiddish Book Center audiobooks read by 3 speakers; its voices and data are free.",
+ "avremi": "A free Yiddish read-aloud voice that runs on an ordinary computer, built from the REYD recordings, with an online demo.",
+ "phonikud-yi-tts": "An online demo of a Hasidic Yiddish read-aloud voice; its notes say the voices come from English speakers, so the vowels sound foreign.",
+ "phonikud-yi": "A tool that works out how Hasidic Yiddish words are pronounced, checked by native speakers, built to prepare podcast recordings for training a Yiddish voice.",
+ "phonikud": "A Hebrew pronunciation tool for fast read-aloud voices; the Hasidic Yiddish version is based on it.",
+ "yiddishlabs": "A paid service that transcribes Yiddish audio and reads Yiddish text aloud, with web and desktop apps; one user found it good but expensive.",
+ "hershy-weights": "Experimental Yiddish voices and a listening-test page; no description provided.",
+ "mendel-csm": "An experiment in teaching a speech model Yiddish; no details on data or results.",
+ "reyd-space": "An online demo of the REYD Yiddish voice; it was not working when we checked.",
+ "ttsyiddish": "Personal scripts that cut audio into pieces to build a Yiddish voice; no voice released.",
+ # Yiddish: transcribe audio
+ "ivrit-yi-whisper": "Free Yiddish speech-to-text from ivrit.ai, trained on volunteers' Yiddish recordings; most other free Yiddish transcription builds on it.",
+ "yt-whisper-onnx": "The ivrit.ai Yiddish transcriber packaged to run in your browser, so your audio never leaves your device.",
+ "rebbe-asr": "A transcriber trained on the Rebbe's farbrengens, with careful published results; the recordings and texts are not public.",
+ "sicha-to-text": "A Mac app that transcribes sichos without internet; it can get stuck repeating itself during niggunim.",
+ "omniasr": "Meta's free speech-to-text for over 1,600 languages, including Yiddish.",
+ "whisper-stock": "OpenAI's free speech-to-text, which lists Yiddish, but users say it does poorly on Hasidic speech without extra training.",
+ "dervort": "Hold a key and talk, and it types clean Yiddish or English into any app; it also transcribes files, and the site says it is still under construction.",
+ "es2814207": "Community experiments in Yiddish speech-to-text, and a page for collecting Yiddish recordings; few details given.",
+ "w2v-bert-yi": "Two experimental Yiddish speech-to-text models, one for Litvish speech; no description provided.",
+ "ivrit-runpod-yi": "A cloud setup that runs Yiddish transcription for an archive of the Rebbe's 'dollars' recordings.",
+ "yi-audio-align": "Tools that line up Yiddish recordings with their written text, plus the home page of the JEM Yiddish transcription project.",
+ "clean-transcripts": "A web app that removes titles, notes and timestamps from Yiddish transcripts so they can be used to train transcribers.",
+ # Yiddish: scanning old books
+ "jochre3": "Search the full text of the Yiddish Book Center's scanned library, with volunteers correcting mistakes.",
+ "vilnish": "A service that reads handwritten and old printed Yiddish and Hebrew, and can translate it into English or Lithuanian.",
+ "mattingly-ocr": "Free models that read printed and handwritten Yiddish from page images.",
+ "yiddish-synth": "Computer-made pictures of Yiddish text lines, with their text, for training page readers, plus a model trained on them.",
+ "viciebski": "2,684 images of text from 1930s Vitebsk Yiddish newspapers, without the typed text.",
+ "marinelives": "Experiments in fixing the mistakes computers make when reading handwritten Yiddish; the demos were not working when we checked.",
+ # Yiddish: data & models
+ "ivrit-yi-data": "Yiddish recordings by volunteers (read aloud and on WhatsApp), the main public data for teaching computers to transcribe Yiddish; access on request.",
+ "commonvoice-yi": "Mozilla's free voice-donation project, where anyone can record Yiddish sentences.",
+ "williamsburg": "A collection of present-day Williamsburg Hasidic Yiddish writing on history, geography and reference topics.",
+ "csye": "Written transcripts of interviews with Yiddish speakers across Europe, recorded to study dialects.",
+ "ud-yitb": "Yiddish sentences marked up word by word with their grammar, for language research.",
+ "penn-yiddish": "About 200,000 words of historical Yiddish marked up with their grammar.",
+ "intsayt": "A research project marking up the grammar of Scots and Yiddish texts, with its data and scripts.",
+ "yidracor": "A collection of Yiddish plays prepared for computer research.",
+ "alpaca-yi": "Example instructions and answers machine-translated into Yiddish, for training chatbots.",
+ "yi-extractor": "Pulls clean Yiddish sentences out of mixed documents, telling Yiddish apart from Hebrew and Aramaic.",
+ "hebrish-sentences": "A text collection that needs permission to open, so we could not check what is inside.",
+ "hebrew-ml-navigator": "A guide listing Hebrew and Yiddish data collections and AI models.",
+ "kakugo": "A small Yiddish chat model trained on computer-made conversations in Eastern Yiddish.",
+ "goldfish": "Small Yiddish-only language models from a project covering 350 languages.",
+ "yi-encoders": "Two Yiddish language models for developers, with little description.",
+ "yiddishtag": "A tool that labels each word in Yiddish text with its part of speech (noun, verb and so on).",
+ # Yiddish: community
+ "ivrit-ai": "A group releasing free Hebrew and Yiddish recordings and speech-to-text models, and the strongest open source of Yiddish transcription data.",
+ "yiddish-nlp": "The research group behind MameLoshnLM and the Kashes Yiddish test collection.",
+ "ybc": "The Yiddish Book Center: over 11,000 digitized books, Yiddish audiobooks and oral histories, with full-text search.",
+ "yivo": "Home of standard Yiddish spelling; its archive pages helped train a handwriting reader, but it runs no AI tool we found.",
+ "jtech": "A forum discussion where users compare AI tools for transcribing Yiddish audio.",
+ "chabadlabs": "A community wiki with practical tips on tools for Hebrew and Yiddish translation, transcription, scanning and read-aloud.",
+ "shmooz-ai": "An AI assistant on WhatsApp and Telegram for Hebrew speakers; no Yiddish support listed.",
+ # Yiddish: how the tools compare (resources)
+ "kashes": "A set of tests for how well computers handle written Yiddish (translation, grammar, names, questions); it has no speech tests.",
+ "omni-table": "Meta's table of results for each language, including how often its transcriber gets Yiddish letters wrong.",
+ "jochre-corpus": "658 pages of Yiddish with their correct text, used to compare how accurately different tools read scanned pages.",
+ "ivrit-he-lb": "A public scoreboard for Hebrew transcription tools, a model for a Yiddish one that does not exist yet.",
+ "ivrit-tts-arena": "A site where people vote on which Hebrew voice sounds better, a model for a Yiddish version.",
+}
+PEOPLE_PLAIN = {
+ "Isaac L. Bleaman": "Co-created the first Yiddish read-aloud system (REYD) and tools for Yiddish text, Hasidic spelling and pronouncing Hebrew words in Yiddish; also made a Yiddish transcription model.",
+ "Jacob J. Webber": "Lead author of REYD, the first Yiddish read-aloud system, and made a Yiddish transcription model.",
+ "Samuel Lo": "Co-created REYD and ran listening tests on respelling Yiddish for read-aloud voices.",
+ "ivrit.ai (Yair Lifshitz, Yoad Snapir)": "Make Yiddish transcription models, collect Yiddish recordings from volunteers, and run Hebrew scoreboards for transcription and voices.",
+ "Golan Benoni": "Built a transcriber for the Rebbe's Yiddish with the best published accuracy for that kind of recording.",
+ "Sorato Group / Loqal": "Released Avremi, a free Yiddish read-aloud voice.",
+ "MMS-HM": "Made Sicha to Text, a Mac app that transcribes Yiddish without internet.",
+ "Maxim Melichov": "Builds tools that work out Hebrew and Yiddish pronunciation, and a Hasidic Yiddish read-aloud demo.",
+ "Yakov Kolani (thewh1teagle)": "Leads Phonikud, a tool for Hebrew pronunciation and lightweight read-aloud voices.",
+ "Morris Alper": "Researches Hebrew speech; co-author of Phonikud.",
+ "Uri Katz et al. (Yiddish-NLP)": "Built MameLoshnLM, a Yiddish AI language model, and the Kashes Yiddish test collection.",
+ "Assaf Urieli": "Built Jochre, which reads scanned Yiddish books, and the Yiddish Book Center's full-text search.",
+ "William Mattingly": "Builds models that read printed and handwritten Yiddish.",
+ "John Locke (johnlockejrr)": "Made computer-generated Yiddish page images for training page readers, and a Hebrew-to-Yiddish translation demo.",
+ "Sergii Gurbych": "Runs VILNISH, which reads Yiddish and Hebrew handwriting, and made a model for Vilnius handwriting.",
+ "Peter Devine": "Makes small chat models, including one for Eastern Yiddish.",
+ "Naftali Kohn (hershykohn)": "Shares experimental Yiddish voices and a listening test.",
+ "mendelg": "Experimenting with teaching a speech model Yiddish.",
+ "Yakov Shlezinger (samadeus)": "Hosts an online demo of the REYD Yiddish voice.",
+ "es2814207": "Experiments with Yiddish transcription and collects Yiddish recordings.",
+ "rexelardo": "Wrote scripts for building a Yiddish voice dataset.",
+ "Commercial Yiddish speech vendors": "Companies selling Yiddish transcription and read-aloud apps; individual people are not named.",
+}
+def apply_plain(sections, entries, people):
+    for t in sections.values():
+        for s in t:
+            s["label"], s["plain"] = SECTION_PLAIN[s["id"]]
+    missing = [e["id"] for e in entries if e["id"] not in PLAIN]; assert not missing, ("no plain text for", missing)
+    extra = set(PLAIN) - {e["id"] for e in entries}; assert not extra, ("unknown ids in PLAIN", extra)
+    for e in entries: e["plain"] = PLAIN[e["id"]]
+    for p in people: p["plain"] = PEOPLE_PLAIN[p["name"]]
+
 def main():
     base=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     ids=[e["id"] for e in ENTRIES]; assert len(ids)==len(set(ids)), "duplicate ids"
     valid={s["id"] for t in SECTIONS.values() for s in t}
     for e in ENTRIES:
         for s in e["sections"]: assert s in valid, (e["id"],s)
+    apply_plain(SECTIONS, ENTRIES, PEOPLE)
     data=dict(generated=CHECKED, sections=SECTIONS, entries=ENTRIES, benchmarks=BENCH, people=PEOPLE, link_checks={})
     path=os.path.join(base,"data.json")
     if os.path.exists(path):

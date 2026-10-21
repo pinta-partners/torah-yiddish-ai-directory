@@ -50,9 +50,10 @@ def llms_txt(data):
       f"- [data.json]({SITE}data.json): the whole dataset. Top-level keys: `generated` (date checked), `sections` "
       "(`torah`/`yiddish` -> list of {id,title,blurb}), `entries`, `benchmarks`, `people`, `link_checks` (url -> {code, checked, manual?}).",
       "- Entry fields: id, sections[], name, name_native, url, by, category, description, sources[], status (active|beta|archived), "
-      "open_source (yes|partial|no), repo, dialect, metrics, unverified, notes, license, subcat (TTS|ASR|OCR & HTR|Datasets & corpora|Models & LLMs|Community & orgs, Yiddish 'other' section only).",
+      "open_source (yes|partial|no), repo, dialect, metrics, unverified, notes, license, plain (one plain-language sentence shown on the site), subcat (TTS|ASR|OCR & HTR|Datasets & corpora|Models & LLMs|Community & orgs, Yiddish 'other' section only).",
       "- Benchmark fields: type (ASR|TTS|MT/LLM|OCR), system, access, yi (Yiddish support), dialect, metric, value (as published, or 'not published'/'n/a'), test, source.",
-      "- People fields: name, role, works_on, links[] (public profiles only), fit, speech (bool), existing (already collaborating).",
+      "- People fields: name, role, works_on, plain, links[] (public profiles only), fit, speech (bool), existing (already collaborating).",
+      "- Section fields: id, title (technical name), blurb, label (plain name shown on the site), plain (plain intro).",
       f"- Schema.org JSON-LD (Dataset + ItemList) is embedded in [{SITE}]({SITE}).", "",
       "## Sections (deep links)", "",
     ]
@@ -60,7 +61,7 @@ def llms_txt(data):
         for s in ss:
             n = count(s["id"])
             extra = f", {len(data['benchmarks'])} benchmark rows" if s["id"] == "yi-bench" else f", {len(data['people'])} people/orgs" if s["id"] == "yi-people" else ""
-            lines.append(f"- [{tab.title()}: {s['title']}]({SITE}#{s['id']}): {s['blurb']} ({n} entries{extra})")
+            lines.append(f"- [{tab.title()}: {s.get('label', s['title'])}]({SITE}#{s['id']}): {s['title']}. {s['blurb']} ({n} entries{extra})")
     lines += ["", "Any entry can be linked as `#e-<entry id>`; Yiddish sub-categories as `#yi-other-tts`, `#yi-other-asr`, `#yi-other-ocr-htr`, "
               "`#yi-other-datasets-corpora`, `#yi-other-models-llms`, `#yi-other-community-orgs`.", "",
       "## WebMCP tools (for in-browser agents)", "",

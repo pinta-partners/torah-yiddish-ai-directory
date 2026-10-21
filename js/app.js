@@ -17,7 +17,7 @@
   const host = u => { try { const x = new URL(u); return x.hostname.replace(/^www\./,"") + (x.pathname.length>1 ? x.pathname.replace(/\/$/,"").slice(0,38) : ""); } catch(e){ return u; } };
   const isHasidic = e => /hasid|heimish|chabad|williamsburg|unterland/i.test([e.dialect,e.description,e.name].join(" "));
   const tokens = q => String(q||"").toLowerCase().split(/\s+/).filter(Boolean);
-  const entryHay = e => [e.name,e.name_native,e.by,e.category,e.description,e.dialect,e.metrics,e.notes,e.subcat,e.url,e.repo,e.license].join(" ").toLowerCase();
+  const entryHay = e => [e.name,e.plain,e.name_native,e.by,e.category,e.description,e.dialect,e.metrics,e.notes,e.subcat,e.url,e.repo,e.license].join(" ").toLowerCase();
   const SECTION_TAB = {}; const SECTION_BY_ID = {};
   Object.entries(D.sections).forEach(([t,ss]) => ss.forEach(s => { SECTION_TAB[s.id] = t; SECTION_BY_ID[s.id] = s; }));
   const tabOfEntry = e => SECTION_TAB[e.sections[0]];
@@ -45,10 +45,11 @@
     const t = tokens(f.q); if (!t.length) return true;
     const h = Object.values(b).join(" ").toLowerCase(); return t.every(x => h.includes(x));
   }
-  function peopleMatch(p, q){ const t = tokens(q); if (!t.length) return true; const h=[p.name,p.role,p.works_on,p.fit,...p.links].join(" ").toLowerCase(); return t.every(x=>h.includes(x)); }
+  function peopleMatch(p, q){ const t = tokens(q); if (!t.length) return true; const h=[p.name,p.role,p.works_on,p.plain,p.fit,...p.links].join(" ").toLowerCase(); return t.every(x=>h.includes(x)); }
 
   // ---------- rendering ----------
   const CHEV = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>`;
+  const friendlyDate = d => { try { return new Date(d+"T12:00:00").toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"}); } catch(e){ return d; } };
   function srcList(list){
     return `<ul class="sources">${list.map(u => {
       const ok = linkOk(u);
@@ -57,30 +58,32 @@
     }).join("")}</ul>`;
   }
   const nativeLang = s => /ייִ|אידיש|פאר|שרייבער|וואָרט|גערעדט/.test(s) ? "yi" : "he";
-  /** At most two quiet tags; everything else lives in the expandable detail. */
+  // Strict test for the visible "Hasidic Yiddish" tag (the broader isHasidic() is kept for filtering).
+  const hasidicTag = e => /^(hasidic|chabad|claims 'heimish)|(→|↔) hasidic/i.test(e.dialect||"");
+  /** At most two plain-word tags; everything technical lives under Details. */
   function tagsFor(e){
     const t = [];
-    if (e.open_source === "yes") t.push(["Open source",""]); else if (e.open_source === "partial") t.push(["Partly open",""]);
-    if (e.unverified) t.push(["Unverified","warn"]);
-    else if (e.status !== "active") t.push([e.status[0].toUpperCase()+e.status.slice(1),""]);
-    else if (/directory author/i.test(e.by)) t.push(["Author's project",""]);
+    if (e.unverified) t.push(["Not yet confirmed","warn"]);
+    if (e.status === "beta") t.push(["In testing",""]); else if (e.status === "archived") t.push(["No longer updated",""]);
+    if (hasidicTag(e)) t.push(["Hasidic Yiddish",""]);
+    if (e.open_source === "yes") t.push(["Free & open",""]); else if (e.open_source === "partial") t.push(["Partly open",""]);
+    if (/directory author/i.test(e.by)) t.push(["Our own project",""]);
     return t.slice(0,2).map(([l,c]) => `<span class="tag${c?" "+c:""}">${esc(l)}</span>`).join("");
   }
   function card(e){
-    const kv = [];
-    if (e.repo) kv.push(["Repo", `<a href="${esc(e.repo)}" target="_blank" rel="noopener">${esc(host(e.repo))}</a>`]);
+    const kv = [["Made by", `<span dir="auto">${esc(e.by)}</span>`], ["Type", esc(e.category)]];
+    if (e.repo) kv.push(["Code", `<a href="${esc(e.repo)}" target="_blank" rel="noopener">${esc(host(e.repo))}</a>`]);
     if (e.license) kv.push(["License", esc(e.license)]);
     if (e.dialect) kv.push(["Dialect", `<span dir="auto">${esc(e.dialect)}</span>`]);
-    if (e.metrics) kv.push(["Metrics", esc(e.metrics)]);
+    if (e.metrics) kv.push(["Results", esc(e.metrics)]);
     if (e.notes) kv.push(["Note", esc(e.notes)]);
-    kv.push(["Status", esc(e.status) + " · " + (e.open_source==="yes" ? "open source" : e.open_source==="partial" ? "partly open" : "closed")]);
-    if (e.subcat) kv.push(["Category", esc(e.subcat)]);
-    if (e.unverified) kv.push(["Flag", "unverified / unclear"]);
+    kv.push(["Status", (e.status==="active"?"working now":e.status==="beta"?"in testing":"no longer updated") + " · " + (e.open_source==="yes" ? "open source" : e.open_source==="partial" ? "partly open source" : "closed source")]);
+    if (e.unverified) kv.push(["Flag", "not yet confirmed (unverified / unclear)"]);
     return `<article class="card" id="e-${esc(e.id)}" aria-labelledby="t-${esc(e.id)}">
       <h3 id="t-${esc(e.id)}"><a href="${esc(e.url)}" target="_blank" rel="noopener" dir="auto">${esc(e.name)}</a>${e.name_native?`<span class="native" dir="rtl" lang="${nativeLang(e.name_native)}">${esc(e.name_native)}</span>`:""}</h3>
-      <p class="desc" dir="auto">${esc(e.description)}</p>
+      <p class="desc" dir="auto">${esc(e.plain || e.description)}</p>
       <details class="more"><summary>${tagsFor(e)}<span class="toggle">Details${CHEV}</span></summary>
-        <div class="detail"><p class="by" dir="auto">${esc(e.by)} · ${esc(e.category)}</p>
+        <div class="detail"><p class="orig" dir="auto">${esc(e.description)}</p>
         <dl class="kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
         <p class="sources-h">Sources</p>${srcList(e.sources||[e.url])}</div>
       </details>
@@ -88,25 +91,41 @@
   }
   const grid = list => `<div class="grid">${list.map(card).join("")}</div>`;
   function secHead(sec){
-    return `<div class="sec-head"><h2 id="h-${sec.id}">${esc(sec.title)}<a class="anchor" href="#${sec.id}" aria-label="Link to this section">#</a></h2><p>${esc(sec.blurb)}</p></div>`;
+    return `<div class="sec-head"><h2 id="h-${sec.id}">${esc(sec.label||sec.title)}<a class="anchor" href="#${sec.id}" aria-label="Link to this section">#</a></h2><p>${esc(sec.plain||sec.blurb)}</p></div>`;
   }
+  // The big "speech, scanning, data & community" section is shown as five everyday groups.
+  // Group ids keep the old sub-category deep links (#yi-other-tts, #yi-other-asr, ...).
+  const GROUPS = [
+    {id:"yi-other-tts", subs:["TTS"], label:"Read aloud (text-to-speech)", pill:"Read aloud", plain:"Voices that read Yiddish text out loud."},
+    {id:"yi-other-asr", subs:["ASR"], label:"Transcribe audio", pill:"Transcribe audio", plain:"Turn Yiddish recordings into written text."},
+    {id:"yi-other-ocr-htr", subs:["OCR & HTR"], label:"Scanning old books (OCR)", pill:"Scanning old books", plain:"Turn scanned pages and handwriting into text you can search."},
+    {id:"yi-other-data", subs:["Datasets & corpora","Models & LLMs"], label:"Data & models (for builders)", pill:"Data & models", plain:"Recordings, text collections and AI models for people building new tools.",
+     subLabels:{"Datasets & corpora":"Recordings & text collections","Models & LLMs":"AI models"}},
+    {id:"yi-other-community-orgs", subs:["Community & orgs"], label:"Community", pill:"Community", plain:"Organizations, archives, forums and other services."}];
 
   function renderEntriesSection(sec){
-    const list = entriesFor(sec.id); let body;
+    const list = entriesFor(sec.id);
     if (sec.id === "yi-other"){
-      const groups = {}; list.forEach(e => (groups[e.subcat||""] ||= []).push(e));
-      const keys = SUBCAT_ORDER.filter(k => groups[k]);
-      body = (keys.length > 1 ? `<p class="jump">${keys.map(k=>`<a href="#${sec.id}-${slug(k||"other")}">${esc(k||"Other")}</a>`).join("")}</p>` : "")
-        + keys.map(k => `<h3 class="subcat" id="${sec.id}-${slug(k||"other")}">${esc(k||"Other")}<small>${groups[k].length}</small></h3>${grid(groups[k])}`).join("");
-    } else body = grid(list);
-    if (!list.length) body = `<p class="empty">No entries match the current filters.</p>`;
-    return {html:`<section id="${sec.id}" aria-labelledby="h-${sec.id}" tabindex="-1">${secHead(sec)}${body}</section>`, n:list.length};
+      const by = {}; list.forEach(e => (by[e.subcat||""] ||= []).push(e));
+      const body = GROUPS.filter(g => g.subs.some(k => by[k])).map(g => {
+        const inner = g.subs.length > 1
+          ? g.subs.filter(k => by[k]).map(k => `<h3 class="subcat" id="yi-other-${slug(k)}">${esc(g.subLabels[k])}</h3>${grid(by[k])}`).join("")
+          : grid(by[g.subs[0]]);
+        return `<div class="group" id="${g.id}" data-spy tabindex="-1" aria-labelledby="h-${g.id}"><div class="sec-head"><h2 id="h-${g.id}">${esc(g.label)}<a class="anchor" href="#${g.id}" aria-label="Link to this section">#</a></h2><p>${esc(g.plain)}</p></div>${inner}</div>`;
+      }).join("") || `<p class="empty">No entries match the current filters.</p>`;
+      return {html:`<section id="${sec.id}" aria-label="${esc(sec.label)}" tabindex="-1" class="groups">${body}</section>`, n:list.length};
+    }
+    const body = list.length ? grid(list) : `<p class="empty">No entries match the current filters.</p>`;
+    return {html:`<section id="${sec.id}" data-spy aria-labelledby="h-${sec.id}" tabindex="-1">${secHead(sec)}${body}</section>`, n:list.length};
   }
 
-  // ---------- benchmarks ----------
-  // Visible columns; the rest (access, Yiddish support, dialect, test set) sit in an expandable row.
-  const COLS = [["system","Tool","h-sys"],["type","Task","h-task"],["metric","Metric","h-metric"],["value","Value","h-val"],["source","Source","h-src"]];
-  const MORE = [["access","Access"],["yi","Yiddish support"],["dialect","Dialect"],["test","Test set"],["metric","Metric"],["source","Source"]];
+  // ---------- benchmarks ("How the tools compare") ----------
+  const TASK_PLAIN = {"ASR":"Transcribes speech","TTS":"Reads text aloud","MT/LLM":"Translates","OCR":"Reads scanned pages"};
+  const CHIP_PLAIN = {"All":"All","ASR":"Transcription","TTS":"Reading aloud","MT/LLM":"Translation","OCR":"Scanning"};
+  const direction = b => numOf(b.value) === null ? "—" : /WER|CER/i.test(b.metric) ? "Lower is better" : /COMET/i.test(b.metric) ? "Higher is better" : "—";
+  // Visible columns in plain words; acronyms (metric names) only appear in the expanded row.
+  const COLS = [["system","Tool","h-sys"],["type","What it does","h-task"],["value","Score","h-val"],["dir","Lower or higher is better","h-metric"],["source","Source","h-src"]];
+  const MORE = [["metric","Measured as"],["access","How to get it"],["yi","Supports Yiddish?"],["dialect","Dialect"],["test","Tested on"],["source","Source"]];
   const openRows = new Set();
   function benchRows(){
     let rows = D.benchmarks.map((b,i)=>Object.assign({_i:i}, b)).filter(b => benchMatch(b, {type:state.benchType, q:state.q, hasidic:state.hasidic}) && benchMatch(b, {q:state.benchQ}));
@@ -114,20 +133,22 @@
     if (col){
       rows = rows.slice().sort((a,b) => {
         if (col==="value"){ const x=numOf(a.value), y=numOf(b.value); if (x===null && y===null) return 0; if (x===null) return 1; if (y===null) return -1; return (x-y)*dir; }
+        if (col==="type") return String(TASK_PLAIN[a.type]).localeCompare(String(TASK_PLAIN[b.type]))*dir;
         return String(a[col]).localeCompare(String(b[col]))*dir;
       });
     }
     return rows;
   }
   function benchBody(rows){
-    if (!rows.length) return `<tr><td colspan="${COLS.length+1}" class="empty">No benchmark rows match.</td></tr>`;
+    if (!rows.length) return `<tr><td colspan="${COLS.length+1}" class="empty">No tools match.</td></tr>`;
     return rows.map(b=>{
       const open = openRows.has(b._i), rid = "bm-"+b._i;
       return `<tr class="row"><td class="x"><button type="button" class="expand" data-expand="${b._i}" aria-expanded="${open}" aria-controls="${rid}" aria-label="More about ${esc(b.system)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></td>${COLS.map(([k])=>{
         if (k==="source") return `<td class="src"><a href="${esc(b.source)}" target="_blank" rel="noopener" title="${esc(b.source)}">${esc(host(b.source).split("/")[0])}</a></td>`;
         if (k==="value") return `<td class="val${NP.test(b.value)?" np":""}">${esc(b.value)}</td>`;
-        if (k==="type") return `<td class="task">${esc(b.type)}</td>`;
-        return `<td dir="auto" class="${k==="system"?"sys":k}">${esc(b[k])}</td>`; }).join("")}</tr>
+        if (k==="type") return `<td class="task">${esc(TASK_PLAIN[b.type]||b.type)}</td>`;
+        if (k==="dir") return `<td class="metric">${direction(b)}</td>`;
+        return `<td dir="auto" class="sys">${esc(b.system)}</td>`; }).join("")}</tr>
         <tr class="more-row" id="${rid}"${open?"":" hidden"}><td colspan="${COLS.length+1}"><dl>${MORE.map(([k,l])=>`<dt>${l}</dt><dd dir="auto">${k==="source"?`${linkOk(b.source)?'<span class="ok" aria-label="link checked">✓</span> ':""}<a href="${esc(b.source)}" target="_blank" rel="noopener" style="color:var(--accent)">${esc(host(b.source))}</a>`:esc(b[k])}</dd>`).join("")}</dl></td></tr>`;
     }).join("");
   }
@@ -135,29 +156,27 @@
     const types = ["All", ...new Set(D.benchmarks.map(b=>b.type))];
     const cnt = t => t==="All" ? D.benchmarks.length : D.benchmarks.filter(b=>b.type===t).length;
     return `<div class="table-tools">
-      <div class="chips" role="group" aria-label="Filter benchmark rows by task">${types.map(t=>`<button type="button" class="chip" data-btype="${esc(t)}" aria-pressed="${state.benchType===t}">${esc(t)}<span class="n">${cnt(t)}</span></button>`).join("")}</div>
-      <div class="table-meta"><label class="table-filter"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr-only">Filter table rows</span><input id="bench-q" type="search" placeholder="Filter rows" value="${esc(state.benchQ)}" autocomplete="off"></label><span id="bench-count" role="status" aria-live="polite"></span></div>
+      <div class="chips" role="group" aria-label="Show tools that">${types.map(t=>`<button type="button" class="chip" data-btype="${esc(t)}" aria-pressed="${state.benchType===t}">${esc(CHIP_PLAIN[t]||t)}<span class="n">${cnt(t)}</span></button>`).join("")}</div>
+      <div class="table-meta"><label class="table-filter"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr-only">Find a tool in the table</span><input id="bench-q" type="search" placeholder="Find a tool" value="${esc(state.benchQ)}" autocomplete="off"></label><span id="bench-count" role="status" aria-live="polite"></span></div>
     </div>
-    <div class="table-wrap"><table id="bench"><caption class="sr-only">Published Yiddish AI metrics with sources. Sort with the column header buttons; expand a row for access, Yiddish support, dialect and test set.</caption>
-    <thead><tr><th scope="col" style="width:40px"><span class="sr-only">Details</span></th>${COLS.map(([k,l,c])=>`<th scope="col" class="${c}" data-col="${k}" aria-sort="none"><button type="button" class="sort" data-sort="${k}">${l}<span class="arrow" aria-hidden="true">▲</span></button></th>`).join("")}</tr></thead>
-    <tbody></tbody></table></div>
-    <p class="legend">Numbers are only comparable when the test set matches; each vendor/author used a different evaluation set. WER/CER: lower is better; COMET: higher is better.</p>`;
+    <div class="table-wrap"><table id="bench"><caption class="sr-only">Published scores for Yiddish AI tools, with sources. Sort with the column header buttons; open a row to see how each score was measured.</caption>
+    <thead><tr><th scope="col" style="width:40px"><span class="sr-only">More</span></th>${COLS.map(([k,l,c])=> k==="dir" ? `<th scope="col" class="${c}"><span class="th-plain">${l}</span></th>` : `<th scope="col" class="${c}" data-col="${k}" aria-sort="none"><button type="button" class="sort" data-sort="${k}">${l}<span class="arrow" aria-hidden="true">▲</span></button></th>`).join("")}</tr></thead>
+    <tbody></tbody></table></div>`;
   }
   function updateBench(){
     const tb = $("#bench tbody"); if (!tb) return;
     const rows = benchRows(); tb.innerHTML = benchBody(rows);
-    $("#bench-count").textContent = `${rows.length} of ${D.benchmarks.length} rows`;
+    $("#bench-count").textContent = `${rows.length} of ${D.benchmarks.length}`;
     $$("#bench th[data-col]").forEach(th => th.setAttribute("aria-sort", state.sort.col===th.dataset.col ? (state.sort.dir>0?"ascending":"descending") : "none"));
     $$("[data-btype]").forEach(b => b.setAttribute("aria-pressed", String(state.benchType===b.dataset.btype)));
   }
   function renderBench(sec){
     const list = entriesFor(sec.id);
-    const html = `<section id="${sec.id}" aria-labelledby="h-${sec.id}" tabindex="-1">${secHead(sec)}
-      <div class="callout"><h3>State of play (checked ${esc(D.generated)})</h3>
-      <p><b>No public Yiddish ASR or TTS leaderboard exists on Hugging Face.</b> The only Yiddish benchmark suite found is <a href="https://huggingface.co/datasets/Yiddish-NLP/Kashes" target="_blank" rel="noopener">Kashes</a> (text: MT, POS, NER, QA…). ivrit.ai's Hebrew transcription leaderboard and Hebrew TTS arena are ready-made templates.</p>
-      <p>Published Yiddish ASR numbers are sparse and use incompatible test sets; no commercial Yiddish speech vendor publishes WER/CER, and no Yiddish TTS system publishes MOS.</p></div>
+    const html = `<section id="${sec.id}" data-spy aria-labelledby="h-${sec.id}" tabindex="-1">${secHead(sec)}
+      <div class="explain"><p><b>How to read the scores.</b> For transcription and scanning tools, the score is an error rate, so lower is better: 8% means about 8 words (or letters) in 100 come out wrong. Some scores are written as decimals, so 0.08 is the same as 8%. For translation, the score is a quality rating, and higher is better. When two numbers are shown, open the row to see what each one measures.</p>
+      <p>Scores only compare fairly when tools were tested on the same recordings or pages, and most were not. We found no public scoreboard for Yiddish speech tools; companies selling Yiddish transcription don't publish error rates, and no Yiddish read-aloud voice publishes a listening score. The only public set of Yiddish tests we found, <a href="https://huggingface.co/datasets/Yiddish-NLP/Kashes" target="_blank" rel="noopener">Kashes</a>, covers written tasks like translation. ivrit.ai's Hebrew scoreboards could serve as a model.</p></div>
       ${benchTable()}
-      <h3 class="subcat" id="${sec.id}-resources">Benchmark resources<small>${list.length}</small></h3>${list.length?grid(list):'<p class="empty">No entries match the current filters.</p>'}</section>`;
+      <h3 class="subcat" id="${sec.id}-resources">Scoreboards and test sets</h3>${list.length?grid(list):'<p class="empty">No entries match the current filters.</p>'}</section>`;
     return {html, n:list.length + D.benchmarks.length};
   }
 
@@ -167,25 +186,30 @@
     const speech = ppl.filter(p=>p.speech), other = ppl.filter(p=>!p.speech);
     const pc = p => `<article class="card" id="p-${slug(p.name)}">
       <h3>${esc(p.name)}</h3><p class="person-role">${esc(p.role)}</p>
-      <p class="desc">${esc(p.works_on)}</p>
-      <details class="more"><summary>${p.existing?'<span class="tag">Already collaborating</span>':""}<span class="toggle">Details${CHEV}</span></summary>
-        <div class="detail"><dl class="kv"><dt>Focus</dt><dd>${p.speech?"Speech (TTS / ASR)":"Text / NLP / OCR"}</dd><dt>Fit</dt><dd>${esc(p.fit)}</dd></dl>
+      <p class="desc">${esc(p.plain || p.works_on)}</p>
+      <details class="more"><summary>${p.existing?'<span class="tag">Already working with us</span>':""}<span class="toggle">Details${CHEV}</span></summary>
+        <div class="detail"><dl class="kv"><dt>Works on</dt><dd>${esc(p.works_on)}</dd><dt>Focus</dt><dd>${p.speech?"Speech (voices & transcription)":"Text, translation & scanning"}</dd><dt>Fit</dt><dd>${esc(p.fit)}</dd></dl>
         <p class="sources-h">Public links</p>${srcList(p.links)}</div></details></article>`;
-    const html = `<section id="${sec.id}" class="people" aria-labelledby="h-${sec.id}" tabindex="-1">${secHead(sec)}
-      <div class="callout"><h3>Collaborators wanted: open-source Yiddish TTS</h3>
-      <p>We are building an open Yiddish text-to-speech stack aimed at a <b>NotebookLM-style Yiddish podcast generator</b> (two natural voices discussing a document), plus Yiddish ASR to evaluate it. Most needed: Hasidic-accent speech data and speakers, G2P / loshn-koydesh pronunciation expertise, TTS model training (VibeVoice, F5, Chatterbox, Piper), and help setting up a public Yiddish ASR/TTS benchmark modelled on ivrit.ai's leaderboards.</p>
-      <p>If you work on Yiddish speech, see the README's “Contribute” section. Only public profile links are listed below; reach people through the channels they publish.</p></div>
-      <h3 class="subcat" id="${sec.id}-speech">Speech (TTS / ASR)<small>${speech.length}</small></h3>${speech.length?`<div class="grid">${speech.map(pc).join("")}</div>`:'<p class="empty">No match.</p>'}
-      <h3 class="subcat" id="${sec.id}-text">Text, NLP &amp; OCR<small>${other.length}</small></h3>${other.length?`<div class="grid">${other.map(pc).join("")}</div>`:'<p class="empty">No match.</p>'}</section>`;
+    const html = `<section id="${sec.id}" data-spy class="people" aria-labelledby="h-${sec.id}" tabindex="-1">${secHead(sec)}
+      <div class="callout"><h3>Want to help build a free Yiddish voice?</h3>
+      <p>We're building a free, open Yiddish voice that can read text aloud and turn a document into a podcast-style conversation between two voices, plus a Yiddish transcriber to check how well it works. We'd especially love help with recordings of Hasidic Yiddish speakers, knowing how words are pronounced (including Hebrew and Aramaic words in Yiddish), training voice models, and setting up a fair public scoreboard for Yiddish speech tools.</p>
+      <p>If that's you, see the <a href="https://github.com/pinta-partners/torah-yiddish-ai-directory#contribute--collaborate-on-yiddish-tts" target="_blank" rel="noopener">“Contribute” notes</a>. Below are people already working in this area. We only list links they have made public, so please contact them that way.</p></div>
+      <h3 class="subcat" id="${sec.id}-speech">Speech: voices &amp; transcription<small>${speech.length}</small></h3>${speech.length?`<div class="grid">${speech.map(pc).join("")}</div>`:'<p class="empty">No match.</p>'}
+      <h3 class="subcat" id="${sec.id}-text">Text, translation &amp; scanning<small>${other.length}</small></h3>${other.length?`<div class="grid">${other.map(pc).join("")}</div>`:'<p class="empty">No match.</p>'}</section>`;
     return {html, n:ppl.length};
   }
 
   // ---------- page ----------
   function renderStatic(){
-    $("#stats").textContent = `${D.entries.length} sourced entries · ${D.benchmarks.length} benchmark rows · ${D.people.length} people & orgs · ${Object.keys(D.link_checks||{}).length} links checked · updated ${D.generated}`;
+    $("#stats").textContent = `${D.entries.length} tools and resources · last checked ${friendlyDate(D.generated)}`;
     $$(".gen").forEach(x => x.textContent = D.generated);
+    $$(".gen-plain").forEach(x => x.textContent = friendlyDate(D.generated));
   }
 
+  function pills(secs){
+    return secs.flatMap(s => s.id==="yi-other" ? GROUPS.map(g => [g.id, g.pill]) : [[s.id, s.label||s.title]])
+      .map(([id,l]) => `<a href="#${id}" data-sec="${id}">${esc(l)}</a>`).join("");
+  }
   function render({animate=false}={}){
     const secs = D.sections[state.tab];
     const parts = secs.map(s => s.id==="yi-bench" ? renderBench(s) : s.id==="yi-people" ? renderPeople(s) : renderEntriesSection(s));
@@ -193,18 +217,17 @@
     main.innerHTML = parts.map(p=>p.html).join("");
     main.setAttribute("aria-labelledby", "tab-"+state.tab);
     if (animate && !reduceMotion()){ main.classList.remove("anim"); void main.offsetWidth; main.classList.add("anim"); }
-    $("#section-nav").innerHTML = secs.map(s => `<a href="#${s.id}" data-sec="${s.id}">${esc(SHORT[s.id]||s.title)}</a>`).join("");
+    $("#section-nav").innerHTML = pills(secs);
     $$(".tab").forEach(t => { const on = t.dataset.tab===state.tab; t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1; });
     const active = [state.q, state.status, state.oss, state.hasidic].filter(Boolean).length;
     const shown = D.entries.filter(e => e.sections.some(s=>SECTION_TAB[s]===state.tab) && matches(e)).length;
     const all = D.entries.filter(e => e.sections.some(s=>SECTION_TAB[s]===state.tab)).length;
-    $("#result-count").textContent = active ? `${shown} of ${all} ${TAB_LABEL[state.tab]} entries match` : `${all} ${TAB_LABEL[state.tab]} entries`;
+    $("#result-count").textContent = active ? `${shown} of ${all} ${TAB_LABEL[state.tab]} tools match` : "";
     const fa = [state.status, state.oss, state.hasidic].filter(Boolean).length, fn = $("#filter-n");
     fn.hidden = !fa; fn.textContent = fa || "";
     updateBench(); spy();
     document.dispatchEvent(new CustomEvent("tyd:render", {detail:{tab:state.tab}}));
   }
-  const SHORT = {"torah-search":"AI search & Q&A","torah-libraries":"Libraries","torah-typesetting":"Typesetting, nikud & OCR","yi-writing":"Writing","yi-translation":"Translation","yi-other":"Speech, OCR, data & models","yi-bench":"Benchmarks","yi-people":"People & collaborators"};
   function keepScroll(fn){ const y = window.scrollY; fn(); window.scrollTo({top:y, behavior:"instant"}); }
 
   let observer;
@@ -212,7 +235,7 @@
     if (observer) observer.disconnect();
     const links = $$("#section-nav a[data-sec]");
     observer = new IntersectionObserver(ents => ents.forEach(en => { if (en.isIntersecting){ links.forEach(l=>{ const on = l.dataset.sec===en.target.id; l.classList.toggle("active", on); if (on) l.setAttribute("aria-current","location"); else l.removeAttribute("aria-current"); }); } }), {rootMargin:"-20% 0px -70% 0px"});
-    $$("main section").forEach(s => observer.observe(s));
+    $$("main [data-spy]").forEach(s => observer.observe(s));
   }
 
   // ---------- routing ----------

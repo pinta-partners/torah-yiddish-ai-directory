@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-build="ui-v3-minimal">
+<html lang="en" data-build="ui-v4-plain">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -48,9 +48,10 @@
 
 <div class="wrap page">
   <section class="intro" aria-labelledby="intro-title">
-    <h1 id="intro-title">AI for Torah study and for Yiddish <span lang="yi" dir="rtl">(ייִדיש)</span>, with a source for every entry.</h1>
+    <h1 id="intro-title">Every AI tool for Torah and Yiddish, in one place.</h1>
+    <p class="lede">A free guide to apps and tools that use AI for Torah study and for the Yiddish language <span lang="yi" dir="rtl">(ייִדיש)</span>, with a link to where we found each one.</p>
     <p class="stats" id="stats"></p>
-    <p class="collab">Collaborators wanted for open-source Yiddish TTS (a NotebookLM-style Yiddish podcast generator) and Yiddish ASR. <a href="#yi-people">See who's working on it →</a></p>
+    <p class="collab">We're building a free Yiddish voice that can read and make podcasts. Want to help? <a href="#yi-people">Meet the people →</a></p>
   </section>
 
   <form id="filters" class="toolbar" role="search"
@@ -60,8 +61,8 @@
     <div class="toolbar-row">
       <label class="search" for="q">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <span class="sr-only">Search entries</span>
-        <input id="q" name="q" type="search" placeholder="Search" autocomplete="off"
+        <span class="sr-only">Search the directory</span>
+        <input id="q" name="q" type="search" placeholder="Search tools, e.g. nikud" autocomplete="off"
                toolparamdescription="Free-text search over name, organisation, category, description, dialect, metrics and notes. All words must match.">
         <kbd aria-hidden="true">/</kbd>
       </label>
@@ -69,12 +70,12 @@
     </div>
     <div class="filter-panel" id="filter-panel" hidden>
       <label>Status
-        <select id="f-status" name="status" toolparamdescription="Only show entries with this status: active, beta or archived. Empty = any."><option value="">Any</option><option value="active">Active</option><option value="beta">Beta</option><option value="archived">Archived</option></select>
+        <select id="f-status" name="status" toolparamdescription="Only show entries with this status: active, beta or archived. Empty = any."><option value="">Any</option><option value="active">Working now</option><option value="beta">In testing</option><option value="archived">No longer updated</option></select>
       </label>
-      <label>Open source
-        <select id="f-oss" name="open_source" toolparamdescription="Only show entries whose open-source status is yes, partial or no. Empty = any."><option value="">Any</option><option value="yes">Yes</option><option value="partial">Partial</option><option value="no">No</option></select>
+      <label>Free &amp; open
+        <select id="f-oss" name="open_source" toolparamdescription="Only show entries whose open-source status is yes, partial or no. Empty = any."><option value="">Any</option><option value="yes">Yes</option><option value="partial">Partly</option><option value="no">No</option></select>
       </label>
-      <label class="check"><input type="checkbox" id="f-hasidic" name="hasidic" value="yes" toolparamdescription="Check to only show entries relevant to Hasidic / heimish Yiddish dialects."> Hasidic dialect</label>
+      <label class="check"><input type="checkbox" id="f-hasidic" name="hasidic" value="yes" toolparamdescription="Check to only show entries relevant to Hasidic / heimish Yiddish dialects."> Hasidic Yiddish only</label>
       <button type="reset" class="btn-link" id="clear-filters">Clear</button>
     </div>
     <button type="submit" class="sr-only">Apply filters</button>
@@ -88,8 +89,8 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <p>Public sources only, checked <span class="gen"></span>. Metrics are copied as published; “not published” means no public number was found.</p>
-    <p class="foot-links"><a href="data.json">data.json</a><a href="llms.txt">llms.txt</a><a href="https://github.com/pinta-partners/torah-yiddish-ai-directory#webmcp-tools-for-ai-agents">WebMCP</a><span id="webmcp-status">checking…</span></p>
+    <p>Made from public sources only, last checked <span class="gen-plain"></span>. Scores are copied exactly as published. Spotted a mistake? <a href="https://github.com/pinta-partners/torah-yiddish-ai-directory/issues">Let us know</a>.</p>
+    <p class="foot-links"><a href="https://github.com/pinta-partners/torah-yiddish-ai-directory#for-developers">For developers: data &amp; AI-agent access</a><span id="webmcp-status" hidden>checking…</span></p>
   </div>
 </footer>
 <script src="data.js"></script>

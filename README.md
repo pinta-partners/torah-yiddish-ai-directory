@@ -39,12 +39,17 @@ Deep links switch to the right tab and scroll to the target, on first load, on `
 (`#yi-other-tts`, `#yi-other-asr`, `#yi-other-ocr-htr`, `#yi-other-datasets-corpora`, `#yi-other-models-llms`,
 `#yi-other-community-orgs`) and single entries (`#e-<entry id>`, e.g. `#e-dicta-iluy`).
 
-UI notes: a minimal layout (Inter, plus Noto Sans Hebrew for Hebrew/Yiddish). It has a top bar with a Torah / Yiddish
-switch and a theme toggle, one search box with the status / open-source / Hasidic filters behind **Filters**, section pills,
-and cards that show the name, a short description and at most two tags. Repo, license, dialect, metrics, notes and sources
-are under **Details** on each card. The benchmark table shows Tool, Task, Metric, Value and Source; expand a row for
-access, Yiddish support, dialect and test set. Light and dark themes follow `prefers-color-scheme` until you use the toggle
-(saved in `localStorage`). The tabs are ARIA tabs (arrow keys, Home/End). Press `/` to jump to search and `Esc` to clear it.
+UI notes: a minimal layout (Inter, plus Noto Sans Hebrew for Hebrew/Yiddish) written in plain language for a general
+audience. Section names are everyday words (`label` in `data.json`, e.g. "Ask & search", "Writing help", "How the tools
+compare"); the Yiddish speech/scanning/data section is shown as five groups (Read aloud, Transcribe audio, Scanning old
+books, Data & models, Community) whose ids are the old sub-category ids, plus `#yi-other-data`. Each card shows the name,
+a one-sentence plain description (`plain`) and at most two plain-word tags (Free & open, In testing, Hasidic Yiddish, ...).
+The original description, repo, license, dialect, metrics, notes and sources are under **Details**. The comparison table
+shows Tool, What it does, Score, Lower or higher is better and Source, with a short "how to read the scores" note; expand
+a row for the measure (WER, CER, COMET, ...), access, Yiddish support, dialect and test set. Plain texts live in
+`tools/build_data.py` (`SECTION_PLAIN`, `PLAIN`, `PEOPLE_PLAIN`); the build fails if an entry lacks one. Light and dark
+themes follow `prefers-color-scheme` until you use the toggle (saved in `localStorage`). The tabs are ARIA tabs (arrow
+keys, Home/End). Press `/` to jump to search and `Esc` to clear it.
 Deep links to an entry (`#e-<id>`) open its details.
 
 ## Adding or editing entries
@@ -70,6 +75,13 @@ Deep links to an entry (`#e-<id>`) open its details.
 Push the folder to a repo, then go to Settings → Pages → "Deploy from a branch" → `main` / root.
 All paths are relative, so it also works under `https://<user>.github.io/<repo>/`.
 Live: https://pinta-partners.github.io/torah-yiddish-ai-directory/ (served from `main`, root; `.nojekyll` is set).
+
+## For developers
+
+Everything a program or AI agent needs: the [data API](#data-api-for-agents-and-scripts) (`data.json`), a plain-text
+guide for language models (`llms.txt`), schema.org JSON-LD embedded in the page, and [WebMCP tools](#webmcp-tools-for-ai-agents)
+that in-browser AI agents can call. The site's visible text is written for a general audience; each entry's original
+technical description, repo, license, metrics and sources are kept in the data and shown under "Details".
 
 ## Data API for agents and scripts
 

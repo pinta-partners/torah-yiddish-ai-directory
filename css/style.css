@@ -50,6 +50,7 @@ kbd{font:500 11px var(--sans);color:var(--faint);border:1px solid var(--line-2);
 .intro h1{margin:0;max-width:30ch;font-size:clamp(24px,3.2vw,32px);line-height:1.25;font-weight:600;letter-spacing:-.025em}
 .intro h1 [lang]{font-weight:500;color:var(--muted)}
 .stats{margin:14px 0 0;color:var(--muted);font-size:13.5px}
+.lede{margin:10px 0 0;max-width:62ch;color:var(--ink-2);font-size:15.5px;line-height:1.55}
 .collab{margin:20px 0 0;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r);font-size:13.5px;color:var(--ink-2)}
 .collab a{color:var(--accent);white-space:nowrap}
 .collab a:hover{text-decoration:underline}
@@ -84,6 +85,10 @@ select{appearance:none;-webkit-appearance:none;min-width:140px;height:32px;paddi
 /* sections */
 main{outline:none}
 main section{padding-top:48px;outline:none}
+main section.groups{padding-top:0}
+main [tabindex="-1"]:focus,main [tabindex="-1"]:focus-visible{outline:none}
+.group{padding-top:48px;outline:none}
+.group .subcat{margin-top:20px}
 main section:last-child{min-height:calc(100vh - var(--top) - 120px)}
 .sec-head{margin-bottom:18px}
 .sec-head h2{margin:0;font-size:18px;font-weight:600;letter-spacing:-.015em}
@@ -104,8 +109,8 @@ h2:hover .anchor,.anchor:focus{opacity:1}
 .card h3{margin:0;font-size:15px;font-weight:600;line-height:1.35;letter-spacing:-.01em}
 .card h3 a:hover{color:var(--accent)}
 .native{display:block;font:500 14px/1.4 var(--hebrew);color:var(--muted);text-align:left}
-.desc{margin:0;color:var(--ink-2);font-size:14px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card:has(details[open]) .desc{-webkit-line-clamp:unset;display:block}
+.desc{margin:0;color:var(--ink-2);font-size:14px;line-height:1.55}
+.orig{margin:0 0 10px;font-size:13px;color:var(--muted);line-height:1.5}
 .card-foot{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
 .tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:0 6px;line-height:20px;white-space:nowrap}
 .tag.warn{color:var(--warn)}
@@ -145,7 +150,12 @@ details.more[open] > summary .toggle svg{transform:rotate(180deg)}
 .table-filter:focus-within{border-color:var(--ink-2)}
 .table-wrap{border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13.5px}
-th.h-task{width:84px} th.h-metric{width:19%} th.h-val{width:21%} th.h-src{width:17%}
+th.h-task{width:150px} th.h-metric{width:150px} th.h-val{width:22%} th.h-src{width:15%}
+thead th .th-plain{display:block;padding:9px 12px}
+.explain{border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;margin:0 0 18px;font-size:14px;color:var(--ink-2);line-height:1.6;max-width:80ch}
+.explain p{margin:6px 0}
+.explain b{color:var(--ink);font-weight:600}
+.explain a{color:var(--accent)}
 th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
 thead th{padding:0;font-size:12px;font-weight:500;color:var(--muted);background:var(--bg-subtle)}
 th .sort{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:4px;width:100%;padding:9px 12px;cursor:pointer}
