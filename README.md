@@ -39,6 +39,16 @@ Deep links switch to the right tab and scroll to the target, on first load, on `
 (`#yi-other-tts`, `#yi-other-asr`, `#yi-other-ocr-htr`, `#yi-other-datasets-corpora`, `#yi-other-models-llms`,
 `#yi-other-community-orgs`) and single entries (`#e-<entry id>`, e.g. `#e-dicta-iluy`).
 
+Two kinds of entry: every entry has `kind` = `product` (a **ready-to-use app**, website or service a
+non-programmer can use today, free or paid) or `builder` (**for builders**: code repos, AI models, datasets, libraries,
+benchmarks and research). A model with a demo website counts as `builder` unless the website is its main form;
+borderline calls carry a `kind_note`. `cost` is a short free/paid note taken from the entry's own sources ("Not stated"
+when we could not find one). The Torah and Yiddish tabs open on **Ready-to-use apps**, with a switch to
+**For builders: code & models** or **All** (`?kind=builder|all` preselects it). The third tab, **All tools** (`#all`),
+is one compact table of every entry (Name, What it does, Torah/Yiddish, Kind, Free or paid, Link), grouped into
+`#all-products` and `#all-builders`; the same switch and search filter it. Kinds and prices live in
+`tools/build_data.py` (`PRODUCTS`, `KIND_NOTE`); the build fails if an id is unknown.
+
 UI notes: a minimal layout (Inter, plus Noto Sans Hebrew for Hebrew/Yiddish) written in plain language for a general
 audience. Section names are everyday words (`label` in `data.json`, e.g. "Ask & search", "Writing help", "How the tools
 compare"); the Yiddish speech/scanning/data section is shown as five groups (Read aloud, Transcribe audio, Scanning old
@@ -88,7 +98,7 @@ technical description, repo, license, metrics and sources are kept in the data a
 - **`data.json`** (https://pinta-partners.github.io/torah-yiddish-ai-directory/data.json) is the stable, public API.
   Top-level keys: `generated`, `sections`, `entries`, `benchmarks`, `people`, `link_checks`. Field names are kept stable;
   new fields may be added. Entry fields: `id, sections[], name, name_native, url, by, category, description, sources[],
-  status (active|beta|archived), open_source (yes|partial|no), repo, dialect, metrics, unverified, notes, license, subcat`.
+  status (active|beta|archived), open_source (yes|partial|no), repo, dialect, metrics, unverified, notes, license, subcat, plain, kind (product|builder), kind_note, cost, also_subcats`.
 - **`llms.txt`** describes the site, data fields, deep links and tools in plain text for language models.
 - **JSON-LD**: `index.html` embeds schema.org `WebSite` + `Dataset` (with `DataDownload` links) + an `ItemList` of every entry.
 
@@ -111,12 +121,12 @@ Feature detection in `js/webmcp.js`:
 
 | Tool | Inputs (all optional unless noted) | Returns |
 |---|---|---|
-| `search_directory` | `query`, `tab` (torah\|yiddish), `section` (section id or Yiddish sub-category such as `TTS`, `ASR`), `open_source` (yes\|partial\|no), `status` (active\|beta\|archived), `dialect` (`hasidic` or free text such as `YIVO`), `limit`, `apply_to_page` | matching entries (id, name, org, status, open source, dialect, URL, deep link), plus counts of matching benchmark rows and people |
+| `search_directory` | `query`, `tab` (torah\|yiddish), `kind` (product\|builder\|all), `section` (section id or Yiddish sub-category such as `TTS`, `ASR`), `open_source` (yes\|partial\|no), `status` (active\|beta\|archived), `dialect` (`hasidic` or free text such as `YIVO`), `limit`, `apply_to_page` | matching entries (id, name, plain description, kind, cost, org, status, open source, dialect, URL, deep link), plus counts of matching benchmark rows and people |
 | `list_sections` | none | tabs, sections, sub-categories, counts, deep links, data API URL |
 | `get_entry` | `id_or_name` (required) | the full entry with every source URL and its link-check result, or candidate ids if the name is ambiguous |
 | `get_benchmarks` | `task` (asr\|tts\|translation\|llm\|ocr\|all), `query`, `published_only`, `sort_by_value` (asc\|desc), `show_in_page` | benchmark rows with `numeric_value`, the source and the comparability caveat |
 | `list_collaborators` | `focus` (speech\|text\|all), `query` | people & orgs (public links only) and what help the Yiddish TTS project needs |
-| `switch_tab` | `tab` (required) | switches the visible tab |
+| `switch_tab` | `tab` (required: torah\|yiddish\|all), `kind` (product\|builder\|all) | switches the visible tab (all = the All tools list) and optionally the kind of tools shown |
 | `navigate_to_section` | `target` (required): section id, sub-category id or entry id | switches tab, scrolls to the target, updates the URL |
 
 Read-only tools carry `annotations: {readOnlyHint: true}`. Bad arguments return `{error, ...}` with the valid values,

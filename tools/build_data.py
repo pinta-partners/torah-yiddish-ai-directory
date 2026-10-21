@@ -1,7 +1,7 @@
 # Source of truth for the directory. Edit ENTRIES / PEOPLE / BENCH, then run:
 #   python3 tools/build_data.py && python3 tools/verify_links.py
 import json, os
-CHECKED = "2026-10-20"
+CHECKED = "2026-10-21"
 
 SECTIONS = {
  "torah": [
@@ -26,10 +26,11 @@ def E(**k):
 
 ENTRIES = []
 ENTRIES += [
-E(id="dicta-iluy", sections=["torah-search"], name="Iluy (Dicta)", name_native="עילוי", url="https://iluy.dicta.org.il/about",
+E(id="dicta-iluy", sections=["torah-search"], name="Iluy (Dicta) – formerly Rav Dicta", name_native="עילוי", url="https://iluy.dicta.org.il/about",
   by="Dicta – Israel Center for Text Analysis (Moshe Koppel)", category="AI Torah Q&A / source finder",
-  description="AI system that answers questions across Torah, Talmud and halacha by retrieving sources and giving a reasoned, source-linked answer; selectable answer style; can expand the source list. Dicta states it is a study aid, not a halachic ruling.",
-  sources=["https://iluy.dicta.org.il/about","https://dicta.org.il/?lang=en","https://moshekoppel.substack.com/p/post-10-a-system-that-answers-questions"]),
+  description="AI system that answers questions across Torah, Talmud and halacha by retrieving sources and giving a reasoned, source-linked answer; selectable answer style; can expand the source list. Dicta states it is a study aid, not a halachic ruling. Formerly 'Rav Dicta': rav.dicta.org.il now redirects here with the notice that Rav Dicta has been upgraded to Iluy (checked 2026-10-21).",
+  notes="Pricing is not stated on the site. An April 2026 review of Rav Dicta reported an access queue and a limit of three questions a day.",
+  sources=["https://iluy.dicta.org.il/about","https://rav.dicta.org.il/","https://dicta.org.il/?lang=en","https://moshekoppel.substack.com/p/post-10-a-system-that-answers-questions","https://irrationalistmodoxism.substack.com/p/exploring-rav-dicta-the-most-advanced"]),
 E(id="koppel-rules", sections=["torah-search"], name="Moshe Koppel – 'three rules' for AI-Torah systems", url="https://moshekoppel.substack.com/p/chapter-9-saving-torah-lishma",
   by="Moshe Koppel (Dicta)", category="Essay / design principles",
   description="Substack series by Dicta's founder: every claim must be sourced; show the full range of opinion in the chosen library; no conclusion by default. Explains the design of Rav Dicta / Iluy.",
@@ -82,9 +83,23 @@ E(id="berel", sections=["torah-search"], name="BEREL, DictaBERT & DictaLM models
   description="Dicta's Hugging Face org: BEREL (rabbinic-Hebrew BERT), DictaBERT family (morphology, NER, nikud 'menaked'...) and DictaLM 2.0/3.0 Hebrew LLMs. Foundations for Torah search/NLP.",
   sources=["https://huggingface.co/dicta-il","https://huggingface.co/dicta-il/BEREL_3.0"]),
 E(id="sofer-ai", sections=["torah-search","yi-other"], subcat="ASR", name="Sofer.ai", url="https://www.sofer.ai/",
-  by="Sofer.Ai", category="Shiur transcription (ASR) + study tools", description="AI platform that transcribes shiurim into searchable, editable text; handles mixed English/Hebrew/Yiddish/Aramaic audio (per ChabadLabs wiki). Yiddish quality reported anecdotally as ~6/10, and 'sloppy' by a forum user.",
+  by="Sofer.Ai", category="Shiur transcription (ASR) + study tools", description="AI platform that transcribes shiurim into searchable, editable text with click-to-play highlighting and automatic topic outlines; handles audio mixing English, Hebrew, Yiddish, Aramaic and 'Yeshivish'. Also OCR for seforim (Hebrew and Rashi script) and 'Maishiv', an AI search over your own transcripts and notes. Plans: free ($0: up to 5 transcripts / 3 hours a month), Pro $24/month, Max $72/month (commercial). Yiddish quality reported anecdotally as ~6/10, and 'sloppy' by a forum user.",
   dialect="Yeshivish / mixed; Hasidic support not documented", metrics="not published",
   sources=["https://www.sofer.ai/","https://chabadlabs.ai/wiki-topics-hebrew-yiddish","https://jtechforums.org/t/yiddish-transcription-through-ai/5937"]),
+E(id="milai", sections=["torah-search","yi-other"], subcat="ASR", name="Milai", name_native="מילאי", url="https://milai.co.il/",
+  by="Milai (operator not named on the site)", category="Transcription + captions + handwriting OCR",
+  description="Hebrew transcription service built for Torah shiurim, podcasts and lectures: upload audio or video and get a transcript, word-synced captions and a video with the captions burned in (Word, PDF, text, SRT/VTT). Says one file can mix Hebrew, Yiddish, Aramaic and English, with Ashkenazi, Sephardi and Litvish pronunciations, and recognizes names of sages and Gemara phrases. 'Milai Ktav Yad' turns photos or scans of handwritten notebooks and letters into editable typed text (first 5 pages free, then page packs). 35 free minutes once; Basic ₪39/month (200 min), Creator ₪89/month (500 min); prepaid minute bank from ₪900. Its terms mention an API.",
+  dialect="Ashkenazi pronunciation supported (per site); Hasidic Yiddish not specifically documented", metrics="not published",
+  sources=["https://milai.co.il/","https://milai.co.il/about","https://milai.co.il/terms"]),
+E(id="chabad-ai", sections=["torah-search"], name="Chabad.AI (Daiah)", url="https://chabad.ai/",
+  by="Sichos In English (operator), a joint initiative with Kehot, Vaad Hanachos B'Lahak and Chabad.org", category="AI Chassidus library + chat",
+  description="Launched October 15, 2026: a library of Chassidus seforim in the original Hebrew plus many English translations and adaptations, with 'Daiah', an AI chat that discusses Chassidus and offers Torah perspectives on everyday questions from the Rebbeim's teachings, citing sources. Account required. Free plan (125 AI credits a month) and paid plans ($12/month personal, $20 family, $50 scholar). Its terms say AI answers can be wrong and are not halachic rulings.",
+  sources=["https://chabad.ai/","https://chabad.ai/pricing","https://chabad.ai/terms","https://collive.com/4-chassidus-publishers-partner-to-create-chabad-ai/"]),
+E(id="jemai", sections=["torah-search"], name="JEMai (JEM)", url="https://meetjemai.jem.tv/",
+  by="JEM – Jewish Educational Media", category="AI search over the Rebbe's video archive", status="beta",
+  description="AI assistant that searches JEM's archive of the Rebbe's recorded talks (thousands of hours, millions of subtitles) and first-person stories, gives a short summary and links to the exact moment in the original recording. Opened in April 2025 as a beta for JEMClub members; JEM's page still says it is limited to JEMClub members ahead of a wider public launch (checked 2026-10-21).",
+  notes="Not the same product as Chabad.AI.",
+  sources=["https://meetjemai.jem.tv/","https://collive.com/jem-launches-jemai-gateway-to-the-rebbes-recorded-teachings/","https://jemcentral.org/2025/03/03/jem-unveils-revolutionary-ai-powered-guide-to-the-lubavitcher-rebbes-teachings/"]),
 E(id="torahanytime-yeshivish", sections=["torah-search","yi-other"], subcat="ASR", name="TorahAnytime whisper-large-v3-yeshivish", url="https://huggingface.co/torahanytimecom/whisper-large-v3-yeshivish",
   by="TorahAnytime (HF: torahanytimecom)", category="Open ASR model", open_source="yes", license="apache-2.0",
   description="Whisper large-v3 variant published by TorahAnytime, named for Yeshivish speech. The model card is the stock Whisper card, so training data and metrics are undocumented.",
@@ -130,9 +145,10 @@ E(id="ravtext", sections=["torah-typesetting"], name="RavText for Word AI", name
   by="RavText", category="AI-assisted Torah typesetting (Word add-in)", status="beta",
   description="Layout & editing system for seforim: nikud bot, import from Torah databases, version comparison, professional PDF output, Talmud-style text frames. The site says it is under development and some features are a vision, not a commitment.",
   sources=["https://ravtext.com/","https://yiddishe-kop.com/articles/ravtext-seforim-publishing"]),
-E(id="ariach", sections=["torah-typesetting"], name="Ariach", name_native="אריח", url="https://ariach.com/guides/ai",
-  by="Ariach", category="AI-native book layout", status="beta",
-  description="Hebrew book layout service: an AI assistant carries out requests written in plain Hebrew (design, headings, text, page arrangement) while a deterministic layout engine sets the pages. Free during the run-in period."),
+E(id="ariach", sections=["torah-typesetting"], name="Ariach", name_native="אריח", url="https://ariach.com/",
+  by="Ariach (operators not named on the site)", category="AI-assisted book layout for seforim", status="beta",
+  description="Online studio for laying out seforim, in the browser: upload a Word file (or open one of ~8,500 seforim from the Otzaria library) and get a print-ready book, from a simple kuntres to a Gemara page with Rashi and Tosafos or a Mikraos Gedolos page. An AI assistant carries out requests written in plain Hebrew (design, adding a commentary from Otzaria, search-and-replace with a confirmation card) while a deterministic layout engine sets the pages; proofreading checks verify citations against Otzaria. Free during the run-in period (the assistant has a weekly quota); works through NetFree; needs a computer, not a phone.",
+  sources=["https://ariach.com/","https://ariach.com/guides/ai","https://ariach.com/terms"]),
 E(id="mugah", sections=["torah-typesetting"], name="Mugah", name_native="מוגה", url="https://www.mugah.co/",
   by="Mugah", category="AI proofreading for Torah texts", status="beta",
   description="AI-powered proofreading, mareh-makom (source) verification and source search for Torah texts inside Word; open to beta testers."),
@@ -158,7 +174,7 @@ E(id="yivo-hunspell", sections=["yi-writing"], name="Yiddish spell checker (YIVO
 E(id="hunspell-yi", sections=["yi-writing"], name="hunspell-yi", url="https://github.com/alephreish/hunspell-yi",
   by="alephreish", category="Spellcheck dictionary", open_source="yes", repo="https://github.com/alephreish/hunspell-yi", license="GPL-3.0", status="archived",
   description="Hunspell Yiddish dictionary source. Last push 2022.", notes="'archived' here = inactive since 2022, not formally archived."),
-E(id="heimish-geredt", sections=["yi-writing","yi-other"], subcat="ASR", name="Heimish Geredt", name_native="היימיש גערעדט", url="https://heimishgeredt.com/",
+E(id="heimish-geredt", sections=["yi-writing","yi-other"], subcat="ASR", also_subcats=["TTS"], name="Heimish Geredt", name_native="היימיש גערעדט", url="https://heimishgeredt.com/",
   by="Heimish Geredt", category="STT + TTS (beta) + grammar check", description="Yiddish speech-to-text (mic/upload, Windows/Android/Kyocera apps, phone line), text-to-speech (beta) and grammar correction, built for Hasidic/heimish Yiddish. 30 days free, then $4/month.",
   dialect="Hasidic (heimish register)", metrics="not published", sources=["https://heimishgeredt.com/","https://heimishgeredt.com/alternative.html"]),
 E(id="yiddish-py", sections=["yi-writing"], name="yiddish (Python library)", url="https://github.com/ibleaman/yiddish",
@@ -193,14 +209,15 @@ E(id="tachlisai", sections=["yi-writing"], name="TachlisAI SMS (Yiddish)", url="
   dialect="Page written in Yiddish for a frum audience"),
 E(id="verterbukh", sections=["yi-writing"], name="Verterbukh (Comprehensive Yiddish-English Dictionary)", url="https://www.verterbukh.org/",
   by="Verterbukh.org", category="Online dictionary", description="Comprehensive Yiddish–English online dictionary; a reference for writing/translation (not AI)."),
-E(id="yiddish-tools", sections=["yi-writing","yi-translation","yi-other"], subcat="ASR", name="Yiddish Tools (yiddish.tools)", url="https://yiddish.tools/",
-  by="Yiddish Tools (company; HF org YiddishTools)", category="Offline Windows suite: dictation, translation, nikud, TTS",
-  description="Paid, private, offline Windows tools: Dictation (ASR), translation, nikud and 'Speak' natural Yiddish TTS (read-along, nikud editor, up to ~20k chars), plus a free browser playground. Business licenses include on-prem weights.",
+E(id="yiddish-tools", sections=["yi-writing","yi-translation","yi-other"], subcat="ASR", also_subcats=["TTS"], name="Yiddish Tools (yiddish.tools)", url="https://yiddish.tools/",
+  by="Hard on Soft Inc. (Yiddish Tools; HF org YiddishTools)", category="Offline Windows suite: dictation, translation, nikud, TTS",
+  description="Windows app with four offline Yiddish tools, each bought once (no subscription): Dictation $99, Translation (Yiddish↔English) $89, Nikud $59 and Speak (natural Yiddish read-aloud) $199. The Windows app has no free trial, but a free browser playground lets you test all four, and a free community dictionary has 144,000+ Hasidic Yiddish words. The desktop app adds speaker detection, a read-along player, optional AI clean-up with your own AI key, and a local-only connector so AI assistants (Claude Desktop, ChatGPT/Codex and others) can use the installed tools. For businesses, a commercial license gives the raw model weights and scripts to run on your own servers (Speak or large Dictation $1,499 each, Translation $599, Nikud $499; launch bundles through Nov 13, 2026); there is no hosted public API.",
   dialect="Not stated", metrics="not published for the product; its public ONNX builds of ivrit.ai models publish CER/WER (see benchmarks)",
-  sources=["https://yiddish.tools/","https://yiddish.tools/guides/speak","https://yiddish.tools/guides/transcribe-files","https://huggingface.co/YiddishTools"]),
+  sources=["https://yiddish.tools/","https://yiddish.tools/store/commercial","https://yiddish.tools/guides/ai-assistant","https://yiddish.tools/dictionary","https://yiddish.tools/terms","https://yiddish.tools/guides/speak","https://yiddish.tools/guides/transcribe-files","https://huggingface.co/YiddishTools"]),
 # translation
 E(id="google-translate", sections=["yi-translation"], name="Google Translate / Cloud Translation", url="https://cloud.google.com/translate/docs/languages",
-  by="Google", category="Commercial MT", description="Yiddish (code 'yi') is in the official Cloud Translation supported-languages list.", metrics="not published (per language)"),
+  by="Google", category="Commercial MT", description="Yiddish (code 'yi') is in the official Cloud Translation supported-languages list. Free to use at translate.google.com; Cloud Translation for businesses is billed per character.", metrics="not published (per language)",
+  sources=["https://cloud.google.com/translate/docs/languages","https://translate.google.com/","https://cloud.google.com/translate/pricing"]),
 E(id="nllb", sections=["yi-translation"], name="NLLB-200 (ydd_Hebr)", url="https://huggingface.co/facebook/nllb-200-distilled-600M",
   by="Meta AI", category="Open MT model (non-commercial)", open_source="yes", license="CC-BY-NC-4.0",
   description="No Language Left Behind models include Eastern Yiddish (ydd_Hebr). Base for YiddishTools' fine-tuned ONNX builds.", metrics="Meta publishes FLORES-200 per-language scores (not extracted here)"),
@@ -264,11 +281,11 @@ E(id="phonikud", sections=["yi-other"], subcat="TTS", name="Phonikud (Hebrew G2P
   by="Yakov Kolani, Maxim Melichov, Cobi Calev, Morris Alper", category="Open Hebrew G2P/TTS (Interspeech 2026)", open_source="yes", repo="https://github.com/phonikud/phonikud",
   description="Hebrew grapheme-to-phoneme via diacritization for real-time TTS; the method Phonikud-yi adapts. Relevant for loshn-koydesh words.",
   sources=["https://phonikud.github.io/","https://github.com/phonikud/phonikud","https://arxiv.org/abs/2506.12311"]),
-E(id="yiddishlabs", sections=["yi-other"], subcat="TTS", name="YiddishLabs (TTS + transcription API)", url="https://app.yiddishlabs.com/developer/api-docs",
-  by="YiddishLabs (desktop releases repo under GitHub org super-i-technologies)", category="Commercial ASR + TTS + API",
-  description="Hosted Yiddish transcription (MP3/WAV/M4A/OGG/FLAC, language=yi, timestamps) and TTS (voice list + /api/v1/speech) behind paid API keys; web and desktop apps. A forum user found its transcription good but expensive.",
+E(id="yiddishlabs", sections=["yi-writing","yi-translation","yi-other"], subcat="ASR", also_subcats=["TTS"], name="YiddishLabs", url="https://yiddishlabs.com/",
+  by="Super I Technologies LLC (YiddishLabs)", category="Yiddish writing help, translation and transcription (web + Windows app + API)",
+  description="Web editor and Windows desktop app for Yiddish: fix grammar, proofread, add nikud, rephrase, add headers and translate (in the desktop app, select text in any program and press Ctrl+D), plus transcription of Yiddish audio (MP3/WAV/M4A up to 100 MB, or record in the browser) into Yiddish or English text. Its developer API also offers TTS (voice list + /api/v1/speech). Credits-based: 5,000 free credits to start, then $19.99, $29.99 or $149.99 a month, or pay-as-you-go. The site says it uses ivrit.ai datasets. A forum user found its transcription good but expensive.",
   dialect="Not stated", metrics="not published",
-  sources=["https://app.yiddishlabs.com/developer/api-docs","https://app.yiddishlabs.com/","https://github.com/super-i-technologies/yiddish-labs-desktop-releases","https://jtechforums.org/t/yiddish-transcription-through-ai/5937"]),
+  sources=["https://yiddishlabs.com/","https://app.yiddishlabs.com/developer/api-docs","https://app.yiddishlabs.com/","https://github.com/super-i-technologies/yiddish-labs-desktop-releases","https://jtechforums.org/t/yiddish-transcription-through-ai/5937"]),
 E(id="hershy-weights", sections=["yi-other"], subcat="TTS", name="Yiddish Piper / GPT-SoVITS weights + F5 ear test", url="https://huggingface.co/hershykohn/yiddish-piper-weights",
   by="Naftali Kohn (HF: hershykohn)", category="Open TTS experiments", open_source="yes", status="beta",
   description="Public HF repos with Yiddish Piper and GPT-SoVITS weights and a static F5-TTS listening ('ear test') Space. Model cards are empty.", metrics="not published", unverified=True,
@@ -528,8 +545,11 @@ SECTION_PLAIN = {
  "yi-people":        ("People", "People and groups working on Yiddish speech and language tools. We list public links only."),
 }
 PLAIN = {
+ "milai": "Upload a shiur or lecture recording and get a typed transcript and captions, even when it mixes Hebrew, Yiddish and Aramaic; it can also type up handwritten pages. Free trial, then paid plans.",
+ "chabad-ai": "Ask questions about Chassidus or everyday life and get answers from the Rebbeim's teachings with sources, inside a large library of Chabad seforim; free plan plus paid plans.",
+ "jemai": "Ask a question and find where the Rebbe speaks about it in JEM's video archive, with a short summary and a link to the exact moment; for JEMClub members only, still in testing.",
  # Torah: ask & search
- "dicta-iluy": "Ask a question about Torah, Talmud or halacha and get an answer with links to the sources it used; Dicta says it is a study aid, not a halachic ruling.",
+ "dicta-iluy": "Ask a question about Torah, Talmud or halacha and get an answer with links to the sources it used; this is the new name of Rav Dicta. Dicta says it is a study aid, not a halachic ruling.",
  "koppel-rules": "Essays by Dicta's founder on how AI Torah tools should behave: always show sources, show every opinion, and don't decide for you.",
  "dicta-topics": "Automatic lists of the topics in each sefer of responsa, so you can see which simanim discuss a subject.",
  "dicta-bible-search": "Search Tanakh for words, phrases, verses or names.",
@@ -546,7 +566,7 @@ PLAIN = {
  "chattorah": "A Torah learning chat app; you need to sign in or get early access.",
  "rabbai": "A free study partner for computer users that runs as a text-only program, giving sourced answers and every side of a disagreement.",
  "berel": "Free building blocks from Dicta that developers use to make Hebrew and rabbinic-text tools, including adding vowels.",
- "sofer-ai": "Turns recorded shiurim into searchable text you can edit, even when they mix English, Hebrew, Yiddish and Aramaic; users say its Yiddish is so-so.",
+ "sofer-ai": "Turns recorded shiurim into searchable text you can edit, even when they mix English, Hebrew, Yiddish and Aramaic, and can type up scanned seforim; free plan plus paid plans. Users say its Yiddish is so-so.",
  "torahanytime-yeshivish": "A free speech-to-text model from TorahAnytime named for Yeshivish speech; how it was trained and how well it works is not stated.",
  # Torah: libraries
  "sefaria": "The big free online Torah library, which uses AI to link citations, build topic pages, sort source sheets and help with translations that experts review.",
@@ -562,7 +582,7 @@ PLAIN = {
  "nakdimon": "A free tool that adds nikud to Hebrew text right in your browser.",
  "dictabert-menaked": "A free AI model that developers can use to add nikud to Hebrew text.",
  "ravtext": "A Word add-on for laying out seforim, with automatic nikud and finished print files; the makers say it is still being built.",
- "ariach": "Describe in plain Hebrew how you want your book to look, and its AI assistant lays out the pages; free for now while it launches.",
+ "ariach": "Upload a Word file and get a print-ready sefer laid out in your browser, even a Gemara page with Rashi and Tosafos; an AI helper makes the changes you ask for in plain Hebrew. Free for now while it launches.",
  "mugah": "Proofreads Torah texts in Word and checks that source references are correct; open to testers.",
  "shefa-layout": "A free tool that turns a sefer's text into a finished, traditionally laid-out page as a PDF.",
  "ivrit-hw-ocr-lb": "A public scoreboard and test set for reading handwritten Hebrew, useful for manuscripts.",
@@ -581,7 +601,7 @@ PLAIN = {
  "yiddish-grammar-handbook": "A free handbook, in Yiddish, for Yiddish writers and proofreaders.",
  "tachlisai": "'Kosher' AI you use by text message, with a Yiddish page, for help with writing and everyday questions.",
  "verterbukh": "A large online Yiddish–English dictionary (not AI).",
- "yiddish-tools": "Paid, private Windows programs that work without internet: talk-to-type, translation, nikud and natural Yiddish read-aloud, plus a free online playground.",
+ "yiddish-tools": "Buy-once Windows programs for Yiddish that work without internet: talk-to-type, translation, nikud and a natural read-aloud voice; you can try them free online first.",
  # Yiddish: translation
  "google-translate": "Google's translation service, which officially supports Yiddish.",
  "nllb": "Meta's free translation models, which include Yiddish (not for commercial use).",
@@ -600,7 +620,7 @@ PLAIN = {
  "phonikud-yi-tts": "An online demo of a Hasidic Yiddish read-aloud voice; its notes say the voices come from English speakers, so the vowels sound foreign.",
  "phonikud-yi": "A tool that works out how Hasidic Yiddish words are pronounced, checked by native speakers, built to prepare podcast recordings for training a Yiddish voice.",
  "phonikud": "A Hebrew pronunciation tool for fast read-aloud voices; the Hasidic Yiddish version is based on it.",
- "yiddishlabs": "A paid service that transcribes Yiddish audio and reads Yiddish text aloud, with web and desktop apps; one user found it good but expensive.",
+ "yiddishlabs": "A Yiddish writing helper and transcriber: fixes grammar, adds nikud, rephrases and translates, and turns Yiddish recordings into text, on the web or in a Windows app. Free credits to start, then paid plans.",
  "hershy-weights": "Experimental Yiddish voices and a listening-test page; no description provided.",
  "mendel-csm": "An experiment in teaching a speech model Yiddish; no details on data or results.",
  "reyd-space": "An online demo of the REYD Yiddish voice; it was not working when we checked.",
@@ -690,6 +710,80 @@ def apply_plain(sections, entries, people):
     for e in entries: e["plain"] = PLAIN[e["id"]]
     for p in people: p["plain"] = PEOPLE_PLAIN[p["name"]]
 
+# ---------------------------------------------------------------------------
+# Kind of entry (v5): "product" = a ready-to-use app, website or service a
+# non-programmer can use today (free or paid); "builder" = code, models,
+# datasets, libraries, benchmarks or research meant for developers.
+# COST is a short plain price note for products, taken only from the entry's
+# own sources; "Not stated" when we could not find it.
+# KIND_NOTE explains borderline calls.
+# ---------------------------------------------------------------------------
+PRODUCTS = {
+ # Torah: Ask & search
+ "dicta-iluy":"Not stated", "dicta-topics":"Not stated", "dicta-bible-search":"Not stated",
+ "sefaria-assistant":"Free (account needed)", "sefaria-mcp":"Free; needs a paid AI assistant",
+ "bar-ilan-smart":"Paid", "binata":"Free to start, paid plans", "rabbi-ai":"Not stated",
+ "torah-ai-org":"Not stated", "rabbi-ari":"Not stated", "ohrbit":"Not stated", "bekiut":"Free",
+ "derekh":"Free, with a paid tier", "chattorah":"Not stated (early access)",
+ "sofer-ai":"Free plan, paid plans", "milai":"Free trial, then paid", "chabad-ai":"Free plan, paid plans",
+ "jemai":"JEMClub members only",
+ # Torah: libraries
+ "sefaria":"Free", "dicta-library":"Free", "otzar":"Paid", "alhatorah":"Not stated", "otzaria":"Free",
+ "hebrewbooks":"Free",
+ # Torah: typesetting, nikud, OCR
+ "dicta-nakdan":"Free", "dicta-rashi-ocr":"Not stated", "otzar-ocr":"5 free pages a day",
+ "nakdimon":"Free", "ravtext":"Free basic version, paid license", "ariach":"Free for now",
+ "mugah":"Free to start, then paid credits",
+ # Yiddish: writing
+ "refoyl":"Free", "yivo-hunspell":"Free", "heimish-geredt":"30 days free, then $4 a month",
+ "hasidifier":"Free", "klal-keyboards":"Free", "bookmarklets":"Free", "yiddish-grammar-handbook":"Free",
+ "tachlisai":"Free to start", "verterbukh":"Not stated", "yiddish-tools":"Paid (one-time), free online trial",
+ # Yiddish: translation
+ "google-translate":"Free (paid cloud service for businesses)", "general-llms":"Free to read",
+ # Yiddish: speech, scanning, community
+ "yiddishlabs":"Free credits, then paid", "shmooz-ai":"Paid", "dervort":"Free to start",
+ "sicha-to-text":"Free", "jochre3":"Free", "vilnish":"Not stated",
+ "ybc":"Not stated", "yivo":"Not stated", "jtech":"Free to read", "chabadlabs":"Free to read",
+}
+KIND_NOTE = {
+ "sefaria-mcp":"Ready to use if you already have ChatGPT or Claude; no coding needed.",
+ "nakdimon":"Open-source, but its main form is a free website anyone can use.",
+ "otzaria":"Open-source, but its main form is a free app anyone can install.",
+ "yivo-hunspell":"Installs as a Firefox / OpenOffice spellchecker add-on.",
+ "klal-keyboards":"Keyboard layouts you install; downloaded from GitHub.",
+ "bookmarklets":"Browser bookmarklets anyone can add; hosted on GitHub.",
+ "yiddish-grammar-handbook":"A written guide for writers, hosted on GitHub.",
+ "sicha-to-text":"A Mac app distributed through GitHub.",
+ "jochre3":"Listed for its public search website; the OCR engine and corpus are also open.",
+ "vilnish":"Listed for its recognition service; the model and dataset are also open.",
+ "general-llms":"Tips for using everyday chatbots, not a tool itself.",
+ "jtech":"A forum discussion to read, not a tool.", "chabadlabs":"A guide to read, not a tool.",
+ "ybc":"A library and archive website; Jochre-based search is listed separately.",
+ "yivo":"An archive and institute website; no YIVO-run AI tool found.",
+ "avremi":"Mainly a downloadable voice model, although it has an online demo.",
+ "phonikud-yi-tts":"An online demo of an open model; mainly for builders.",
+ "reyd-space":"An online demo of an open model (was not working when checked).",
+ "marianmt-he2yid":"An online demo of an open model; mainly for builders.",
+ "yt-nllb-onnx":"A model packaged to run in a browser; you need to build the page around it.",
+ "yt-whisper-onnx":"A model packaged to run in a browser; you need to build the page around it.",
+ "ivrit-ai":"Publishes open models and data; its Hebrew transcription service is not Yiddish.",
+ "commonvoice-yi":"Anyone can donate recordings on the website, but the result is a dataset.",
+ "koppel-rules":"Essays on how AI Torah tools should behave; mainly for people building them.",
+ "rabbai":"Runs in a terminal; needs some technical setup.",
+ "clean-transcripts":"A web app for preparing training data.",
+}
+
+def apply_kinds(entries):
+    ids = {e["id"] for e in entries}
+    extra = (set(PRODUCTS) | set(KIND_NOTE)) - ids; assert not extra, ("unknown ids in kinds", extra)
+    for e in entries:
+        if e["id"] in PRODUCTS:
+            e["kind"] = "product"; e["cost"] = PRODUCTS[e["id"]]
+        else:
+            e["kind"] = "builder"
+            e["cost"] = {"koppel-rules":"Free to read"}.get(e["id"]) or {"yes":"Free (open source)","partial":"Partly open"}.get(e["open_source"], "Not stated")
+        e["kind_note"] = KIND_NOTE.get(e["id"], "")
+
 def main():
     base=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     ids=[e["id"] for e in ENTRIES]; assert len(ids)==len(set(ids)), "duplicate ids"
@@ -697,6 +791,7 @@ def main():
     for e in ENTRIES:
         for s in e["sections"]: assert s in valid, (e["id"],s)
     apply_plain(SECTIONS, ENTRIES, PEOPLE)
+    apply_kinds(ENTRIES)
     data=dict(generated=CHECKED, sections=SECTIONS, entries=ENTRIES, benchmarks=BENCH, people=PEOPLE, link_checks={})
     path=os.path.join(base,"data.json")
     if os.path.exists(path):
