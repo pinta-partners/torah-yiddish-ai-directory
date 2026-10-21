@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Torah + Yiddish AI Directory</title>
+<meta name="description" content="A sourced directory of AI tools for Torah study and for the Yiddish language: search, libraries, typesetting, writing, translation, speech (TTS/ASR), OCR, datasets, benchmarks and collaborators.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Hebrew:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">א</span>
+      <div>
+        <h1>Torah + Yiddish AI Directory</h1>
+        <p class="tagline">A sourced map of AI for Torah study and for <span lang="yi" dir="rtl">ייִדיש</span> — every entry links to where we verified it.</p>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Main sections">
+      <button role="tab" class="tab" data-tab="torah" aria-selected="true"><span lang="he" dir="rtl">תורה</span> Torah</button>
+      <button role="tab" class="tab" data-tab="yiddish" aria-selected="false"><span lang="yi" dir="rtl">ייִדיש</span> Yiddish</button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <aside class="sidebar" aria-label="Section navigation">
+    <div class="search-box">
+      <input id="q" type="search" placeholder="Search name, org, dialect, metric…" aria-label="Search entries" autocomplete="off">
+    </div>
+    <div class="filters">
+      <label>Status
+        <select id="f-status"><option value="">Any</option><option>active</option><option>beta</option><option>archived</option></select>
+      </label>
+      <label>Open source
+        <select id="f-oss"><option value="">Any</option><option value="yes">Yes</option><option value="partial">Partial</option><option value="no">No</option></select>
+      </label>
+      <label class="chk"><input type="checkbox" id="f-hasidic"> Hasidic-dialect relevant</label>
+    </div>
+    <nav id="section-nav" class="section-nav"></nav>
+    <p class="meta" id="meta"></p>
+  </aside>
+
+  <main id="main" tabindex="-1"></main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Built from public sources only; checked <span id="gen"></span>. Metrics are copied as published — <em>“not published”</em> means we could not find a public number. Items marked <span class="badge warn">unverified</span> need a closer look.
+    Edit <code>tools/build_data.py</code> (or <code>data.json</code>) to add entries — see the README.</p>
+  </div>
+</footer>
+<script src="data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

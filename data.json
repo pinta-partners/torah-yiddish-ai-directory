@@ -1,0 +1,4518 @@
+{
+ "generated": "2026-10-20",
+ "sections": {
+  "torah": [
+   {
+    "id": "torah-search",
+    "title": "AI search & Q&A for Torah",
+    "blurb": "Tools that use AI (LLMs, retrieval, semantic search) to find and explain Torah sources."
+   },
+   {
+    "id": "torah-libraries",
+    "title": "AI-assisted Torah libraries",
+    "blurb": "Large digital seforim libraries and what AI features (if any) they document."
+   },
+   {
+    "id": "torah-typesetting",
+    "title": "Typesetting, nikud & OCR for seforim",
+    "blurb": "AI-assisted / AI-native layout, vocalization (nikud), proofreading and OCR of seforim."
+   }
+  ],
+  "yiddish": [
+   {
+    "id": "yi-writing",
+    "title": "Yiddish writing tools",
+    "blurb": "Spellcheck, grammar, keyboards, transliteration/orthography, LLM writing help."
+   },
+   {
+    "id": "yi-translation",
+    "title": "Yiddish translation",
+    "blurb": "Machine translation to/from Yiddish: services, open models, community tools."
+   },
+   {
+    "id": "yi-other",
+    "title": "Speech, OCR, data, models & community",
+    "blurb": "TTS, ASR, OCR/HTR, datasets, language models, organizations and communities."
+   },
+   {
+    "id": "yi-bench",
+    "title": "Benchmarks & comparison",
+    "blurb": "Published metrics (WER/CER/COMET...) with sources. 'not published' means we could not find a public number."
+   },
+   {
+    "id": "yi-people",
+    "title": "People & orgs / collaborators wanted",
+    "blurb": "Public profiles of people and groups working on Yiddish speech & NLP. Public links only."
+   }
+  ]
+ },
+ "entries": [
+  {
+   "id": "dicta-iluy",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "Iluy (Dicta)",
+   "name_native": "עילוי",
+   "url": "https://iluy.dicta.org.il/about",
+   "by": "Dicta – Israel Center for Text Analysis (Moshe Koppel)",
+   "category": "AI Torah Q&A / source finder",
+   "description": "AI system that answers questions across Torah, Talmud and halacha by retrieving sources and giving a reasoned, source-linked answer; selectable answer style; can expand the source list. Dicta states it is a study aid, not a halachic ruling.",
+   "sources": [
+    "https://iluy.dicta.org.il/about",
+    "https://dicta.org.il/?lang=en",
+    "https://moshekoppel.substack.com/p/post-10-a-system-that-answers-questions"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "koppel-rules",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "Moshe Koppel – 'three rules' for AI-Torah systems",
+   "url": "https://moshekoppel.substack.com/p/chapter-9-saving-torah-lishma",
+   "by": "Moshe Koppel (Dicta)",
+   "category": "Essay / design principles",
+   "description": "Substack series by Dicta's founder: every claim must be sourced; show the full range of opinion in the chosen library; no conclusion by default. Explains the design of Rav Dicta / Iluy.",
+   "sources": [
+    "https://moshekoppel.substack.com/p/chapter-9-saving-torah-lishma",
+    "https://moshekoppel.substack.com/p/post-10-a-system-that-answers-questions"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "dicta-topics",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "Dicta Responsa Topic Index",
+   "name_native": "מפתח לשו\"ת",
+   "url": "https://topics.dicta.org.il/",
+   "by": "Dicta",
+   "category": "AI topic indexing of responsa",
+   "description": "Automatically generated topic lists per sefer: topics, simanim-by-topic and topics-by-siman (announced on Dicta's home page).",
+   "sources": [
+    "https://topics.dicta.org.il/",
+    "https://dicta.org.il/?lang=en"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "dicta-bible-search",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "Dicta Tanakh search",
+   "name_native": "חיפוש בתנ\"ך",
+   "url": "https://search.dicta.org.il/",
+   "by": "Dicta",
+   "category": "Smart search",
+   "description": "Tanakh search engine (words, phrases, verses, names) from Dicta, which builds its tools on machine learning and NLP.",
+   "sources": [
+    "https://search.dicta.org.il/",
+    "https://dicta.org.il/about?lang=en"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "sefaria-assistant",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "Sefaria Library Assistant",
+   "url": "https://help.sefaria.org/hc/en-us/articles/26006423836828-How-to-Use-the-Sefaria-Library-Assistant",
+   "by": "Sefaria (nonprofit)",
+   "category": "AI chatbot over an open library",
+   "status": "beta",
+   "open_source": "yes",
+   "repo": "https://github.com/Sefaria/ai-chatbot",
+   "description": "LLM chatbot that locates sources with citations, suggests commentaries and makes ad-hoc translations of untranslated texts. Launched spring 2026; needs a logged-in account on desktop web; labelled experimental. Uses Sefaria's semantic (kNN) search endpoint.",
+   "sources": [
+    "https://help.sefaria.org/hc/en-us/articles/26006423836828-How-to-Use-the-Sefaria-Library-Assistant",
+    "https://www.sefaria.org/ai",
+    "https://github.com/Sefaria/ai-chatbot/pull/158"
+   ],
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "sefaria-mcp",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "Sefaria MCP servers",
+   "url": "https://help.sefaria.org/hc/en-us/articles/24882474364316-Quick-Guide-Meet-the-Sefaria-MCPs",
+   "by": "Sefaria",
+   "category": "AI-assistant connector (MCP)",
+   "description": "Two MCP servers: the Texts MCP (mcp.sefaria.org) lets ChatGPT, Claude etc. search and cite the Sefaria Library; the Developers MCP exposes API docs. Per Sefaria, it needs a paid AI-assistant account.",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://help.sefaria.org/hc/en-us/articles/24882474364316-Quick-Guide-Meet-the-Sefaria-MCPs"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "bar-ilan-smart",
+   "sections": [
+    "torah-search",
+    "torah-libraries"
+   ],
+   "name": "Bar-Ilan Responsa Project (smart search)",
+   "name_native": "שו\"ת בר-אילן",
+   "url": "https://www.responsa.org.il/about/",
+   "by": "Bar-Ilan University",
+   "category": "Commercial library + natural-language search",
+   "description": "~700M words, 850,000+ cross-links, 150,000+ responsa. Advertises a 'smart search': type an everyday question in free language and get relevant sources across the library.",
+   "notes": "AI vendor/model not disclosed.",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "license": "",
+   "sources": [
+    "https://www.responsa.org.il/about/"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "binata",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "Binata",
+   "name_native": "בינתא",
+   "url": "https://binata-ai.com/",
+   "by": "Binata (company)",
+   "category": "AI Torah chat",
+   "description": "Torah AI chat that searches sources, clarifies sugyot and compares opinions across Talmud, halacha and commentators. Free tier plus paid plans.",
+   "sources": [
+    "https://binata-ai.com/",
+    "https://binata-ai.com/pricing"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "rabbi-ai",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "Rabbi AI (Cohen Apps)",
+   "url": "https://rabbiai.app/",
+   "by": "Cohen Apps",
+   "category": "AI Torah chat",
+   "description": "Chatbot answering Jewish questions with sources from Torah, Talmud and Midrash; site advertises 10 interface languages.",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://rabbiai.app/"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "torah-ai-org",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "Torah AI (torah-ai.org)",
+   "url": "https://torah-ai.org/",
+   "by": "Not stated on page",
+   "category": "AI Torah chat",
+   "description": "AI assistant for Torah & Talmud study, advertised as powered by the complete Sefaria database.",
+   "notes": "Operator not identified.",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://torah-ai.org/"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "rabbi-ari",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "Rabbi Ari: Judaism Chatbot",
+   "url": "https://apps.apple.com/us/app/rabbi-ari-judaism-chatbot/id6446847629",
+   "by": "See App Store listing",
+   "category": "Mobile AI chatbot",
+   "description": "iOS/Android chatbot covering Torah, Talmud, halacha and Jewish life.",
+   "sources": [
+    "https://apps.apple.com/us/app/rabbi-ari-judaism-chatbot/id6446847629",
+    "https://play.google.com/store/apps/details?id=com.rabbi.ai"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "ohrbit",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "OHRBIT (Orthodox Union)",
+   "url": "https://ohrbit.com/",
+   "by": "Orthodox Union (per Derekh Learning review)",
+   "category": "AI over a vetted shiur archive",
+   "description": "Described as the OU's AI Torah companion (iOS/Android/web, launched early 2026) that recommends and converses over a closed, human-vetted library of OU shiurim.",
+   "sources": [
+    "https://ohrbit.com/",
+    "https://www.derekhlearning.com/blog/best-ai-torah-apps-2026"
+   ],
+   "notes": "ohrbit.com is a JS app; description is from a third-party (competitor) review.",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "bekiut",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "ChavrutAI → Bekiut",
+   "url": "https://bekiut.com/",
+   "by": "Independent project",
+   "category": "Talmud reader + AI chat",
+   "status": "beta",
+   "description": "Clause-by-clause Talmud reading interface over Sefaria texts with an AI study chat in beta. chavrutai.com redirects to bekiut.com (checked 2026-10-20).",
+   "sources": [
+    "https://bekiut.com/",
+    "https://www.derekhlearning.com/blog/best-ai-torah-apps-2026"
+   ],
+   "notes": "Rename inferred from the redirect; not announced on a page we read.",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "derekh",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "Derekh Learning",
+   "url": "https://www.derekhlearning.com/",
+   "by": "Derekh Learning",
+   "category": "AI daily-learning tutor",
+   "description": "AI-prepared daily lessons (Daf Yomi, 929, Mishnah, Rambam...) at several depths with narration; every claim grounded in cited Sefaria sources. Free library + Pro tier.",
+   "sources": [
+    "https://www.derekhlearning.com/",
+    "https://www.derekhlearning.com/blog/best-ai-torah-apps-2026"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "chattorah",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "ChatTorah",
+   "url": "https://app.chattorah.com/",
+   "by": "ChatTorah",
+   "category": "AI Torah chat",
+   "status": "beta",
+   "description": "Torah-learning chat app; sign-in / early-access only.",
+   "unverified": true,
+   "notes": "Only the login page was reachable; features not verified.",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://app.chattorah.com/"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "rabbai",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "rabbai (terminal chavruta)",
+   "url": "https://github.com/macmenes/rabbai",
+   "by": "Raphael Menesclou",
+   "category": "Open-source CLI",
+   "open_source": "yes",
+   "repo": "https://github.com/macmenes/rabbai",
+   "license": "MIT",
+   "description": "Torah study chavruta in the terminal: sourced answers, every side of a disagreement, user-written profile.",
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "sources": [
+    "https://github.com/macmenes/rabbai"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "berel",
+   "sections": [
+    "torah-search"
+   ],
+   "name": "BEREL, DictaBERT & DictaLM models",
+   "url": "https://huggingface.co/dicta-il",
+   "by": "Dicta",
+   "category": "Open models (building blocks)",
+   "open_source": "yes",
+   "repo": "https://huggingface.co/dicta-il",
+   "description": "Dicta's Hugging Face org: BEREL (rabbinic-Hebrew BERT), DictaBERT family (morphology, NER, nikud 'menaked'...) and DictaLM 2.0/3.0 Hebrew LLMs. Foundations for Torah search/NLP.",
+   "sources": [
+    "https://huggingface.co/dicta-il",
+    "https://huggingface.co/dicta-il/BEREL_3.0"
+   ],
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "sofer-ai",
+   "sections": [
+    "torah-search",
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "Sofer.ai",
+   "url": "https://www.sofer.ai/",
+   "by": "Sofer.Ai",
+   "category": "Shiur transcription (ASR) + study tools",
+   "description": "AI platform that transcribes shiurim into searchable, editable text; handles mixed English/Hebrew/Yiddish/Aramaic audio (per ChabadLabs wiki). Yiddish quality reported anecdotally as ~6/10, and 'sloppy' by a forum user.",
+   "dialect": "Yeshivish / mixed; Hasidic support not documented",
+   "metrics": "not published",
+   "sources": [
+    "https://www.sofer.ai/",
+    "https://chabadlabs.ai/wiki-topics-hebrew-yiddish",
+    "https://jtechforums.org/t/yiddish-transcription-through-ai/5937"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "torahanytime-yeshivish",
+   "sections": [
+    "torah-search",
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "TorahAnytime whisper-large-v3-yeshivish",
+   "url": "https://huggingface.co/torahanytimecom/whisper-large-v3-yeshivish",
+   "by": "TorahAnytime (HF: torahanytimecom)",
+   "category": "Open ASR model",
+   "open_source": "yes",
+   "license": "apache-2.0",
+   "description": "Whisper large-v3 variant published by TorahAnytime, named for Yeshivish speech. The model card is the stock Whisper card, so training data and metrics are undocumented.",
+   "metrics": "not published",
+   "notes": "Mentioned on the jtechforums Yiddish-transcription thread.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "unverified": false,
+   "name_native": "",
+   "sources": [
+    "https://huggingface.co/torahanytimecom/whisper-large-v3-yeshivish"
+   ]
+  },
+  {
+   "id": "sefaria",
+   "sections": [
+    "torah-libraries"
+   ],
+   "name": "Sefaria",
+   "name_native": "ספריא",
+   "url": "https://www.sefaria.org/ai",
+   "by": "Sefaria (nonprofit)",
+   "category": "Open digital library",
+   "open_source": "yes",
+   "repo": "https://github.com/Sefaria/Sefaria-Project",
+   "license": "GPL-3.0",
+   "description": "AI features on its 'AI on Sefaria' page: LLM-powered citation linking (and the Sefaria Linker plugin), AI-assisted topic pages (1,000 of 5,000+ English topics, staff-reviewed), LLM relevance sorting of sheets, AI-assisted translation with expert review (since 2023) and the Library Assistant chatbot (2026).",
+   "sources": [
+    "https://www.sefaria.org/ai",
+    "https://github.com/Sefaria/Sefaria-Project"
+   ],
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "subcat": ""
+  },
+  {
+   "id": "dicta-library",
+   "sections": [
+    "torah-libraries"
+   ],
+   "name": "Dicta Library",
+   "name_native": "הספרייה של דיקטה",
+   "url": "https://library.dicta.org.il/",
+   "by": "Dicta",
+   "category": "Free AI-processed library",
+   "description": "Talmudic and rabbinic texts that were automatically scanned (OCR), vocalized, punctuated and annotated with source citations by Dicta's ML tools.",
+   "sources": [
+    "https://library.dicta.org.il/",
+    "https://dicta.org.il/about?lang=en"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "otzar",
+   "sections": [
+    "torah-libraries"
+   ],
+   "name": "Otzar HaChochma",
+   "name_native": "אוצר החכמה",
+   "url": "https://www.otzar.org/",
+   "by": "Otzar HaChochma (founded by R. Erez Sela)",
+   "category": "Commercial scanned library",
+   "description": "156,000 scanned seforim (per site). AI: a new OCR engine in beta (ocr.otzar.org), trained partly with user OCR corrections (per Jewish Press). No generative-AI search documented.",
+   "sources": [
+    "https://www.otzar.org/",
+    "https://ocr.otzar.org/",
+    "https://jewishpress.com/ai-and-the-new-frontier-of-torah-study/"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "alhatorah",
+   "sections": [
+    "torah-libraries"
+   ],
+   "name": "AlHaTorah.org",
+   "url": "https://alhatorah.org/",
+   "by": "AlHaTorah.org",
+   "category": "Interactive Tanakh/commentary library",
+   "description": "Mikraot Gedolot, concordance, Tanakh Lab (statistical word/phrase analysis), Te'amim Lab, interactive learning. No AI/LLM features advertised on the site (as of check).",
+   "notes": "Listed for completeness; AI status: none documented.",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://alhatorah.org/"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "otzaria",
+   "sections": [
+    "torah-libraries"
+   ],
+   "name": "Otzaria",
+   "name_native": "אוצריא",
+   "url": "https://otzaria.org/",
+   "by": "Sivan Ratson & community",
+   "category": "Free open-source library app",
+   "open_source": "yes",
+   "repo": "https://github.com/Sivan22/otzaria",
+   "description": "Free, open-source app for reading and studying seforim on desktop and mobile with fast search, commentaries, links and community proofreading. AI features: none documented on the homepage.",
+   "sources": [
+    "https://otzaria.org/",
+    "https://github.com/Sivan22/otzaria"
+   ],
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "hebrewbooks",
+   "sections": [
+    "torah-libraries"
+   ],
+   "name": "HebrewBooks.org",
+   "url": "https://hebrewbooks.org/",
+   "by": "HebrewBooks.org",
+   "category": "Free PDF library",
+   "description": "40,000+ seforim as free PDFs; some core texts in text format. AI features: none documented.",
+   "notes": "Listed as a data source; no AI claims verified.",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://hebrewbooks.org/"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "dicta-nakdan",
+   "sections": [
+    "torah-typesetting"
+   ],
+   "name": "Dicta Nakdan",
+   "name_native": "הנקדן המהיר",
+   "url": "https://nakdan.dicta.org.il/",
+   "by": "Dicta",
+   "category": "AI vocalization (nikud)",
+   "description": "Free automatic nikud that vocalizes text as you type.",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "sources": [
+    "https://nakdan.dicta.org.il/"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "dicta-rashi-ocr",
+   "sections": [
+    "torah-typesetting"
+   ],
+   "name": "Dicta Rashi-script OCR",
+   "name_native": "זיהוי כתב רש\"י",
+   "url": "https://rashiocr.dicta.org.il/",
+   "by": "Dicta",
+   "category": "AI OCR",
+   "description": "Upload a document in Rashi script and get copyable digital text (announced on Dicta's home page).",
+   "sources": [
+    "https://rashiocr.dicta.org.il/",
+    "https://dicta.org.il/?lang=en"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "otzar-ocr",
+   "sections": [
+    "torah-typesetting"
+   ],
+   "name": "Otzar OCR",
+   "name_native": "אוצר OCR",
+   "url": "https://ocr.otzar.org/",
+   "by": "Otzar HaChochma",
+   "category": "AI OCR (beta)",
+   "status": "beta",
+   "description": "Otzar HaChochma's OCR engine for Torah texts: upload an image or PDF, get text. 5 free pages per day.",
+   "sources": [
+    "https://ocr.otzar.org/",
+    "https://jewishpress.com/ai-and-the-new-frontier-of-torah-study/"
+   ],
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "nakdimon",
+   "sections": [
+    "torah-typesetting"
+   ],
+   "name": "Nakdimon",
+   "name_native": "נקדימון",
+   "url": "https://www.nakdimon.org/",
+   "by": "Elazar Gershuni",
+   "category": "Open-source diacritizer",
+   "open_source": "yes",
+   "repo": "https://github.com/elazarg/nakdimon",
+   "license": "MIT",
+   "description": "Free in-browser automatic Hebrew nikud (neural diacritizer).",
+   "sources": [
+    "https://www.nakdimon.org/",
+    "https://github.com/elazarg/nakdimon"
+   ],
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "subcat": ""
+  },
+  {
+   "id": "dictabert-menaked",
+   "sections": [
+    "torah-typesetting"
+   ],
+   "name": "dictabert-large-char-menaked",
+   "url": "https://huggingface.co/dicta-il/dictabert-large-char-menaked",
+   "by": "Dicta",
+   "category": "Open nikud model",
+   "open_source": "yes",
+   "description": "Open-weights character-level BERT for Hebrew vocalization (menaked) on Hugging Face.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://huggingface.co/dicta-il/dictabert-large-char-menaked"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "ravtext",
+   "sections": [
+    "torah-typesetting"
+   ],
+   "name": "RavText for Word AI",
+   "name_native": "רב טקסט לוורד AI",
+   "url": "https://ravtext.com/",
+   "by": "RavText",
+   "category": "AI-assisted Torah typesetting (Word add-in)",
+   "status": "beta",
+   "description": "Layout & editing system for seforim: nikud bot, import from Torah databases, version comparison, professional PDF output, Talmud-style text frames. The site says it is under development and some features are a vision, not a commitment.",
+   "sources": [
+    "https://ravtext.com/",
+    "https://yiddishe-kop.com/articles/ravtext-seforim-publishing"
+   ],
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "ariach",
+   "sections": [
+    "torah-typesetting"
+   ],
+   "name": "Ariach",
+   "name_native": "אריח",
+   "url": "https://ariach.com/guides/ai",
+   "by": "Ariach",
+   "category": "AI-native book layout",
+   "status": "beta",
+   "description": "Hebrew book layout service: an AI assistant carries out requests written in plain Hebrew (design, headings, text, page arrangement) while a deterministic layout engine sets the pages. Free during the run-in period.",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "sources": [
+    "https://ariach.com/guides/ai"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "mugah",
+   "sections": [
+    "torah-typesetting"
+   ],
+   "name": "Mugah",
+   "name_native": "מוגה",
+   "url": "https://www.mugah.co/",
+   "by": "Mugah",
+   "category": "AI proofreading for Torah texts",
+   "status": "beta",
+   "description": "AI-powered proofreading, mareh-makom (source) verification and source search for Torah texts inside Word; open to beta testers.",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "sources": [
+    "https://www.mugah.co/"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "shefa-layout",
+   "sections": [
+    "torah-typesetting"
+   ],
+   "name": "Automated sefer layout (Typst pipeline)",
+   "url": "https://github.com/Abe1018776/chezky-kohn-shefa-yoel-auto-design",
+   "by": "Chezky Kohn (directory author)",
+   "category": "Open pipeline: JSON → Typst → PDF",
+   "open_source": "yes",
+   "repo": "https://github.com/Abe1018776/chezky-kohn-shefa-yoel-auto-design",
+   "status": "beta",
+   "description": "Pipeline from a structured JSON extraction of a Hebrew sefer to a typeset PDF reproducing an 8-zone page (gematria folios, chapter cartouches, two-column notes, spillover).",
+   "notes": "Author's own project, listed for transparency.",
+   "sources": [
+    "https://github.com/Abe1018776/chezky-kohn-shefa-yoel-auto-design",
+    "https://forum.typst.app/t/paid-help-wanted-complex-hebrew-sefer-layout-in-typst/8741"
+   ],
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "ivrit-hw-ocr-lb",
+   "sections": [
+    "torah-typesetting"
+   ],
+   "name": "ivrit.ai Hebrew handwriting OCR leaderboard",
+   "url": "https://huggingface.co/spaces/ivrit-ai/hebrew-handwriting-ocr-leaderboard",
+   "by": "ivrit.ai",
+   "category": "OCR benchmark",
+   "open_source": "yes",
+   "description": "Public leaderboard + benchmark dataset for Hebrew handwriting OCR (relevant to ksav-yad manuscripts).",
+   "sources": [
+    "https://huggingface.co/spaces/ivrit-ai/hebrew-handwriting-ocr-leaderboard",
+    "https://huggingface.co/datasets/ivrit-ai/hebrew-handwriting-ocr-benchmark"
+   ],
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "refoyl",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "Refoyl's Yiddish web tools & spellchecker",
+   "url": "https://www.cs.uky.edu/~raphael/yiddish.html",
+   "by": "Raphael Finkel (Univ. of Kentucky)",
+   "category": "Spellcheck / transliteration / dictionary (web)",
+   "description": "Long-running set of Yiddish web tools, including an online spellchecker for Unicode Yiddish text, uploads or URLs.",
+   "sources": [
+    "https://www.cs.uky.edu/~raphael/yiddish.html",
+    "https://www.cs.uky.edu/%7Eraphael/yiddish/checkSpellUTF.cgi"
+   ],
+   "dialect": "YIVO standard",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "yivo-hunspell",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "Yiddish spell checker (YIVO) – Hunspell",
+   "url": "https://addons.mozilla.org/en-US/firefox/addon/yiddish-spell-checker-yivo/",
+   "by": "Community (Firefox / OpenOffice extension)",
+   "category": "Spellcheck dictionary",
+   "open_source": "yes",
+   "description": "Hunspell dictionary in standard YIVO orthography, packaged for Firefox and OpenOffice.",
+   "dialect": "YIVO orthography",
+   "sources": [
+    "https://addons.mozilla.org/en-US/firefox/addon/yiddish-spell-checker-yivo/",
+    "https://extensions.openoffice.org/en/project/yiddish-spell-checker-yivo.html"
+   ],
+   "status": "active",
+   "repo": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "hunspell-yi",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "hunspell-yi",
+   "url": "https://github.com/alephreish/hunspell-yi",
+   "by": "alephreish",
+   "category": "Spellcheck dictionary",
+   "open_source": "yes",
+   "repo": "https://github.com/alephreish/hunspell-yi",
+   "license": "GPL-3.0",
+   "status": "archived",
+   "description": "Hunspell Yiddish dictionary source. Last push 2022.",
+   "notes": "'archived' here = inactive since 2022, not formally archived.",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "name_native": "",
+   "sources": [
+    "https://github.com/alephreish/hunspell-yi"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "heimish-geredt",
+   "sections": [
+    "yi-writing",
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "Heimish Geredt",
+   "name_native": "היימיש גערעדט",
+   "url": "https://heimishgeredt.com/",
+   "by": "Heimish Geredt",
+   "category": "STT + TTS (beta) + grammar check",
+   "description": "Yiddish speech-to-text (mic/upload, Windows/Android/Kyocera apps, phone line), text-to-speech (beta) and grammar correction, built for Hasidic/heimish Yiddish. 30 days free, then $4/month.",
+   "dialect": "Hasidic (heimish register)",
+   "metrics": "not published",
+   "sources": [
+    "https://heimishgeredt.com/",
+    "https://heimishgeredt.com/alternative.html"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "unverified": false,
+   "notes": "",
+   "license": ""
+  },
+  {
+   "id": "yiddish-py",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "yiddish (Python library)",
+   "url": "https://github.com/ibleaman/yiddish",
+   "by": "Isaac L. Bleaman",
+   "category": "Text processing library",
+   "open_source": "yes",
+   "repo": "https://github.com/ibleaman/yiddish",
+   "description": "Python library for Yiddish text: normalization, YIVO romanization, hasidify, loshn-koydesh respelling. Used by REYD and the Avremi TTS pipeline.",
+   "dialect": "YIVO ↔ Hasidic orthography conversion",
+   "sources": [
+    "https://github.com/ibleaman/yiddish",
+    "https://github.com/SoratoGroup/avremi-voice"
+   ],
+   "status": "active",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "hasidifier",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "hasidifier",
+   "url": "https://ibleaman.github.io/hasidifier/",
+   "by": "Isaac L. Bleaman",
+   "category": "Orthography converter",
+   "open_source": "yes",
+   "repo": "https://github.com/ibleaman/hasidifier",
+   "description": "Web tool / normalizer: standard (YIVO) Yiddish in, Hasidic-orthography Yiddish out.",
+   "dialect": "YIVO → Hasidic",
+   "sources": [
+    "https://ibleaman.github.io/hasidifier/",
+    "https://github.com/ibleaman/hasidifier"
+   ],
+   "status": "active",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "klal-keyboards",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "Yiddish-Klal keyboards (macOS / iOS / ChromeOS)",
+   "url": "https://github.com/ibleaman/Yiddish-Klal",
+   "by": "Isaac L. Bleaman",
+   "category": "Keyboard layouts",
+   "open_source": "yes",
+   "repo": "https://github.com/ibleaman/Yiddish-Klal",
+   "description": "Standard Yiddish keyboard layouts for Mac, with iOS and ChromeOS versions.",
+   "sources": [
+    "https://github.com/ibleaman/Yiddish-Klal",
+    "https://github.com/ibleaman/Yiddish-Klal-iOS",
+    "https://github.com/ibleaman/Yiddish-Klal-ChromeOS"
+   ],
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  },
+  {
+   "id": "giellalt-kbd",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "GiellaLT keyboard-yid",
+   "url": "https://github.com/giellalt/keyboard-yid",
+   "by": "GiellaLT (UiT)",
+   "category": "Keyboard layouts",
+   "open_source": "yes",
+   "repo": "https://github.com/giellalt/keyboard-yid",
+   "license": "MIT",
+   "description": "Yiddish keyboard layouts in the GiellaLT/Divvun infrastructure. Updated Oct 2026.",
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "sources": [
+    "https://github.com/giellalt/keyboard-yid"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "linux-kbd",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "yiddish-keys-linux",
+   "url": "https://github.com/nevillepark/yiddish-keys-linux",
+   "by": "nevillepark",
+   "category": "Keyboard layouts",
+   "open_source": "yes",
+   "repo": "https://github.com/nevillepark/yiddish-keys-linux",
+   "status": "archived",
+   "description": "Yiddish keyboard layouts for GNU/Linux (inactive since 2022).",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/nevillepark/yiddish-keys-linux"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "bookmarklets",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "Yiddish bookmarklets",
+   "url": "https://pod-o-mart.github.io/yiddishBookmarklets/",
+   "by": "pod-o-mart",
+   "category": "Keyboard + transliteration + dictionaries",
+   "open_source": "yes",
+   "repo": "https://github.com/pod-o-mart/yiddishBookmarklets",
+   "description": "Browser bookmarklets: virtual Hebrew-script keyboard, YIVO transliteration of any web page, dictionary lookups.",
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://pod-o-mart.github.io/yiddishBookmarklets/"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "meturgaman",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "meturgaman",
+   "url": "https://github.com/Oranburg/meturgaman",
+   "by": "Oranburg",
+   "category": "Romanization",
+   "open_source": "yes",
+   "repo": "https://github.com/Oranburg/meturgaman",
+   "description": "Fetches Hebrew, Aramaic and Yiddish primary sources and romanizes them under any of eight published standards.",
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/Oranburg/meturgaman"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "yiddish-grammar-handbook",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "yiddish-grammar (handbook for writers & proofreaders)",
+   "name_native": "א האנטבוך פאר אידישע שרייבער און מגיהים",
+   "url": "https://github.com/yyjosef/yiddish-grammar",
+   "by": "yyjosef",
+   "category": "Style/grammar guide",
+   "open_source": "yes",
+   "repo": "https://github.com/yyjosef/yiddish-grammar",
+   "description": "Open handbook for Yiddish writers and proofreaders (in Yiddish).",
+   "dialect": "Hasidic-style orthography (title spelling)",
+   "unverified": true,
+   "notes": "Dialect inferred from the repo title's spelling only.",
+   "status": "active",
+   "metrics": "",
+   "license": "",
+   "sources": [
+    "https://github.com/yyjosef/yiddish-grammar"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "tachlisai",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "TachlisAI SMS (Yiddish)",
+   "url": "https://tachlisai.com/yi/kosher-ai-texting",
+   "by": "TachlisAI",
+   "category": "LLM writing help via SMS",
+   "description": "'Kosher' AI over plain SMS with a Yiddish-language page, offering help with writing and everyday questions.",
+   "dialect": "Page written in Yiddish for a frum audience",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://tachlisai.com/yi/kosher-ai-texting"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "verterbukh",
+   "sections": [
+    "yi-writing"
+   ],
+   "name": "Verterbukh (Comprehensive Yiddish-English Dictionary)",
+   "url": "https://www.verterbukh.org/",
+   "by": "Verterbukh.org",
+   "category": "Online dictionary",
+   "description": "Comprehensive Yiddish–English online dictionary; a reference for writing/translation (not AI).",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://www.verterbukh.org/"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "yiddish-tools",
+   "sections": [
+    "yi-writing",
+    "yi-translation",
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "Yiddish Tools (yiddish.tools)",
+   "url": "https://yiddish.tools/",
+   "by": "Yiddish Tools (company; HF org YiddishTools)",
+   "category": "Offline Windows suite: dictation, translation, nikud, TTS",
+   "description": "Paid, private, offline Windows tools: Dictation (ASR), translation, nikud and 'Speak' natural Yiddish TTS (read-along, nikud editor, up to ~20k chars), plus a free browser playground. Business licenses include on-prem weights.",
+   "dialect": "Not stated",
+   "metrics": "not published for the product; its public ONNX builds of ivrit.ai models publish CER/WER (see benchmarks)",
+   "sources": [
+    "https://yiddish.tools/",
+    "https://yiddish.tools/guides/speak",
+    "https://yiddish.tools/guides/transcribe-files",
+    "https://huggingface.co/YiddishTools"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "google-translate",
+   "sections": [
+    "yi-translation"
+   ],
+   "name": "Google Translate / Cloud Translation",
+   "url": "https://cloud.google.com/translate/docs/languages",
+   "by": "Google",
+   "category": "Commercial MT",
+   "description": "Yiddish (code 'yi') is in the official Cloud Translation supported-languages list.",
+   "metrics": "not published (per language)",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://cloud.google.com/translate/docs/languages"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "nllb",
+   "sections": [
+    "yi-translation"
+   ],
+   "name": "NLLB-200 (ydd_Hebr)",
+   "url": "https://huggingface.co/facebook/nllb-200-distilled-600M",
+   "by": "Meta AI",
+   "category": "Open MT model (non-commercial)",
+   "open_source": "yes",
+   "license": "CC-BY-NC-4.0",
+   "description": "No Language Left Behind models include Eastern Yiddish (ydd_Hebr). Base for YiddishTools' fine-tuned ONNX builds.",
+   "metrics": "Meta publishes FLORES-200 per-language scores (not extracted here)",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "sources": [
+    "https://huggingface.co/facebook/nllb-200-distilled-600M"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "yt-nllb-onnx",
+   "sections": [
+    "yi-translation"
+   ],
+   "name": "YiddishTools NLLB-200 yi↔en ONNX (600M / 1.3B)",
+   "url": "https://huggingface.co/YiddishTools/nllb-200-1.3B-yi-en-ONNX",
+   "by": "Yiddish Tools",
+   "category": "Open MT (browser, non-commercial)",
+   "open_source": "yes",
+   "license": "CC-BY-NC-4.0",
+   "description": "NLLB fine-tuned for Yiddish↔English (machine + Tatoeba human pairs), quantised for the browser via transformers.js. The card warns it is a draft translator that can confidently get concrete nouns wrong.",
+   "metrics": "qualitative only on card (paper 'forthcoming')",
+   "sources": [
+    "https://huggingface.co/YiddishTools/nllb-200-1.3B-yi-en-ONNX",
+    "https://huggingface.co/YiddishTools/nllb-200-600M-yi-en-ONNX"
+   ],
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "subcat": ""
+  },
+  {
+   "id": "mameloshnlm",
+   "sections": [
+    "yi-translation",
+    "yi-other"
+   ],
+   "subcat": "Models & LLMs",
+   "name": "MameLoshnLM (8B)",
+   "url": "https://huggingface.co/Yiddish-NLP/MameLoshnLM",
+   "by": "Uri Katz, Omer Goldman, Tomasz Limisiewicz, Reut Tsarfaty, Noah A. Smith (Yiddish-NLP)",
+   "category": "Yiddish LLM (base, non-commercial)",
+   "open_source": "yes",
+   "repo": "https://github.com/katzurik/MameLoshnLM",
+   "license": "CC-BY-NC-4.0 + Llama 3.1 license",
+   "description": "Llama-3.1-8B continued-pretrained on curated native Yiddish (web + literary). The first large generative LM adapted specifically to Yiddish; base (not instruct) model. Released with the Kashes benchmark.",
+   "metrics": "COMET En→Yi 78.5 (FLORES+) / 75.3 (Kashes-mt); Yi→En 87.2 / 79.5; suite average 62.6 vs Llama-3.1-8B 56.8 and Qwen3-8B 54.7",
+   "sources": [
+    "https://huggingface.co/Yiddish-NLP/MameLoshnLM",
+    "https://arxiv.org/abs/2608.05850",
+    "https://github.com/katzurik/MameLoshnLM"
+   ],
+   "status": "active",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": ""
+  },
+  {
+   "id": "lingvanex",
+   "sections": [
+    "yi-translation"
+   ],
+   "name": "Lingvanex en↔yi models",
+   "url": "https://huggingface.co/lingvanex/english-to-yiddish-translation",
+   "by": "Lingvanex",
+   "category": "Open MT (CTranslate2)",
+   "open_source": "yes",
+   "license": "MIT (per card)",
+   "description": "Pre-trained English→Yiddish and Yiddish→English CTranslate2 models.",
+   "metrics": "not published on card",
+   "sources": [
+    "https://huggingface.co/lingvanex/english-to-yiddish-translation",
+    "https://huggingface.co/lingvanex/yiddish-to-english-translation"
+   ],
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "subcat": ""
+  },
+  {
+   "id": "apertium-yid",
+   "sections": [
+    "yi-translation"
+   ],
+   "name": "apertium-yid",
+   "url": "https://github.com/apertium/apertium-yid",
+   "by": "Apertium",
+   "category": "Rule-based MT linguistic data",
+   "open_source": "yes",
+   "repo": "https://github.com/apertium/apertium-yid",
+   "license": "GPL-3.0",
+   "description": "Apertium monolingual linguistic data (morphology) for Yiddish; a building block for rule-based MT.",
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "sources": [
+    "https://github.com/apertium/apertium-yid"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "marianmt-he2yid",
+   "sections": [
+    "yi-translation"
+   ],
+   "name": "marianmt-he2yid-tanakh (Space)",
+   "url": "https://huggingface.co/spaces/johnlockejrr/marianmt-he2yid-tanakh",
+   "by": "John Locke (johnlockejrr)",
+   "category": "Hebrew→Yiddish MT demo",
+   "open_source": "yes",
+   "status": "beta",
+   "description": "MarianMT demo translating Biblical Hebrew to Yiddish.",
+   "unverified": true,
+   "notes": "Space exists; output not tested.",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://huggingface.co/spaces/johnlockejrr/marianmt-he2yid-tanakh"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "heimish-translate",
+   "sections": [
+    "yi-translation"
+   ],
+   "name": "Yiddish-translate (English → Heimish Yiddish)",
+   "url": "https://github.com/halavlur/Yiddish-translate",
+   "by": "halavlur",
+   "category": "LLM-based translator",
+   "open_source": "yes",
+   "repo": "https://github.com/halavlur/Yiddish-translate",
+   "description": "English to 'Heimish' Yiddish translator powered by the Google Gemini API.",
+   "dialect": "Hasidic (claimed)",
+   "status": "active",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/halavlur/Yiddish-translate"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "yiddishkeit-skill",
+   "sections": [
+    "yi-translation"
+   ],
+   "name": "yiddishkeit-skill (Claude Code skill)",
+   "url": "https://github.com/xFreed0m/yiddishkeit-skill",
+   "by": "xFreed0m",
+   "category": "LLM prompt/skill",
+   "open_source": "yes",
+   "repo": "https://github.com/xFreed0m/yiddishkeit-skill",
+   "description": "Claude Code skill that translates social-media posts into Hasidic Yiddish.",
+   "dialect": "Hasidic (claimed)",
+   "status": "active",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/xFreed0m/yiddishkeit-skill"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "yiddish-pdf-translator",
+   "sections": [
+    "yi-translation"
+   ],
+   "name": "yiddish-translator (PDF books via Claude)",
+   "url": "https://github.com/fryanpan/yiddish-translator",
+   "by": "fryanpan",
+   "category": "LLM-based CLI",
+   "open_source": "yes",
+   "repo": "https://github.com/fryanpan/yiddish-translator",
+   "description": "CLI that translates Yiddish PDF books into English using Claude.",
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/fryanpan/yiddish-translator"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "general-llms",
+   "sections": [
+    "yi-translation",
+    "yi-writing"
+   ],
+   "name": "General LLMs (Claude, Gemini, GPT, Qwen) – community notes",
+   "url": "https://chabadlabs.ai/wiki-topics-hebrew-yiddish",
+   "by": "ChabadLabs wiki (community)",
+   "category": "Community guidance",
+   "description": "Community wiki notes (2026): Qwen strong for word-level Hebrew/Yiddish translation with etymology; Claude rated best at Yiddish among LLMs tested; Yiddish OCR harder than Hebrew. Anecdotal, not a benchmark.",
+   "metrics": "anecdotal only",
+   "notes": "For measured LLM numbers see MameLoshnLM/Kashes.",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "unverified": false,
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://chabadlabs.ai/wiki-topics-hebrew-yiddish"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "reyd",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "TTS",
+   "name": "REYD – first Yiddish TTS dataset & system",
+   "url": "https://github.com/REYD-TTS",
+   "by": "Jacob J. Webber, Samuel Lo, Isaac L. Bleaman (Edinburgh / Berkeley)",
+   "category": "Open TTS (FastSpeech2) + corpus",
+   "open_source": "yes",
+   "repo": "https://github.com/REYD-TTS/FastSpeech2",
+   "license": "MIT (code)",
+   "description": "Interspeech 2022: FastSpeech2 trained on ~8 h / 4,892 hand-corrected utterances from Yiddish Book Center audiobooks (3 speakers); pretrained multi-speaker checkpoints for 3 orthographies incl. 'hasidic' spelling; text/segmentation pipeline and MFA TextGrids released.",
+   "dialect": "Voices: Litvish & Poylish literary (not a Hasidic accent); input orthographies incl. YIVO and Hasidic",
+   "metrics": "MUSHRA-style listening test (intelligibility & naturalness) shown in a paper figure; no single MOS number",
+   "sources": [
+    "https://github.com/REYD-TTS",
+    "https://www.isca-archive.org/interspeech_2022/webber22_interspeech.html",
+    "https://github.com/REYD-TTS/FastSpeech2",
+    "https://www.research.ed.ac.uk/en/datasets/reyd-yiddish-tts-corpus/"
+   ],
+   "status": "active",
+   "unverified": false,
+   "notes": "",
+   "name_native": ""
+  },
+  {
+   "id": "avremi",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "TTS",
+   "name": "Avremi (Loqal / Sorato)",
+   "url": "https://loqal.digital/yiddish-tts",
+   "by": "Sorato Group / Loqal",
+   "category": "Open TTS voice (Piper VITS)",
+   "open_source": "yes",
+   "repo": "https://github.com/SoratoGroup/avremi-voice",
+   "license": "see repo (GitHub reports NOASSERTION)",
+   "description": "Piper VITS voice (~63 MB, CPU, sherpa-onnx compatible) built on the REYD dataset. The pipeline normalizes Hasidic/Soviet spelling to YIVO, romanizes with the `yiddish` lib, then respells for the German espeak phonemizer. Web demo with Avremi/Rivka/Mendel voices.",
+   "dialect": "Accepts YIVO, Hasidic or mixed spelling; REYD-derived (literary) voice",
+   "metrics": "not published",
+   "sources": [
+    "https://loqal.digital/yiddish-tts",
+    "https://github.com/SoratoGroup/avremi-voice"
+   ],
+   "status": "active",
+   "unverified": false,
+   "notes": "",
+   "name_native": ""
+  },
+  {
+   "id": "phonikud-yi-tts",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "TTS",
+   "name": "Phonikud-yi TTS (blue_yi) Space + engine",
+   "url": "https://huggingface.co/spaces/notmax123/phonikud-yi-blue-tts",
+   "by": "Maxim Melichov (notmax123), member of Kohn-AI / Yiddish-AI HF orgs",
+   "category": "Open G2P + TTS API demo",
+   "open_source": "yes",
+   "status": "beta",
+   "description": "Hasidic (Unterland/Central) Yiddish TTS: Phonikud-style nikud restoration + lexicon/rule G2P to IPA, then a Yiddish-trained flow-matching voice at 44.1 kHz; OpenAI-style /v1/audio/speech API. The app notes that the bundled speakers are English readers (foreign vowel colour).",
+   "dialect": "Hasidic (Unterland/Central)",
+   "metrics": "not published",
+   "sources": [
+    "https://huggingface.co/spaces/notmax123/phonikud-yi-blue-tts",
+    "https://huggingface.co/notmax123/phonikud-yi-engine"
+   ],
+   "repo": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "phonikud-yi",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "TTS",
+   "name": "Phonikud-yi (G2P for Hasidic Yiddish)",
+   "url": "https://github.com/Abe1018776/Phonikud-yi",
+   "by": "Chezky Kohn (directory author) / Kohn-AI",
+   "category": "Open G2P (text → nikud → IPA)",
+   "open_source": "yes",
+   "repo": "https://github.com/Abe1018776/Phonikud-yi",
+   "description": "Adaptation of Phonikud to Hasidic Yiddish, supervised by native-speaker verdicts + pronounced audio; built to label a ~197 h podcast corpus for TTS.",
+   "dialect": "Hasidic (Unterland/Central)",
+   "metrics": "nikud word acc 99.94% in-distribution / 78.31% OOD (409 words), self-reported",
+   "notes": "Author's own project.",
+   "status": "active",
+   "unverified": false,
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/Abe1018776/Phonikud-yi"
+   ]
+  },
+  {
+   "id": "phonikud",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "TTS",
+   "name": "Phonikud (Hebrew G2P + TTS)",
+   "url": "https://phonikud.github.io/",
+   "by": "Yakov Kolani, Maxim Melichov, Cobi Calev, Morris Alper",
+   "category": "Open Hebrew G2P/TTS (Interspeech 2026)",
+   "open_source": "yes",
+   "repo": "https://github.com/phonikud/phonikud",
+   "description": "Hebrew grapheme-to-phoneme via diacritization for real-time TTS; the method Phonikud-yi adapts. Relevant for loshn-koydesh words.",
+   "sources": [
+    "https://phonikud.github.io/",
+    "https://github.com/phonikud/phonikud",
+    "https://arxiv.org/abs/2506.12311"
+   ],
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "yiddishlabs",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "TTS",
+   "name": "YiddishLabs (TTS + transcription API)",
+   "url": "https://app.yiddishlabs.com/developer/api-docs",
+   "by": "YiddishLabs (desktop releases repo under GitHub org super-i-technologies)",
+   "category": "Commercial ASR + TTS + API",
+   "description": "Hosted Yiddish transcription (MP3/WAV/M4A/OGG/FLAC, language=yi, timestamps) and TTS (voice list + /api/v1/speech) behind paid API keys; web and desktop apps. A forum user found its transcription good but expensive.",
+   "dialect": "Not stated",
+   "metrics": "not published",
+   "sources": [
+    "https://app.yiddishlabs.com/developer/api-docs",
+    "https://app.yiddishlabs.com/",
+    "https://github.com/super-i-technologies/yiddish-labs-desktop-releases",
+    "https://jtechforums.org/t/yiddish-transcription-through-ai/5937"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "hershy-weights",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "TTS",
+   "name": "Yiddish Piper / GPT-SoVITS weights + F5 ear test",
+   "url": "https://huggingface.co/hershykohn/yiddish-piper-weights",
+   "by": "Naftali Kohn (HF: hershykohn)",
+   "category": "Open TTS experiments",
+   "open_source": "yes",
+   "status": "beta",
+   "description": "Public HF repos with Yiddish Piper and GPT-SoVITS weights and a static F5-TTS listening ('ear test') Space. Model cards are empty.",
+   "metrics": "not published",
+   "unverified": true,
+   "sources": [
+    "https://huggingface.co/hershykohn/yiddish-piper-weights",
+    "https://huggingface.co/hershykohn/yiddish-gptsovits-weights",
+    "https://huggingface.co/spaces/hershykohn/yiddish-f5-eartest"
+   ],
+   "repo": "",
+   "dialect": "",
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "mendel-csm",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "TTS",
+   "name": "yiddish-csm-lora",
+   "url": "https://huggingface.co/mendelg/yiddish-csm-lora-2c60b4a0",
+   "by": "mendelg (member of Kohn-AI / Yiddish-AI HF orgs)",
+   "category": "TTS LoRA experiment",
+   "open_source": "yes",
+   "license": "apache-2.0",
+   "status": "beta",
+   "description": "LoRA fine-tune of Sesame CSM-1B (via Unsloth) named for Yiddish; the card is the generic Unsloth template (no data or metrics).",
+   "metrics": "not published",
+   "unverified": true,
+   "repo": "",
+   "dialect": "",
+   "notes": "",
+   "name_native": "",
+   "sources": [
+    "https://huggingface.co/mendelg/yiddish-csm-lora-2c60b4a0"
+   ]
+  },
+  {
+   "id": "reyd-space",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "TTS",
+   "name": "reyd-yiddish-tts (Space)",
+   "url": "https://huggingface.co/spaces/samadeus/reyd-yiddish-tts",
+   "by": "Yakov Shlezinger (samadeus)",
+   "category": "TTS demo",
+   "status": "archived",
+   "open_source": "yes",
+   "description": "Gradio demo of REYD Yiddish TTS. The Space was in RUNTIME_ERROR state when checked.",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://huggingface.co/spaces/samadeus/reyd-yiddish-tts"
+   ]
+  },
+  {
+   "id": "ttsyiddish",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "TTS",
+   "name": "TTSYiddish (dataset-building scripts)",
+   "url": "https://github.com/rexelardo/TTSYiddish",
+   "by": "rexelardo",
+   "category": "Hobby TTS data tooling",
+   "open_source": "yes",
+   "repo": "https://github.com/rexelardo/TTSYiddish",
+   "status": "beta",
+   "description": "Personal workflow: subtitle-based audio segmenter and TTS-dataset export notebooks; no model released.",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/rexelardo/TTSYiddish"
+   ]
+  },
+  {
+   "id": "shmooz-ai",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Community & orgs",
+   "name": "Shmooz AI",
+   "url": "https://shmooz.ai/",
+   "by": "Shmooz AI",
+   "category": "WhatsApp/Telegram AI assistant (Hebrew/English)",
+   "description": "Multi-model AI assistant (GPT/Claude/Gemini, images, video, text-to-voice) on WhatsApp/Telegram/web, aimed at Hebrew speakers. No Yiddish support documented on its site, and no public GitHub/Hugging Face repos found for it.",
+   "dialect": "n/a (no Yiddish documented)",
+   "notes": "GitHub search for 'shmooz' repos/users and HF search returned only unrelated projects (e.g., shmooz-in landing page, chmouel/shmooz Wayland tool).",
+   "sources": [
+    "https://shmooz.ai/",
+    "https://shmooz.ai/help"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "metrics": "",
+   "unverified": false,
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "ivrit-yi-whisper",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "ivrit.ai yi-whisper-large-v3 (+turbo, CT2, GGML)",
+   "url": "https://huggingface.co/ivrit-ai/yi-whisper-large-v3",
+   "by": "ivrit.ai (nonprofit)",
+   "category": "Open ASR model",
+   "open_source": "yes",
+   "repo": "https://github.com/ivrit-ai/asr-training",
+   "license": "Apache-2.0",
+   "description": "Whisper large-v3 and v3-turbo continued-trained on ~78 h crowd recital + ~19 h WhatsApp Yiddish (Oct 2025). The Yiddish language token must be forced; translation is degraded. The de-facto open baseline most other Yiddish ASR builds on.",
+   "dialect": "Crowd-sourced speakers (mixed); not Hasidic-specific",
+   "metrics": "not published by ivrit.ai; third-party numbers in the benchmark table",
+   "sources": [
+    "https://huggingface.co/ivrit-ai/yi-whisper-large-v3",
+    "https://huggingface.co/ivrit-ai/yi-whisper-large-v3-turbo",
+    "https://huggingface.co/ivrit-ai/yi-whisper-large-v3-ct2"
+   ],
+   "status": "active",
+   "unverified": false,
+   "notes": "",
+   "name_native": ""
+  },
+  {
+   "id": "yt-whisper-onnx",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "YiddishTools yi-whisper ONNX (browser)",
+   "url": "https://huggingface.co/YiddishTools/yi-whisper-large-v3-ONNX",
+   "by": "Yiddish Tools",
+   "category": "Browser ASR (format conversion)",
+   "open_source": "yes",
+   "license": "Apache-2.0",
+   "description": "ONNX/transformers.js builds of the ivrit.ai Yiddish Whisper models so audio never leaves the device; no retraining.",
+   "metrics": "large-v3: ~17% CER / 32% WER; turbo q4: ~25% CER / 32% WER (6 min hard oral history, greedy)",
+   "sources": [
+    "https://huggingface.co/YiddishTools/yi-whisper-large-v3-ONNX",
+    "https://huggingface.co/YiddishTools/yi-whisper-large-v3-turbo-ONNX"
+   ],
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": ""
+  },
+  {
+   "id": "rebbe-asr",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "Rebbe Yiddish ASR",
+   "url": "https://github.com/golanbenoni/rebbe-yiddish-asr",
+   "by": "Golan Benoni (with The Daily Sicha data)",
+   "category": "Fine-tuned Whisper + pipeline (code & docs public)",
+   "open_source": "partial",
+   "repo": "https://github.com/golanbenoni/rebbe-yiddish-asr",
+   "description": "Fine-tunes Whisper (turbo & large) on the Rebbe's farbrengens paired with published hanachos (~153 h of training clips; v5 roughly doubles it). Rigorous published evaluation; recordings, texts and model outputs are not public.",
+   "dialect": "Chabad (Lubavitcher Rebbe's Yiddish, heavy loshn-koydesh; single speaker)",
+   "metrics": "Best whole-file test WER 0.080 / CER 0.045 (20 held-out days); stock Yiddish Whisper large-v3 ≈0.57 WER on the same domain",
+   "sources": [
+    "https://github.com/golanbenoni/rebbe-yiddish-asr",
+    "https://golanbenoni.github.io/rebbe-yiddish-asr/"
+   ],
+   "status": "active",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "sicha-to-text",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "Sicha to Text (offline Mac)",
+   "url": "https://github.com/MMS-HM/sicha-to-text",
+   "by": "MMS-HM",
+   "category": "Offline ASR app (whisper.cpp)",
+   "open_source": "yes",
+   "repo": "https://github.com/MMS-HM/sicha-to-text",
+   "license": "Apache-2.0",
+   "description": "Apple-Silicon offline transcription of sichos using whisper.cpp with a modified ivrit-ai/yi-whisper-large-v3 (q5_0). ~9x real-time on M5; warns that niggunim cause repetition loops.",
+   "dialect": "Chabad sichos",
+   "metrics": "not published (speed only)",
+   "status": "active",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "sources": [
+    "https://github.com/MMS-HM/sicha-to-text"
+   ]
+  },
+  {
+   "id": "omniasr",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "Meta Omnilingual ASR (ydd_Hebr)",
+   "url": "https://github.com/facebookresearch/omnilingual-asr",
+   "by": "Meta AI (FAIR)",
+   "category": "Open multilingual ASR (1,600+ languages)",
+   "open_source": "yes",
+   "repo": "https://github.com/facebookresearch/omnilingual-asr",
+   "description": "Supports Eastern Yiddish (ydd_Hebr). Meta's per-language table for the 7B LLM-ASR model lists 12.8 training hours for Yiddish.",
+   "metrics": "CER 15.8 (7B LLM-ASR, Meta's held-out test)",
+   "dialect": "Not specified",
+   "sources": [
+    "https://github.com/facebookresearch/omnilingual-asr",
+    "https://github.com/facebookresearch/omnilingual-asr/blob/main/per_language_results_table_7B_llm_asr.csv",
+    "https://huggingface.co/facebook/omniASR-LLM-7B",
+    "https://arxiv.org/abs/2511.09690"
+   ],
+   "status": "active",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "whisper-stock",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "OpenAI Whisper (stock)",
+   "url": "https://github.com/openai/whisper",
+   "by": "OpenAI",
+   "category": "Open multilingual ASR",
+   "open_source": "yes",
+   "repo": "https://github.com/openai/whisper",
+   "license": "MIT",
+   "description": "Whisper's tokenizer includes Yiddish ('yi'). Forum users report poor results on Hasidic speech without fine-tuning.",
+   "metrics": "not published for Yiddish",
+   "sources": [
+    "https://github.com/openai/whisper/blob/main/whisper/tokenizer.py",
+    "https://jtechforums.org/t/yiddish-transcription-through-ai/5937"
+   ],
+   "status": "active",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": ""
+  },
+  {
+   "id": "dervort",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "DerVort",
+   "name_native": "דער וואָרט",
+   "url": "https://dervort.com/",
+   "by": "DerVort",
+   "category": "Dictation (talk-to-text) + transcription",
+   "status": "beta",
+   "description": "Hold-a-key dictation that types clean Yiddish/English text into any app, plus file transcription; 'Yiddish Chat', 'Yiddish Talk', 'Document to Speech' and 'Yiddish Notebook' listed as coming soon. The site banner says it is under construction.",
+   "dialect": "Claims 'Heimish Yiddish'",
+   "metrics": "not published",
+   "open_source": "no",
+   "repo": "",
+   "unverified": false,
+   "notes": "",
+   "license": "",
+   "sources": [
+    "https://dervort.com/"
+   ]
+  },
+  {
+   "id": "es2814207",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "Community Yiddish Whisper fine-tunes (es2814207)",
+   "url": "https://huggingface.co/es2814207/whisper-large-v2-yiddish-ivrit-ai",
+   "by": "es2814207 (HF)",
+   "category": "Open ASR experiments + data-collection Space",
+   "open_source": "yes",
+   "status": "beta",
+   "description": "Whisper fine-tunes and a Yiddish data-collection Space; cards contain little detail.",
+   "metrics": "not published",
+   "unverified": true,
+   "sources": [
+    "https://huggingface.co/es2814207/whisper-large-v2-yiddish-ivrit-ai",
+    "https://huggingface.co/spaces/es2814207/yiddish-data-collection"
+   ],
+   "repo": "",
+   "dialect": "",
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "w2v-bert-yi",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "w2v-BERT 2.0 Yiddish models (REYD / Northeastern)",
+   "url": "https://huggingface.co/ibleaman/w2v-bert-2.0-yiddish-northeastern",
+   "by": "Isaac L. Bleaman; Jacob Webber",
+   "category": "Open ASR experiments",
+   "open_source": "yes",
+   "status": "beta",
+   "description": "w2v-BERT 2.0 models tagged automatic-speech-recognition: one 'northeastern' (Litvish), one trained on REYD. Cards are empty.",
+   "dialect": "Northeastern (Litvish) / REYD literary",
+   "metrics": "not published",
+   "unverified": true,
+   "sources": [
+    "https://huggingface.co/ibleaman/w2v-bert-2.0-yiddish-northeastern",
+    "https://huggingface.co/jacobjwebber/w2v-bert-2.0-yiddish_reyd"
+   ],
+   "repo": "",
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "ivrit-runpod-yi",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "ivrit-runpod-yi",
+   "url": "https://github.com/smrtesy/ivrit-runpod-yi",
+   "by": "smrtesy",
+   "category": "Serverless deployment",
+   "open_source": "yes",
+   "repo": "https://github.com/smrtesy/ivrit-runpod-yi",
+   "description": "RunPod serverless worker running Yiddish whisper-large-v3 (for an archive of the Rebbe's 'dollars' recordings).",
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/smrtesy/ivrit-runpod-yi"
+   ]
+  },
+  {
+   "id": "yi-audio-align",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "yiddish-audio-alignment & JEM ASR hub",
+   "url": "https://github.com/Abe1018776/yiddish-audio-alignment",
+   "by": "Chezky Kohn (directory author)",
+   "category": "Alignment tooling / project hub",
+   "open_source": "yes",
+   "repo": "https://github.com/Abe1018776/yiddish-audio-alignment",
+   "description": "Yiddish audio–text alignment with stable-ts (adapted from ivrit.ai) and a public hub repo for the JEM Yiddish ASR project.",
+   "notes": "Author's own projects.",
+   "sources": [
+    "https://github.com/Abe1018776/yiddish-audio-alignment",
+    "https://github.com/Abe1018776/jem-asr-hub"
+   ],
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "clean-transcripts",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "ASR",
+   "name": "clean-yiddish-transcripts",
+   "url": "https://github.com/Shloimy15e/clean-yiddish-transcripts",
+   "by": "Shloimy15e",
+   "category": "ASR data prep",
+   "open_source": "yes",
+   "repo": "https://github.com/Shloimy15e/clean-yiddish-transcripts",
+   "description": "Web app that strips titles, narrator notes, timestamps and editorial markers from Yiddish transcripts to get clean spoken text for training.",
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/Shloimy15e/clean-yiddish-transcripts"
+   ]
+  },
+  {
+   "id": "jochre3",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "OCR & HTR",
+   "name": "Jochre 3 + Yiddish Book Center OCR search",
+   "url": "https://ocr.yiddishbookcenter.org/",
+   "by": "Assaf Urieli (Joliciel Informatique) with the Yiddish Book Center",
+   "category": "Open OCR engine + full-text search",
+   "open_source": "yes",
+   "repo": "https://github.com/joliciel-informatique/jochre3-ocr",
+   "license": "AGPL-3.0",
+   "description": "Full-text OCR search over the Steven Spielberg Digital Yiddish Library, with crowd corrections. The Jochre 3 paper releases a Yiddish OCR corpus (658 pages).",
+   "metrics": "CER 1.5% (Jochre 3) vs Jochre 2 17.0%, Transkribus DiJeST 19.9%, Tesseract Yiddish 9.0% on the corpus test set",
+   "sources": [
+    "https://ocr.yiddishbookcenter.org/",
+    "https://www.yiddishbookcenter.org/about/news/yiddish-ocr-live",
+    "https://arxiv.org/abs/2501.08442",
+    "https://github.com/joliciel-informatique/jochre3-ocr"
+   ],
+   "status": "active",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": ""
+  },
+  {
+   "id": "vilnish",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "OCR & HTR",
+   "name": "VILNISH / Vilne Yiddish HTR (Kraken)",
+   "url": "https://www.if.vu.lt/en/yiddishtextrecognition",
+   "by": "Sergii Gurbych, Vilnius University Faculty of History",
+   "category": "HTR service + open model/dataset",
+   "open_source": "partial",
+   "repo": "https://github.com/SergeyGurbich/kraken-htr-vilne-hand-1",
+   "description": "Service recognising handwritten & historical printed Yiddish and Hebrew (with translation into English/Lithuanian). Open Kraken model for interwar Vilnius handwriting trained on 205 YIVO/Lithuanian archive pages (Zenodo).",
+   "sources": [
+    "https://www.if.vu.lt/en/yiddishtextrecognition",
+    "https://www.vu.lt/en/all-news/vilnish-a-new-service-for-recognising-yiddish-and-hebrew-historical-texts",
+    "https://github.com/SergeyGurbich/kraken-htr-vilne-hand-1"
+   ],
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "mattingly-ocr",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "OCR & HTR",
+   "name": "Yiddish OCR/HTR models (Mattingly)",
+   "url": "https://huggingface.co/wjbmattingly/Qwen3-VL-8B-yiddish-3-epochs",
+   "by": "William Mattingly (Yale / Smithsonian)",
+   "category": "Open OCR models (Kraken, TrOCR, VLMs)",
+   "open_source": "yes",
+   "status": "beta",
+   "description": "Kraken, TrOCR, LFM2-VL-450M and Qwen3-VL-8B Yiddish fine-tunes plus a YOLO layout Space.",
+   "metrics": "Qwen3-VL-8B-yiddish card: CER 25.34% → 3.94%, WER 72.28% → 4.79% (base → fine-tuned, card's eval set)",
+   "sources": [
+    "https://huggingface.co/wjbmattingly/Qwen3-VL-8B-yiddish-3-epochs",
+    "https://huggingface.co/wjbmattingly/kraken-yiddish",
+    "https://huggingface.co/wjbmattingly/lfm2-vl-450M-yiddish"
+   ],
+   "repo": "",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "yiddish-synth",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "OCR & HTR",
+   "name": "yiddish_synth OCR datasets + PyLaia model",
+   "url": "https://huggingface.co/datasets/johnlockejrr/yiddish_synth",
+   "by": "John Locke (johnlockejrr)",
+   "category": "Synthetic OCR data",
+   "open_source": "yes",
+   "description": "Synthetic Yiddish line-image/text datasets (v1 public, ~152k rows; v2 gated) and a PyLaia model trained on them.",
+   "metrics": "PyLaia best val CER ≈0.09% on synthetic data (card)",
+   "sources": [
+    "https://huggingface.co/datasets/johnlockejrr/yiddish_synth",
+    "https://huggingface.co/johnlockejrr/pylaia-yiddish_synth_pytorch_2"
+   ],
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "viciebski",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "OCR & HTR",
+   "name": "Viciebski Pralietaryj Yiddish blocks",
+   "url": "https://huggingface.co/datasets/VItaldob/viciebski-pralietaryj-yiddish",
+   "by": "VItaldob",
+   "category": "Unlabelled OCR/HTR image corpus",
+   "open_source": "yes",
+   "license": "public domain (per card)",
+   "description": "2,684 text-block images from 1930s Vitebsk Yiddish newspaper pages; no transcriptions.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "sources": [
+    "https://huggingface.co/datasets/VItaldob/viciebski-pralietaryj-yiddish"
+   ]
+  },
+  {
+   "id": "marinelives",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "OCR & HTR",
+   "name": "MarineLives Yiddish HTR-correction experiments",
+   "url": "https://huggingface.co/datasets/MarineLives/Gavin_yiddish_raw_HTR_and_groundtruth_paragraphs",
+   "by": "MarineLives / Addaci",
+   "category": "HTR post-correction (ByT5/mBERT)",
+   "open_source": "yes",
+   "status": "archived",
+   "description": "Raw HTR vs ground-truth Yiddish datasets and ByT5/mBERT correction experiments (Dec 2024); demo Spaces in runtime error.",
+   "sources": [
+    "https://huggingface.co/datasets/MarineLives/Gavin_yiddish_raw_HTR_and_groundtruth_paragraphs",
+    "https://huggingface.co/spaces/MarineLives/yiddish-transcription-correction"
+   ],
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "ivrit-yi-data",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "ivrit.ai crowd-recital-yi / crowd-whatsapp-yi",
+   "url": "https://huggingface.co/datasets/ivrit-ai/crowd-recital-yi",
+   "by": "ivrit.ai",
+   "category": "Speech datasets (gated)",
+   "open_source": "partial",
+   "license": "custom ('other'), gated",
+   "description": "Crowd-sourced Yiddish read speech (~78 h) and WhatsApp prompts (~19 h), with Whisper-training variants. The main public Yiddish ASR training data.",
+   "sources": [
+    "https://huggingface.co/datasets/ivrit-ai/crowd-recital-yi",
+    "https://huggingface.co/datasets/ivrit-ai/crowd-whatsapp-yi"
+   ],
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": ""
+  },
+  {
+   "id": "commonvoice-yi",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "Mozilla Common Voice – Yiddish",
+   "url": "https://commonvoice.mozilla.org/yi",
+   "by": "Mozilla Foundation",
+   "category": "Open speech dataset (CC0)",
+   "open_source": "yes",
+   "license": "CC0",
+   "description": "The Yiddish locale is open for contributions.",
+   "metrics": "2.1 validated hours, 129 speakers (Common Voice stats API, 2026-10-20)",
+   "sources": [
+    "https://commonvoice.mozilla.org/yi",
+    "https://commonvoice.mozilla.org/api/v1/stats/languages"
+   ],
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": ""
+  },
+  {
+   "id": "williamsburg",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "Williamsburg Hasidic Yiddish Corpus",
+   "url": "https://huggingface.co/datasets/men-seg-1/williamsburg-hasidic-yiddish",
+   "by": "men-seg-1 (HF)",
+   "category": "Text corpus",
+   "open_source": "yes",
+   "license": "CC-BY-4.0",
+   "description": "Contemporary Williamsburg Hasidic Yiddish prose (history, geography, reference). Useful for TTS scripts and LM data.",
+   "dialect": "Hasidic (Williamsburg)",
+   "status": "active",
+   "repo": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "sources": [
+    "https://huggingface.co/datasets/men-seg-1/williamsburg-hasidic-yiddish"
+   ]
+  },
+  {
+   "id": "csye",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "Corpus of Spoken Yiddish in Europe – transcripts",
+   "url": "https://github.com/YiddishCorpus/CSYE-Transcripts",
+   "by": "YiddishCorpus",
+   "category": "Spoken-language transcripts",
+   "open_source": "yes",
+   "repo": "https://github.com/YiddishCorpus/CSYE-Transcripts",
+   "description": "Transcript files (reviewed/unreviewed) for the Corpus of Spoken Yiddish in Europe (dialect interviews).",
+   "dialect": "Many Eastern European dialects",
+   "status": "active",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/YiddishCorpus/CSYE-Transcripts"
+   ]
+  },
+  {
+   "id": "ud-yitb",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "UD Yiddish-YiTB treebank",
+   "url": "https://github.com/UniversalDependencies/UD_Yiddish-YiTB",
+   "by": "Universal Dependencies",
+   "category": "Treebank",
+   "open_source": "yes",
+   "description": "Universal Dependencies treebank for Yiddish (source for POS/parsing/lemma/transliteration tasks in Kashes).",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/UniversalDependencies/UD_Yiddish-YiTB"
+   ]
+  },
+  {
+   "id": "penn-yiddish",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "Penn Parsed Corpus of Historical Yiddish",
+   "url": "https://github.com/beatrice57/penn-parsed-corpus-of-historical-yiddish",
+   "by": "beatrice57",
+   "category": "Parsed historical corpus",
+   "open_source": "yes",
+   "description": "Parsed corpus of historical Yiddish, ~200,000 words.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/beatrice57/penn-parsed-corpus-of-historical-yiddish"
+   ]
+  },
+  {
+   "id": "intsayt",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "InTSaYT project (Scots & Yiddish treebanking)",
+   "url": "https://intsayt-project.github.io/",
+   "by": "ESRC/NSF-funded project (repo: joelcw)",
+   "category": "Research treebanking project",
+   "open_source": "yes",
+   "repo": "https://github.com/joelcw/intsayt",
+   "license": "GPL-3.0",
+   "description": "'INvestigating and Treebanking Scots And Yiddish Together': data and scripts; repo updated Oct 2026.",
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "sources": [
+    "https://intsayt-project.github.io/"
+   ]
+  },
+  {
+   "id": "yidracor",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "YiDraCor – Yiddish Drama Corpus",
+   "url": "https://github.com/dracor-org/yidracor",
+   "by": "DraCor",
+   "category": "TEI drama corpus",
+   "open_source": "yes",
+   "description": "Yiddish plays in the DraCor programmable-corpora infrastructure.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/dracor-org/yidracor"
+   ]
+  },
+  {
+   "id": "alpaca-yi",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "alpaca-yiddish (translated instructions)",
+   "url": "https://huggingface.co/datasets/saillab/alpaca-yiddish-cleaned",
+   "by": "SAIL Lab",
+   "category": "Instruction-tuning data",
+   "open_source": "yes",
+   "description": "Alpaca instructions machine-translated into Yiddish (TaCo project).",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://huggingface.co/datasets/saillab/alpaca-yiddish-cleaned"
+   ]
+  },
+  {
+   "id": "yi-extractor",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "yiddish-extractor",
+   "url": "https://github.com/Mordy-S/yiddish-extractor",
+   "by": "Mordy-S",
+   "category": "Corpus-building tool",
+   "open_source": "yes",
+   "description": "Builds a clean Yiddish sentence corpus from mixed documents, telling Yiddish apart from Hebrew and Aramaic.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/Mordy-S/yiddish-extractor"
+   ]
+  },
+  {
+   "id": "hebrish-sentences",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "Hebrish/Yiddish-Sentences",
+   "url": "https://huggingface.co/datasets/Hebrish/Yiddish-Sentences",
+   "by": "Hebrish (HF)",
+   "category": "Text dataset (gated)",
+   "open_source": "partial",
+   "unverified": true,
+   "description": "Gated dataset updated 2026-10-20; contents not inspectable without access.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://huggingface.co/datasets/Hebrish/Yiddish-Sentences"
+   ]
+  },
+  {
+   "id": "hebrew-ml-navigator",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Datasets & corpora",
+   "name": "hebrew-ml-datasets-navigator",
+   "url": "https://github.com/peleg-jpg/hebrew-ml-datasets-navigator",
+   "by": "peleg-jpg",
+   "category": "Landscape list",
+   "open_source": "yes",
+   "description": "Navigator for Hebrew and Yiddish ML datasets and models (ivrit.ai etc.).",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/peleg-jpg/hebrew-ml-datasets-navigator"
+   ]
+  },
+  {
+   "id": "kakugo",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Models & LLMs",
+   "name": "Kakugo 3B Eastern Yiddish",
+   "url": "https://huggingface.co/ptrdvn/kakugo-3B-ydd",
+   "by": "Peter Devine et al. (Edinburgh)",
+   "category": "Small chat LLM (distilled)",
+   "open_source": "yes",
+   "license": "apache-2.0",
+   "repo": "https://github.com/Peter-Devine/kakugo",
+   "description": "Granite-4.0-micro distilled on synthetic Eastern-Yiddish conversations (dataset ptrdvn/kakugo-ydd).",
+   "sources": [
+    "https://huggingface.co/ptrdvn/kakugo-3B-ydd",
+    "https://arxiv.org/abs/2601.14051",
+    "https://huggingface.co/datasets/ptrdvn/kakugo-ydd"
+   ],
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": ""
+  },
+  {
+   "id": "goldfish",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Models & LLMs",
+   "name": "Goldfish ydd_hebr",
+   "url": "https://huggingface.co/goldfish-models/ydd_hebr_full",
+   "by": "Tyler Chang et al.",
+   "category": "Small monolingual LMs",
+   "open_source": "yes",
+   "license": "apache-2.0",
+   "description": "Monolingual Eastern Yiddish LMs (5 MB–120 MB of data) built for comparability across 350 languages.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "sources": [
+    "https://huggingface.co/goldfish-models/ydd_hebr_full"
+   ]
+  },
+  {
+   "id": "yi-encoders",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Models & LLMs",
+   "name": "Yiddish encoder models (RoBERTa / XLM-R)",
+   "url": "https://huggingface.co/joegolk/yiddish-roberta-base",
+   "by": "joegolk; urieli",
+   "category": "Masked LMs",
+   "open_source": "yes",
+   "status": "beta",
+   "description": "A Yiddish RoBERTa-base and an XLM-R fine-tuned on Yiddish; minimal cards.",
+   "metrics": "not published",
+   "sources": [
+    "https://huggingface.co/joegolk/yiddish-roberta-base",
+    "https://huggingface.co/urieli/xlm-roberta-base-finetuned-yiddish"
+   ],
+   "repo": "",
+   "dialect": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "yiddishtag",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Models & LLMs",
+   "name": "yiddishtag (POS tagger)",
+   "url": "https://github.com/skulick/yiddishtag",
+   "by": "skulick",
+   "category": "POS tagger",
+   "open_source": "yes",
+   "description": "Part-of-speech tagger for Yiddish.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/skulick/yiddishtag"
+   ]
+  },
+  {
+   "id": "ivrit-ai",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Community & orgs",
+   "name": "ivrit.ai",
+   "url": "https://huggingface.co/ivrit-ai",
+   "by": "ivrit.ai (Israeli nonprofit)",
+   "category": "Open Hebrew/Yiddish speech org",
+   "open_source": "yes",
+   "repo": "https://github.com/ivrit-ai/asr-training",
+   "description": "Releases open Hebrew + Yiddish speech datasets and models, a Hebrew transcription leaderboard, a Hebrew TTS arena and free Hebrew transcription. The strongest open organization for Yiddish ASR data.",
+   "sources": [
+    "https://huggingface.co/ivrit-ai",
+    "https://www.ivrit.ai/",
+    "https://github.com/ivrit-ai/asr-training"
+   ],
+   "status": "active",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "yiddish-nlp",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Community & orgs",
+   "name": "Yiddish-NLP (HF org)",
+   "url": "https://huggingface.co/Yiddish-NLP",
+   "by": "MameLoshnLM authors",
+   "category": "Research org",
+   "open_source": "yes",
+   "description": "Hosts MameLoshnLM and the Kashes benchmark.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://huggingface.co/Yiddish-NLP"
+   ]
+  },
+  {
+   "id": "ybc",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Community & orgs",
+   "name": "Yiddish Book Center",
+   "url": "https://www.yiddishbookcenter.org/",
+   "by": "Yiddish Book Center (Amherst, MA)",
+   "category": "Library / archive / audio source",
+   "description": "Steven Spielberg Digital Yiddish Library (11,000+ titles), Yiddish audiobooks (source of the REYD TTS data), Wexler Oral History Project; Jochre-based OCR search.",
+   "sources": [
+    "https://www.yiddishbookcenter.org/",
+    "https://www.yiddishbookcenter.org/collections/digital-yiddish-library"
+   ],
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": ""
+  },
+  {
+   "id": "yivo",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Community & orgs",
+   "name": "YIVO Institute for Jewish Research",
+   "url": "https://yivo.org/",
+   "by": "YIVO",
+   "category": "Archive / standard orthography",
+   "description": "Home of the YIVO standard orthography; its archival pages helped train the Vilne Yiddish HTR model. No YIVO-run AI tool found.",
+   "notes": "AI involvement is via partners (e.g., VILNISH), not a YIVO product.",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://yivo.org/"
+   ]
+  },
+  {
+   "id": "jtech",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Community & orgs",
+   "name": "JTech Forums – 'Yiddish Transcription through AI'",
+   "url": "https://jtechforums.org/t/yiddish-transcription-through-ai/5937",
+   "by": "Frum tech community",
+   "category": "Community discussion",
+   "description": "2026 user reports comparing YiddishLabs, Sofer.ai, Whisper, Gemini and ivrit.ai models on Yiddish audio; spin-off threads on Yeshivish ASR data.",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://jtechforums.org/t/yiddish-transcription-through-ai/5937"
+   ]
+  },
+  {
+   "id": "chabadlabs",
+   "sections": [
+    "yi-other"
+   ],
+   "subcat": "Community & orgs",
+   "name": "ChabadLabs wiki – Hebrew & Yiddish",
+   "url": "https://chabadlabs.ai/wiki-topics-hebrew-yiddish",
+   "by": "ChabadLabs",
+   "category": "Community wiki",
+   "description": "Practical community guidance on Hebrew/Yiddish translation, transcription, OCR and TTS tools (2026).",
+   "status": "active",
+   "open_source": "no",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://chabadlabs.ai/wiki-topics-hebrew-yiddish"
+   ]
+  },
+  {
+   "id": "kashes",
+   "sections": [
+    "yi-bench"
+   ],
+   "name": "Kashes – Yiddish NLP benchmark",
+   "name_native": "קשיות",
+   "url": "https://huggingface.co/datasets/Yiddish-NLP/Kashes",
+   "by": "Yiddish-NLP (MameLoshnLM authors)",
+   "category": "Benchmark suite (text)",
+   "open_source": "yes",
+   "license": "CC-BY-NC-4.0",
+   "description": "Frozen eval sets: Kashes-mt and FLORES+ MT, UD POS/dependency/lemma/transliteration, NER (EHRI, WikiANN, newNLP), PIQA, PAWS-Wiki, WikiQA. The only Yiddish benchmark suite found on HF; no speech tasks.",
+   "sources": [
+    "https://huggingface.co/datasets/Yiddish-NLP/Kashes",
+    "https://arxiv.org/abs/2608.05850"
+   ],
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "subcat": ""
+  },
+  {
+   "id": "omni-table",
+   "sections": [
+    "yi-bench"
+   ],
+   "name": "OmniASR per-language results table",
+   "url": "https://github.com/facebookresearch/omnilingual-asr/blob/main/per_language_results_table_7B_llm_asr.csv",
+   "by": "Meta AI",
+   "category": "Published per-language ASR metrics",
+   "open_source": "yes",
+   "description": "CSV of training hours and CER per language for the 7B LLM-ASR model; includes ydd_Hebr (12.8 h, CER 15.8).",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://github.com/facebookresearch/omnilingual-asr/blob/main/per_language_results_table_7B_llm_asr.csv"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "jochre-corpus",
+   "sections": [
+    "yi-bench"
+   ],
+   "name": "Jochre 3 Yiddish OCR corpus",
+   "url": "https://arxiv.org/abs/2501.08442",
+   "by": "Urieli, Clooney, Sigiel, Leyfer",
+   "category": "OCR benchmark",
+   "open_source": "yes",
+   "description": "658-page / 186K-token corpus with OCR CER comparison across engines.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://arxiv.org/abs/2501.08442"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "ivrit-he-lb",
+   "sections": [
+    "yi-bench"
+   ],
+   "name": "ivrit.ai Hebrew transcription leaderboard (template)",
+   "url": "https://huggingface.co/spaces/ivrit-ai/hebrew-transcription-leaderboard",
+   "by": "ivrit.ai",
+   "category": "ASR leaderboard (Hebrew only)",
+   "open_source": "yes",
+   "description": "Hebrew-only WER leaderboard mixing open models and commercial APIs: the natural template for a Yiddish ASR leaderboard, which does not exist publicly yet.",
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "sources": [
+    "https://huggingface.co/spaces/ivrit-ai/hebrew-transcription-leaderboard"
+   ],
+   "subcat": ""
+  },
+  {
+   "id": "ivrit-tts-arena",
+   "sections": [
+    "yi-bench"
+   ],
+   "name": "ivrit.ai TTS Arena – Hebrew (template)",
+   "url": "https://huggingface.co/spaces/ivrit-ai/TTS-Arena-Hebrew",
+   "by": "ivrit.ai",
+   "category": "TTS preference arena (Hebrew only)",
+   "open_source": "yes",
+   "description": "Pairwise human-preference arena for Hebrew TTS (preferences dataset released). A template for a Yiddish TTS arena.",
+   "sources": [
+    "https://huggingface.co/spaces/ivrit-ai/TTS-Arena-Hebrew",
+    "https://huggingface.co/datasets/ivrit-ai/tts-arena-preferences"
+   ],
+   "status": "active",
+   "repo": "",
+   "dialect": "",
+   "metrics": "",
+   "unverified": false,
+   "notes": "",
+   "name_native": "",
+   "license": "",
+   "subcat": ""
+  }
+ ],
+ "benchmarks": [
+  {
+   "type": "ASR",
+   "system": "ivrit.ai yi-whisper-large-v3",
+   "access": "Open weights (Apache-2.0)",
+   "yi": "Yes",
+   "dialect": "Mixed crowd speakers",
+   "metric": "WER / CER",
+   "value": "not published by ivrit.ai",
+   "test": "—",
+   "source": "https://huggingface.co/ivrit-ai/yi-whisper-large-v3"
+  },
+  {
+   "type": "ASR",
+   "system": "ivrit.ai yi-whisper-large-v3 (YiddishTools ONNX build, greedy)",
+   "access": "Open weights",
+   "yi": "Yes",
+   "dialect": "Mixed",
+   "metric": "CER / WER",
+   "value": "~17% / 32%",
+   "test": "6 min hard oral-history audio (elderly speaker, tape noise)",
+   "source": "https://huggingface.co/YiddishTools/yi-whisper-large-v3-ONNX"
+  },
+  {
+   "type": "ASR",
+   "system": "ivrit.ai yi-whisper-large-v3-turbo (YiddishTools ONNX q4, greedy)",
+   "access": "Open weights",
+   "yi": "Yes",
+   "dialect": "Mixed",
+   "metric": "CER / WER",
+   "value": "~25% / 32%",
+   "test": "same 6 min oral-history set",
+   "source": "https://huggingface.co/YiddishTools/yi-whisper-large-v3-turbo-ONNX"
+  },
+  {
+   "type": "ASR",
+   "system": "ivrit.ai Yiddish Whisper large-v3 (untouched), Rebbe farbrengens",
+   "access": "Open weights",
+   "yi": "Yes",
+   "dialect": "Chabad, heavy loshn-koydesh",
+   "metric": "WER (whole recordings)",
+   "value": "≈0.57",
+   "test": "Rebbe farbrengens (rebbe-yiddish-asr README)",
+   "source": "https://github.com/golanbenoni/rebbe-yiddish-asr"
+  },
+  {
+   "type": "ASR",
+   "system": "Rebbe Yiddish ASR (Whisper turbo, full fine-tune)",
+   "access": "Code/docs public; weights not public",
+   "yi": "Yes",
+   "dialect": "Chabad (single speaker)",
+   "metric": "WER / CER (whole-file)",
+   "value": "0.080 / 0.045",
+   "test": "20 held-out days (488 clips)",
+   "source": "https://github.com/golanbenoni/rebbe-yiddish-asr"
+  },
+  {
+   "type": "ASR",
+   "system": "Meta Omnilingual ASR 7B LLM-ASR",
+   "access": "Open weights",
+   "yi": "Yes (ydd_Hebr)",
+   "dialect": "Not specified",
+   "metric": "CER",
+   "value": "15.8",
+   "test": "Meta held-out ydd_Hebr test (12.8 h training data)",
+   "source": "https://github.com/facebookresearch/omnilingual-asr/blob/main/per_language_results_table_7B_llm_asr.csv"
+  },
+  {
+   "type": "ASR",
+   "system": "OpenAI Whisper large-v3 (stock)",
+   "access": "Open weights / API",
+   "yi": "Yes (language token)",
+   "dialect": "—",
+   "metric": "WER",
+   "value": "not published for Yiddish",
+   "test": "—",
+   "source": "https://github.com/openai/whisper/blob/main/whisper/tokenizer.py"
+  },
+  {
+   "type": "ASR",
+   "system": "Meta MMS (ASR)",
+   "access": "Open weights",
+   "yi": "No (Yiddish = language ID only)",
+   "dialect": "—",
+   "metric": "—",
+   "value": "n/a",
+   "test": "—",
+   "source": "https://dl.fbaipublicfiles.com/mms/misc/language_coverage_mms.html"
+  },
+  {
+   "type": "ASR",
+   "system": "Google Cloud Speech-to-Text (incl. Chirp)",
+   "access": "Commercial API",
+   "yi": "Not listed",
+   "dialect": "—",
+   "metric": "—",
+   "value": "n/a",
+   "test": "—",
+   "source": "https://cloud.google.com/speech-to-text/v2/docs/speech-to-text-supported-languages"
+  },
+  {
+   "type": "ASR",
+   "system": "Azure AI Speech (STT)",
+   "access": "Commercial API",
+   "yi": "Not listed",
+   "dialect": "—",
+   "metric": "—",
+   "value": "n/a",
+   "test": "—",
+   "source": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support"
+  },
+  {
+   "type": "ASR",
+   "system": "YiddishLabs transcription",
+   "access": "Commercial API/app",
+   "yi": "Yes",
+   "dialect": "Not stated",
+   "metric": "WER / CER",
+   "value": "not published",
+   "test": "—",
+   "source": "https://app.yiddishlabs.com/developer/api-docs"
+  },
+  {
+   "type": "ASR",
+   "system": "Yiddish Tools Dictation (desktop)",
+   "access": "Commercial, offline Windows",
+   "yi": "Yes",
+   "dialect": "Not stated",
+   "metric": "WER / CER",
+   "value": "not published",
+   "test": "—",
+   "source": "https://yiddish.tools/"
+  },
+  {
+   "type": "ASR",
+   "system": "Sofer.ai",
+   "access": "Commercial",
+   "yi": "Yes (mixed shiur audio)",
+   "dialect": "Yeshivish / mixed",
+   "metric": "—",
+   "value": "not published (community rating ~6/10)",
+   "test": "anecdotal",
+   "source": "https://chabadlabs.ai/wiki-topics-hebrew-yiddish"
+  },
+  {
+   "type": "ASR",
+   "system": "Heimish Geredt STT",
+   "access": "Commercial ($4/mo)",
+   "yi": "Yes",
+   "dialect": "Hasidic",
+   "metric": "—",
+   "value": "not published",
+   "test": "—",
+   "source": "https://heimishgeredt.com/"
+  },
+  {
+   "type": "ASR",
+   "system": "DerVort",
+   "access": "Commercial (beta)",
+   "yi": "Yes",
+   "dialect": "Heimish (claimed)",
+   "metric": "—",
+   "value": "not published",
+   "test": "—",
+   "source": "https://dervort.com/"
+  },
+  {
+   "type": "TTS",
+   "system": "REYD FastSpeech2",
+   "access": "Open (MIT code + checkpoints)",
+   "yi": "Yes",
+   "dialect": "Litvish/Poylish voices; YIVO & Hasidic spelling input",
+   "metric": "Listening test",
+   "value": "MUSHRA-style ratings in a paper figure; no MOS number",
+   "test": "Interspeech 2022 listening test",
+   "source": "https://www.isca-archive.org/interspeech_2022/webber22_interspeech.html"
+  },
+  {
+   "type": "TTS",
+   "system": "Avremi (Piper VITS, Loqal)",
+   "access": "Open model (~63 MB)",
+   "yi": "Yes",
+   "dialect": "Any spelling in; REYD-derived voice",
+   "metric": "—",
+   "value": "not published",
+   "test": "—",
+   "source": "https://github.com/SoratoGroup/avremi-voice"
+  },
+  {
+   "type": "TTS",
+   "system": "Phonikud-yi blue_yi (HF Space)",
+   "access": "Open demo/API",
+   "yi": "Yes",
+   "dialect": "Hasidic (Unterland/Central)",
+   "metric": "—",
+   "value": "not published",
+   "test": "—",
+   "source": "https://huggingface.co/spaces/notmax123/phonikud-yi-blue-tts"
+  },
+  {
+   "type": "TTS",
+   "system": "YiddishLabs TTS",
+   "access": "Commercial API",
+   "yi": "Yes",
+   "dialect": "Not stated",
+   "metric": "—",
+   "value": "not published",
+   "test": "—",
+   "source": "https://app.yiddishlabs.com/developer/api-docs"
+  },
+  {
+   "type": "TTS",
+   "system": "Yiddish Tools 'Speak'",
+   "access": "Commercial, offline Windows",
+   "yi": "Yes",
+   "dialect": "Not stated",
+   "metric": "—",
+   "value": "not published",
+   "test": "—",
+   "source": "https://yiddish.tools/guides/speak"
+  },
+  {
+   "type": "TTS",
+   "system": "Heimish Geredt TTS (beta)",
+   "access": "Commercial",
+   "yi": "Yes",
+   "dialect": "Hasidic",
+   "metric": "—",
+   "value": "not published",
+   "test": "—",
+   "source": "https://heimishgeredt.com/alternative.html"
+  },
+  {
+   "type": "TTS",
+   "system": "Meta MMS-TTS",
+   "access": "Open weights",
+   "yi": "No (Yiddish = language ID only)",
+   "dialect": "—",
+   "metric": "—",
+   "value": "n/a",
+   "test": "—",
+   "source": "https://dl.fbaipublicfiles.com/mms/misc/language_coverage_mms.html"
+  },
+  {
+   "type": "TTS",
+   "system": "Google Cloud Text-to-Speech",
+   "access": "Commercial API",
+   "yi": "Not listed",
+   "dialect": "—",
+   "metric": "—",
+   "value": "n/a",
+   "test": "—",
+   "source": "https://cloud.google.com/text-to-speech/docs/list-voices-and-types"
+  },
+  {
+   "type": "TTS",
+   "system": "Azure AI Speech (neural TTS)",
+   "access": "Commercial API",
+   "yi": "Not listed",
+   "dialect": "—",
+   "metric": "—",
+   "value": "n/a",
+   "test": "—",
+   "source": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support"
+  },
+  {
+   "type": "TTS",
+   "system": "ElevenLabs",
+   "access": "Commercial API",
+   "yi": "Not listed on models page",
+   "dialect": "—",
+   "metric": "—",
+   "value": "n/a (community uses Hebrew-nikud tricks)",
+   "test": "—",
+   "source": "https://elevenlabs.io/docs/overview/models"
+  },
+  {
+   "type": "MT/LLM",
+   "system": "MameLoshnLM 8B",
+   "access": "Open (CC-BY-NC)",
+   "yi": "Yes",
+   "dialect": "Mostly standard/literary + web",
+   "metric": "COMET En→Yi / Yi→En (FLORES+)",
+   "value": "78.5 / 87.2",
+   "test": "FLORES+ (Kashes)",
+   "source": "https://huggingface.co/Yiddish-NLP/MameLoshnLM"
+  },
+  {
+   "type": "MT/LLM",
+   "system": "Llama-3.1-8B (base)",
+   "access": "Open",
+   "yi": "Partial",
+   "dialect": "—",
+   "metric": "COMET En→Yi / Yi→En (FLORES+)",
+   "value": "64.8 / 82.2",
+   "test": "FLORES+ (Kashes)",
+   "source": "https://huggingface.co/Yiddish-NLP/MameLoshnLM"
+  },
+  {
+   "type": "MT/LLM",
+   "system": "Qwen3-8B (base)",
+   "access": "Open",
+   "yi": "Partial",
+   "dialect": "—",
+   "metric": "COMET En→Yi / Yi→En (FLORES+)",
+   "value": "46.5 / 79.1",
+   "test": "FLORES+ (Kashes)",
+   "source": "https://huggingface.co/Yiddish-NLP/MameLoshnLM"
+  },
+  {
+   "type": "MT/LLM",
+   "system": "Google Translate",
+   "access": "Commercial",
+   "yi": "Yes",
+   "dialect": "—",
+   "metric": "—",
+   "value": "not published",
+   "test": "—",
+   "source": "https://cloud.google.com/translate/docs/languages"
+  },
+  {
+   "type": "MT/LLM",
+   "system": "Azure Translator",
+   "access": "Commercial",
+   "yi": "Not listed",
+   "dialect": "—",
+   "metric": "—",
+   "value": "n/a",
+   "test": "—",
+   "source": "https://learn.microsoft.com/en-us/azure/ai-services/translator/language-support"
+  },
+  {
+   "type": "MT/LLM",
+   "system": "YiddishTools NLLB yi↔en ONNX",
+   "access": "Open (CC-BY-NC)",
+   "yi": "Yes",
+   "dialect": "—",
+   "metric": "—",
+   "value": "not published (qualitative)",
+   "test": "held-out oral-history translation",
+   "source": "https://huggingface.co/YiddishTools/nllb-200-1.3B-yi-en-ONNX"
+  },
+  {
+   "type": "OCR",
+   "system": "Jochre 3",
+   "access": "Open (AGPL)",
+   "yi": "Yes",
+   "dialect": "Printed Yiddish",
+   "metric": "CER",
+   "value": "1.5%",
+   "test": "Jochre Yiddish OCR corpus test",
+   "source": "https://arxiv.org/abs/2501.08442"
+  },
+  {
+   "type": "OCR",
+   "system": "Tesseract (Yiddish model)",
+   "access": "Open",
+   "yi": "Yes",
+   "dialect": "Printed",
+   "metric": "CER",
+   "value": "9.0%",
+   "test": "Jochre Yiddish OCR corpus test",
+   "source": "https://arxiv.org/abs/2501.08442"
+  },
+  {
+   "type": "OCR",
+   "system": "Transkribus DiJeST 2.0",
+   "access": "Commercial",
+   "yi": "Yes",
+   "dialect": "Printed",
+   "metric": "CER",
+   "value": "19.9%",
+   "test": "Jochre Yiddish OCR corpus test",
+   "source": "https://arxiv.org/abs/2501.08442"
+  },
+  {
+   "type": "OCR",
+   "system": "Qwen3-VL-8B-yiddish (Mattingly)",
+   "access": "Open weights",
+   "yi": "Yes",
+   "dialect": "Printed (card eval)",
+   "metric": "CER / WER",
+   "value": "3.94% / 4.79% (base 25.34% / 72.28%)",
+   "test": "model card eval set",
+   "source": "https://huggingface.co/wjbmattingly/Qwen3-VL-8B-yiddish-3-epochs"
+  }
+ ],
+ "people": [
+  {
+   "name": "Isaac L. Bleaman",
+   "role": "Linguist, UC Berkeley",
+   "works_on": "REYD TTS co-author; `yiddish` Python lib, hasidifier, loshn-koydesh pronunciation mapping; w2v-BERT Yiddish ASR model",
+   "links": [
+    "https://github.com/ibleaman",
+    "https://huggingface.co/ibleaman",
+    "https://www.isaacbleaman.com"
+   ],
+   "fit": "Very high: Yiddish TTS + Hasidic orthography expertise",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "Jacob J. Webber",
+   "role": "PhD student in informatics, University of Edinburgh",
+   "works_on": "REYD first author; w2v-BERT REYD ASR model",
+   "links": [
+    "https://github.com/jacobjwebber",
+    "https://huggingface.co/jacobjwebber"
+   ],
+   "fit": "Very high: built the first Yiddish TTS",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "Samuel Lo",
+   "role": "Speech technology & linguistics",
+   "works_on": "REYD co-author; Yiddish TTS respelling listening tests",
+   "links": [
+    "https://github.com/vatnid",
+    "https://samuello.io"
+   ],
+   "fit": "High: Yiddish TTS front-end experiments",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "ivrit.ai (Yair Lifshitz, Yoad Snapir)",
+   "role": "Israeli nonprofit; top contributors to ivrit-ai/asr-training",
+   "works_on": "Yiddish Whisper models, crowd Yiddish speech datasets, Hebrew leaderboard and TTS arena",
+   "links": [
+    "https://huggingface.co/ivrit-ai",
+    "https://github.com/ivrit-ai/asr-training",
+    "https://github.com/yairl",
+    "https://github.com/yoadsn"
+   ],
+   "fit": "Very high: data + leaderboard infrastructure partner",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "Golan Benoni",
+   "role": "Independent (GitHub)",
+   "works_on": "Rebbe Yiddish ASR: Whisper fine-tuning with the best published (domain-specific) Yiddish WER",
+   "links": [
+    "https://github.com/golanbenoni",
+    "https://golanbenoni.github.io/rebbe-yiddish-asr/"
+   ],
+   "fit": "Very high: rigorous Yiddish ASR evaluation",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "Sorato Group / Loqal",
+   "role": "Company behind the Loqal apps",
+   "works_on": "Avremi open Piper VITS Yiddish voice",
+   "links": [
+    "https://github.com/SoratoGroup",
+    "https://loqal.digital/yiddish-tts",
+    "https://sorato.group"
+   ],
+   "fit": "High: shipped an open Yiddish TTS voice",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "MMS-HM",
+   "role": "GitHub account",
+   "works_on": "Sicha-to-Text offline Yiddish ASR for Mac",
+   "links": [
+    "https://github.com/MMS-HM"
+   ],
+   "fit": "Medium: on-device Yiddish ASR packaging",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "Maxim Melichov",
+   "role": "Phonikud co-author",
+   "works_on": "Phonikud (Hebrew G2P/TTS); Phonikud-yi engine + blue_yi Yiddish TTS Space",
+   "links": [
+    "https://github.com/maxmelichov",
+    "https://huggingface.co/notmax123"
+   ],
+   "fit": "Already collaborating (member of Kohn-AI / Yiddish-AI HF orgs)",
+   "speech": true,
+   "existing": true
+  },
+  {
+   "name": "Yakov Kolani (thewh1teagle)",
+   "role": "Phonikud lead author",
+   "works_on": "Hebrew G2P & lightweight TTS",
+   "links": [
+    "https://github.com/thewh1teagle",
+    "https://github.com/phonikud/phonikud"
+   ],
+   "fit": "High: Hebrew-script G2P/TTS engineering",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "Morris Alper",
+   "role": "Phonikud co-author",
+   "works_on": "Hebrew speech research",
+   "links": [
+    "https://github.com/morrisalp",
+    "https://morrisalp.github.io/"
+   ],
+   "fit": "Medium-high",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "Uri Katz et al. (Yiddish-NLP)",
+   "role": "NLP PhD student; MameLoshnLM with O. Goldman, T. Limisiewicz, R. Tsarfaty, N. A. Smith",
+   "works_on": "MameLoshnLM 8B + Kashes benchmark",
+   "links": [
+    "https://github.com/katzurik",
+    "https://huggingface.co/Yiddish-NLP",
+    "https://arxiv.org/abs/2608.05850"
+   ],
+   "fit": "High for the LLM / podcast-script side",
+   "speech": false,
+   "existing": false
+  },
+  {
+   "name": "Assaf Urieli",
+   "role": "Joliciel Informatique",
+   "works_on": "Jochre OCR, Yiddish Book Center OCR search",
+   "links": [
+    "https://github.com/urieli",
+    "https://github.com/joliciel-informatique"
+   ],
+   "fit": "Medium: Yiddish text corpora via OCR",
+   "speech": false,
+   "existing": false
+  },
+  {
+   "name": "William Mattingly",
+   "role": "Yale / Smithsonian / USHMM",
+   "works_on": "Yiddish OCR/HTR models (Kraken, TrOCR, Qwen3-VL)",
+   "links": [
+    "https://huggingface.co/wjbmattingly",
+    "https://github.com/wjbmattingly",
+    "https://www.wjbmattingly.com"
+   ],
+   "fit": "Medium: text data for TTS/LM",
+   "speech": false,
+   "existing": false
+  },
+  {
+   "name": "John Locke (johnlockejrr)",
+   "role": "OCR/HTR/NLP for historical scripts",
+   "works_on": "Synthetic Yiddish OCR data; He→Yi MT demo",
+   "links": [
+    "https://huggingface.co/johnlockejrr",
+    "https://github.com/johnlockejrr"
+   ],
+   "fit": "Low-medium",
+   "speech": false,
+   "existing": false
+  },
+  {
+   "name": "Sergii Gurbych",
+   "role": "Vilnius University, Faculty of History",
+   "works_on": "VILNISH Yiddish/Hebrew HTR service; Kraken Vilne model",
+   "links": [
+    "https://www.if.vu.lt/en/yiddishtextrecognition",
+    "https://github.com/SergeyGurbich"
+   ],
+   "fit": "Low-medium (text, not speech)",
+   "speech": false,
+   "existing": false
+  },
+  {
+   "name": "Peter Devine",
+   "role": "AI researcher, Edinburgh",
+   "works_on": "Kakugo distilled small LMs incl. Eastern Yiddish",
+   "links": [
+    "https://github.com/Peter-Devine",
+    "https://huggingface.co/ptrdvn"
+   ],
+   "fit": "Medium: small Yiddish chat models",
+   "speech": false,
+   "existing": false
+  },
+  {
+   "name": "Naftali Kohn (hershykohn)",
+   "role": "Hugging Face user",
+   "works_on": "Yiddish Piper & GPT-SoVITS weights, F5 ear test",
+   "links": [
+    "https://huggingface.co/hershykohn"
+   ],
+   "fit": "Medium: hands-on Yiddish TTS experiments (cards empty)",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "mendelg",
+   "role": "Hugging Face user (Kohn-AI / Yiddish-AI orgs)",
+   "works_on": "Yiddish CSM-1B LoRA",
+   "links": [
+    "https://huggingface.co/mendelg"
+   ],
+   "fit": "Already in the author's HF orgs",
+   "speech": true,
+   "existing": true
+  },
+  {
+   "name": "Yakov Shlezinger (samadeus)",
+   "role": "Hugging Face user",
+   "works_on": "REYD Yiddish TTS demo Space",
+   "links": [
+    "https://huggingface.co/samadeus"
+   ],
+   "fit": "Low-medium",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "es2814207",
+   "role": "Hugging Face user",
+   "works_on": "Yiddish Whisper fine-tunes; Yiddish data-collection Space",
+   "links": [
+    "https://huggingface.co/es2814207"
+   ],
+   "fit": "Medium: ASR + data collection",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "rexelardo",
+   "role": "Data engineer",
+   "works_on": "TTSYiddish dataset-building scripts",
+   "links": [
+    "https://github.com/rexelardo"
+   ],
+   "fit": "Low-medium",
+   "speech": true,
+   "existing": false
+  },
+  {
+   "name": "Commercial Yiddish speech vendors",
+   "role": "YiddishLabs, Yiddish Tools, Heimish Geredt, DerVort, Sofer.ai",
+   "works_on": "Closed Yiddish ASR/TTS products",
+   "links": [
+    "https://app.yiddishlabs.com/",
+    "https://yiddish.tools/",
+    "https://heimishgeredt.com/",
+    "https://dervort.com/",
+    "https://www.sofer.ai/"
+   ],
+   "fit": "Potential benchmark participants / data partners; individuals not identified",
+   "speech": true,
+   "existing": false
+  }
+ ],
+ "link_checks": {
+  "https://addons.mozilla.org/en-US/firefox/addon/yiddish-spell-checker-yivo/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://alhatorah.org/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://app.chattorah.com/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://app.yiddishlabs.com/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://app.yiddishlabs.com/developer/api-docs": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://apps.apple.com/us/app/rabbi-ari-judaism-chatbot/id6446847629": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://ariach.com/guides/ai": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://arxiv.org/abs/2501.08442": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://arxiv.org/abs/2506.12311": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://arxiv.org/abs/2511.09690": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://arxiv.org/abs/2601.14051": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://arxiv.org/abs/2608.05850": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://bekiut.com/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://binata-ai.com/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://binata-ai.com/pricing": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://chabadlabs.ai/wiki-topics-hebrew-yiddish": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://cloud.google.com/speech-to-text/v2/docs/speech-to-text-supported-languages": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://cloud.google.com/text-to-speech/docs/list-voices-and-types": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://cloud.google.com/translate/docs/languages": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://commonvoice.mozilla.org/api/v1/stats/languages": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://commonvoice.mozilla.org/yi": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://dervort.com/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://dicta.org.il/?lang=en": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://dicta.org.il/about?lang=en": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://dl.fbaipublicfiles.com/mms/misc/language_coverage_mms.html": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://elevenlabs.io/docs/overview/models": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://extensions.openoffice.org/en/project/yiddish-spell-checker-yivo.html": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://forum.typst.app/t/paid-help-wanted-complex-hebrew-sefer-layout-in-typst/8741": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Abe1018776/Phonikud-yi": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Abe1018776/chezky-kohn-shefa-yoel-auto-design": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Abe1018776/jem-asr-hub": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Abe1018776/yiddish-audio-alignment": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/MMS-HM": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/MMS-HM/sicha-to-text": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Mordy-S/yiddish-extractor": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Oranburg/meturgaman": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Peter-Devine": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Peter-Devine/kakugo": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/REYD-TTS": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/REYD-TTS/FastSpeech2": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Sefaria/Sefaria-Project": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Sefaria/ai-chatbot": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Sefaria/ai-chatbot/pull/158": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/SergeyGurbich": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/SergeyGurbich/kraken-htr-vilne-hand-1": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Shloimy15e/clean-yiddish-transcripts": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/Sivan22/otzaria": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/SoratoGroup": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/SoratoGroup/avremi-voice": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/UniversalDependencies/UD_Yiddish-YiTB": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/YiddishCorpus/CSYE-Transcripts": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/alephreish/hunspell-yi": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/apertium/apertium-yid": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/beatrice57/penn-parsed-corpus-of-historical-yiddish": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/dracor-org/yidracor": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/elazarg/nakdimon": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/facebookresearch/omnilingual-asr": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/facebookresearch/omnilingual-asr/blob/main/per_language_results_table_7B_llm_asr.csv": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/fryanpan/yiddish-translator": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/giellalt/keyboard-yid": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/golanbenoni": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/golanbenoni/rebbe-yiddish-asr": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/halavlur/Yiddish-translate": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/ibleaman": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/ibleaman/Yiddish-Klal": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/ibleaman/Yiddish-Klal-ChromeOS": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/ibleaman/Yiddish-Klal-iOS": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/ibleaman/hasidifier": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/ibleaman/yiddish": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/ivrit-ai/asr-training": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/jacobjwebber": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/joelcw/intsayt": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/johnlockejrr": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/joliciel-informatique": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/joliciel-informatique/jochre3-ocr": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/katzurik": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/katzurik/MameLoshnLM": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/macmenes/rabbai": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/maxmelichov": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/morrisalp": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/nevillepark/yiddish-keys-linux": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/openai/whisper": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/openai/whisper/blob/main/whisper/tokenizer.py": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/peleg-jpg/hebrew-ml-datasets-navigator": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/phonikud/phonikud": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/pod-o-mart/yiddishBookmarklets": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/rexelardo": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/rexelardo/TTSYiddish": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/skulick/yiddishtag": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/smrtesy/ivrit-runpod-yi": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/super-i-technologies/yiddish-labs-desktop-releases": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/thewh1teagle": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/urieli": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/vatnid": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/wjbmattingly": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/xFreed0m/yiddishkeit-skill": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/yairl": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/yoadsn": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://github.com/yyjosef/yiddish-grammar": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://golanbenoni.github.io/rebbe-yiddish-asr/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://hebrewbooks.org/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://heimishgeredt.com/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://heimishgeredt.com/alternative.html": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://help.sefaria.org/hc/en-us/articles/24882474364316-Quick-Guide-Meet-the-Sefaria-MCPs": {
+   "code": "403 (curl blocked; read OK via web fetch)",
+   "checked": "2026-10-20",
+   "manual": true
+  },
+  "https://help.sefaria.org/hc/en-us/articles/26006423836828-How-to-Use-the-Sefaria-Library-Assistant": {
+   "code": "403 (curl blocked; read OK via web fetch)",
+   "checked": "2026-10-20",
+   "manual": true
+  },
+  "https://huggingface.co/Yiddish-NLP": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/Yiddish-NLP/MameLoshnLM": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/YiddishTools": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/YiddishTools/nllb-200-1.3B-yi-en-ONNX": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/YiddishTools/nllb-200-600M-yi-en-ONNX": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/YiddishTools/yi-whisper-large-v3-ONNX": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/YiddishTools/yi-whisper-large-v3-turbo-ONNX": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/Hebrish/Yiddish-Sentences": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/MarineLives/Gavin_yiddish_raw_HTR_and_groundtruth_paragraphs": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/VItaldob/viciebski-pralietaryj-yiddish": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/Yiddish-NLP/Kashes": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/ivrit-ai/crowd-recital-yi": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/ivrit-ai/crowd-whatsapp-yi": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/ivrit-ai/hebrew-handwriting-ocr-benchmark": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/ivrit-ai/tts-arena-preferences": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/johnlockejrr/yiddish_synth": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/men-seg-1/williamsburg-hasidic-yiddish": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/ptrdvn/kakugo-ydd": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/datasets/saillab/alpaca-yiddish-cleaned": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/dicta-il": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/dicta-il/BEREL_3.0": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/dicta-il/dictabert-large-char-menaked": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/es2814207": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/es2814207/whisper-large-v2-yiddish-ivrit-ai": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/facebook/nllb-200-distilled-600M": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/facebook/omniASR-LLM-7B": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/goldfish-models/ydd_hebr_full": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/hershykohn": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/hershykohn/yiddish-gptsovits-weights": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/hershykohn/yiddish-piper-weights": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/ibleaman": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/ibleaman/w2v-bert-2.0-yiddish-northeastern": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/ivrit-ai": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/ivrit-ai/yi-whisper-large-v3": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/ivrit-ai/yi-whisper-large-v3-ct2": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/ivrit-ai/yi-whisper-large-v3-turbo": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/jacobjwebber": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/jacobjwebber/w2v-bert-2.0-yiddish_reyd": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/joegolk/yiddish-roberta-base": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/johnlockejrr": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/johnlockejrr/pylaia-yiddish_synth_pytorch_2": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/lingvanex/english-to-yiddish-translation": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/lingvanex/yiddish-to-english-translation": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/mendelg": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/mendelg/yiddish-csm-lora-2c60b4a0": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/notmax123": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/notmax123/phonikud-yi-engine": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/ptrdvn": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/ptrdvn/kakugo-3B-ydd": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/samadeus": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/spaces/MarineLives/yiddish-transcription-correction": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/spaces/es2814207/yiddish-data-collection": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/spaces/hershykohn/yiddish-f5-eartest": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/spaces/ivrit-ai/TTS-Arena-Hebrew": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/spaces/ivrit-ai/hebrew-handwriting-ocr-leaderboard": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/spaces/ivrit-ai/hebrew-transcription-leaderboard": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/spaces/johnlockejrr/marianmt-he2yid-tanakh": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/spaces/notmax123/phonikud-yi-blue-tts": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/spaces/samadeus/reyd-yiddish-tts": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/torahanytimecom/whisper-large-v3-yeshivish": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/urieli/xlm-roberta-base-finetuned-yiddish": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/wjbmattingly": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/wjbmattingly/Qwen3-VL-8B-yiddish-3-epochs": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/wjbmattingly/kraken-yiddish": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://huggingface.co/wjbmattingly/lfm2-vl-450M-yiddish": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://ibleaman.github.io/hasidifier/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://iluy.dicta.org.il/about": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://intsayt-project.github.io/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://jewishpress.com/ai-and-the-new-frontier-of-torah-study/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://jtechforums.org/t/yiddish-transcription-through-ai/5937": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/translator/language-support": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://library.dicta.org.il/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://loqal.digital/yiddish-tts": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://morrisalp.github.io/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://moshekoppel.substack.com/p/chapter-9-saving-torah-lishma": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://moshekoppel.substack.com/p/post-10-a-system-that-answers-questions": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://nakdan.dicta.org.il/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://ocr.otzar.org/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://ocr.yiddishbookcenter.org/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://ohrbit.com/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://otzaria.org/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://phonikud.github.io/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://play.google.com/store/apps/details?id=com.rabbi.ai": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://pod-o-mart.github.io/yiddishBookmarklets/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://rabbiai.app/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://rashiocr.dicta.org.il/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://ravtext.com/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://samuello.io": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://search.dicta.org.il/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://shmooz.ai/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://shmooz.ai/help": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://sorato.group": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://tachlisai.com/yi/kosher-ai-texting": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://topics.dicta.org.il/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://torah-ai.org/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.cs.uky.edu/%7Eraphael/yiddish/checkSpellUTF.cgi": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.cs.uky.edu/~raphael/yiddish.html": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.derekhlearning.com/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.derekhlearning.com/blog/best-ai-torah-apps-2026": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.if.vu.lt/en/yiddishtextrecognition": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.isaacbleaman.com": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.isca-archive.org/interspeech_2022/webber22_interspeech.html": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.ivrit.ai/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.mugah.co/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.nakdimon.org/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.otzar.org/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.research.ed.ac.uk/en/datasets/reyd-yiddish-tts-corpus/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.responsa.org.il/about/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.sefaria.org/ai": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.sofer.ai/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.verterbukh.org/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.vu.lt/en/all-news/vilnish-a-new-service-for-recognising-yiddish-and-hebrew-historical-texts": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.wjbmattingly.com": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.yiddishbookcenter.org/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.yiddishbookcenter.org/about/news/yiddish-ocr-live": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://www.yiddishbookcenter.org/collections/digital-yiddish-library": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://yiddish.tools/": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://yiddish.tools/guides/speak": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://yiddish.tools/guides/transcribe-files": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://yiddishe-kop.com/articles/ravtext-seforim-publishing": {
+   "code": "200",
+   "checked": "2026-10-20"
+  },
+  "https://yivo.org/": {
+   "code": "201",
+   "checked": "2026-10-20"
+  }
+ }
+}
