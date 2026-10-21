@@ -17,7 +17,9 @@
   const SUBCATS = T.subcatOrder.filter(Boolean);
   const STATUSES = ["active","beta","archived"];
   const OSS = ["yes","partial","no"];
-  const KINDS = ["product","builder","all"];
+  const KINDS = ["site","repo","all"];
+  const KIND_ALIAS = {product:"site", builder:"repo", sites:"site", repos:"repo"};
+  const normKind = v => { const k = normEnum(v); return KIND_ALIAS[k] || k; };
   const TASKS = {asr:"ASR", tts:"TTS", ocr:"OCR", translation:"MT/LLM", mt:"MT/LLM", llm:"MT/LLM", "mt/llm":"MT/LLM"};
 
   // ---------- shaping helpers ----------
@@ -25,11 +27,11 @@
   function linkStatus(u){ const c = (D.link_checks||{})[u]; return c ? {url:u, http_status:c.code, checked:c.checked, ok: T.linkOk(u)} : {url:u, http_status:null, checked:null, ok:null}; }
   function summary(e){
     return {id:e.id, name:e.name, name_native:e.name_native||undefined, plain:e.plain||undefined, by:e.by, category:e.category, tab:tabsOf(e)[0], sections:e.sections,
-      subcategory:e.subcat||undefined, kind:e.kind, kind_label:e.kind==="product"?"Ready-to-use app":"For builders (code, models, data, research)", cost:e.cost||undefined, status:e.status, open_source:e.open_source, dialect:e.dialect||undefined, metrics:e.metrics||undefined,
+      subcategory:e.subcat||undefined, kind:e.kind, kind_label:e.kind==="site"?"Site or app (main link is not on GitHub or Hugging Face)":"Repo (main link is on GitHub or Hugging Face)", website:e.website||undefined, cost:e.cost||undefined, status:e.status, open_source:e.open_source, dialect:e.dialect||undefined, metrics:e.metrics||undefined,
       unverified:e.unverified||undefined, url:e.url, repo:e.repo||undefined, description:e.description, page_url:pageUrl("e-"+e.id)};
   }
   function full(e){
-    return Object.assign(summary(e), {kind_note:e.kind_note||undefined, license:e.license||undefined, notes:e.notes||undefined,
+    return Object.assign(summary(e), {license:e.license||undefined, notes:e.notes||undefined,
       section_titles:e.sections.map(s => T.sectionById[s].title), sources:(e.sources||[e.url]).map(linkStatus), checked:D.generated});
   }
   const strip = o => JSON.parse(JSON.stringify(o)); // drop undefined keys
@@ -60,11 +62,11 @@
   {
     name:"search_directory",
     title:"Search the Torah + Yiddish AI directory",
-    description:"Search the sourced directory of AI tools for Torah study and for the Yiddish language (AI search & Q&A, seforim libraries, typesetting/nikud/OCR, Yiddish writing, translation, TTS, ASR, OCR, datasets, models, community, benchmark resources). Every entry has a kind: 'product' (a ready-to-use app, website or service a non-programmer can use, free or paid) or 'builder' (code, models, datasets, benchmarks or research for developers); filter with kind. Returns matching entries with id, name, plain description, kind, cost (free/paid note), organisation, status, open-source status, dialect, URL and a deep link. All query words must match. Use get_entry for full details and sources. Set apply_to_page=true to also show these filters in the visible page.",
+    description:"Search the sourced directory of AI tools for Torah study and for the Yiddish language (AI search & Q&A, seforim libraries, typesetting/nikud/OCR, Yiddish writing, translation, TTS, ASR, OCR, datasets, models, community, benchmark resources). Every entry has a kind decided strictly by the host of its main link: 'repo' (github.com or huggingface.co: code, models, datasets, Spaces, orgs) or 'site' (any other domain, including github.io pages, papers and app stores); filter with kind. Returns matching entries with id, name, plain description, kind, cost (free/paid note), organisation, status, open-source status, dialect, URL and a deep link. All query words must match. Use get_entry for full details and sources. Set apply_to_page=true to also show these filters in the visible page.",
     inputSchema:{type:"object", properties:{
       query:{type:"string", description:"Free-text words to match against name, organisation, category, description, dialect, metrics and notes, e.g. 'nikud', 'whisper', 'Hasidic TTS'. Empty = all entries."},
       tab:{type:"string", enum:TABS, description:"Restrict to the 'torah' or 'yiddish' half of the directory."},
-      kind:{type:"string", enum:KINDS, description:"'product' = ready-to-use apps and services; 'builder' = code, models, data and research; 'all' (default) = both."},
+      kind:{type:"string", enum:[...KINDS, "product", "builder"], description:"'site' = main link is a website/app; 'repo' = main link is on GitHub or Hugging Face; 'all' (default) = both. Old values 'product' (= site) and 'builder' (= repo) are accepted."},
       section:{type:"string", description:"Restrict to a section id (see list_sections), e.g. 'torah-search', 'torah-libraries', 'torah-typesetting', 'yi-writing', 'yi-translation', 'yi-other', 'yi-bench'; or a Yiddish sub-category: 'TTS', 'ASR', 'OCR & HTR', 'Datasets & corpora', 'Models & LLMs', 'Community & orgs'."},
       open_source:{type:"string", enum:OSS, description:"'yes' = open source, 'partial' = partly open, 'no' = closed."},
       status:{type:"string", enum:STATUSES, description:"Project status."},
@@ -75,7 +77,7 @@
     annotations:{readOnlyHint:true},
     execute(a){
       a = a || {};
-      const f = {q:a.query||"", status:normEnum(a.status), oss:normEnum(a.open_source), tab:normEnum(a.tab), kind:normEnum(a.kind)};
+      const f = {q:a.query||"", status:normEnum(a.status), oss:normEnum(a.open_source), tab:normEnum(a.tab), kind:normKind(a.kind)};
       if (f.kind && !KINDS.includes(f.kind)) return err(`kind must be one of ${KINDS.join(", ")}`);
       if (f.status && !STATUSES.includes(f.status)) return err(`status must be one of ${STATUSES.join(", ")}`);
       if (f.oss && !OSS.includes(f.oss)) return err(`open_source must be one of ${OSS.join(", ")}`);
@@ -97,20 +99,20 @@
   {
     name:"list_sections",
     title:"List directory tabs and sections",
-    description:"List the two tabs (Torah, Yiddish) plus the 'All tools' list view, the two kinds of entry (ready-to-use apps vs tools for builders), their sections with ids, titles, descriptions and entry counts, the Yiddish sub-categories (TTS, ASR, OCR & HTR, datasets, models, community), and dataset totals. Use the ids with search_directory or navigate_to_section.",
+    description:"List the two tabs (Torah, Yiddish) plus the 'All tools' list view, the two kinds of entry (sites & apps vs repos on GitHub/Hugging Face), their sections with ids, titles, descriptions and entry counts, the Yiddish sub-categories (TTS, ASR, OCR & HTR, datasets, models, community), and dataset totals. Use the ids with search_directory or navigate_to_section.",
     inputSchema:{type:"object", properties:{}},
     annotations:{readOnlyHint:true},
     execute(){
       const tabs = TABS.map(t => ({tab:t, page_url:pageUrl(t), sections:D.sections[t].map(s => {
-        const o = {id:s.id, title:s.title, label:s.label, description:s.blurb, plain_description:s.plain, entries:D.entries.filter(e=>e.sections.includes(s.id)).length, ready_to_use_apps:D.entries.filter(e=>e.sections.includes(s.id) && e.kind==="product").length, page_url:pageUrl(s.id)};
+        const o = {id:s.id, title:s.title, label:s.label, description:s.blurb, plain_description:s.plain, entries:D.entries.filter(e=>e.sections.includes(s.id)).length, sites:D.entries.filter(e=>e.sections.includes(s.id) && e.kind==="site").length, repos:D.entries.filter(e=>e.sections.includes(s.id) && e.kind==="repo").length, page_url:pageUrl(s.id)};
         if (s.id==="yi-other"){ o.subcategories = SUBCATS.map(k => ({name:k, id:"yi-other-"+T.slug(k), entries:D.entries.filter(e=>e.sections.includes("yi-other") && e.subcat===k).length})); }
         if (s.id==="yi-bench") o.benchmark_rows = D.benchmarks.length;
         if (s.id==="yi-people") o.people = D.people.length;
         return o; })}));
       return {title:"Torah + Yiddish AI Directory", canonical_url:CANONICAL, data_checked:D.generated,
-        kinds:{product:"Ready-to-use app, website or service a non-programmer can use (free or paid)", builder:"Code, AI models, datasets, benchmarks or research for developers"},
+        kinds:{site:"Main link is a website, app or service (any host except github.com and huggingface.co)", repo:"Main link is on github.com or huggingface.co (code, models, datasets, Spaces, orgs)"},
         all_tools_list:pageUrl("all"),
-        totals:{entries:D.entries.length, ready_to_use_apps:D.entries.filter(e=>e.kind==="product").length, for_builders:D.entries.filter(e=>e.kind==="builder").length, benchmark_rows:D.benchmarks.length, people:D.people.length, links_checked:Object.keys(D.link_checks||{}).length},
+        totals:{entries:D.entries.length, sites:D.entries.filter(e=>e.kind==="site").length, repos:D.entries.filter(e=>e.kind==="repo").length, benchmark_rows:D.benchmarks.length, people:D.people.length, links_checked:Object.keys(D.link_checks||{}).length},
         data_api:pageUrl("").replace(/#$/,"").replace(/index\.html$/,"") + "data.json", tabs};
     }
   },
@@ -183,8 +185,8 @@
   {
     name:"switch_tab",
     title:"Switch the visible tab",
-    description:"Switch the page between the Torah tab (AI search & Q&A, AI libraries, typesetting/nikud/OCR), the Yiddish tab (writing, translation, speech/OCR/data/models/community, benchmarks, people & collaborators) and the 'All tools' list (every entry in one table, grouped into ready-to-use apps and tools for builders). Optionally also choose which kind of tools to show. Changes what the user sees.",
-    inputSchema:{type:"object", properties:{ tab:{type:"string", enum:[...TABS, "all"], description:"'torah', 'yiddish' or 'all' (the All tools list)."}, kind:{type:"string", enum:KINDS, description:"Optional: 'product' (ready-to-use apps, the default in the Torah/Yiddish tabs), 'builder' (code & models) or 'all'."} }, required:["tab"]},
+    description:"Switch the page between the Torah tab (AI search & Q&A, AI libraries, typesetting/nikud/OCR), the Yiddish tab (writing, translation, speech/OCR/data/models/community, benchmarks, people & collaborators) and the 'All tools' list (every entry in one table, grouped into sites & apps and repos on GitHub/Hugging Face). Optionally also choose which kind of tools to show. Changes what the user sees.",
+    inputSchema:{type:"object", properties:{ tab:{type:"string", enum:[...TABS, "all"], description:"'torah', 'yiddish' or 'all' (the All tools list)."}, kind:{type:"string", enum:[...KINDS, "product", "builder"], description:"Optional: 'site' (sites & apps, the default in the Torah/Yiddish tabs), 'repo' (GitHub & Hugging Face) or 'all'. Old values 'product'/'builder' are aliases."} }, required:["tab"]},
     annotations:{readOnlyHint:false},
     execute(a){
       const tab = String(a && a.tab || "").toLowerCase();
@@ -199,13 +201,13 @@
   {
     name:"navigate_to_section",
     title:"Scroll the page to a section or entry",
-    description:"Show a section, Yiddish sub-category or single entry to the user: switches to the right tab, clears filters if they would hide the target, scrolls to it and updates the URL. Accepts section ids (e.g. 'yi-bench', 'yi-people', 'torah-typesetting'), sub-category ids (e.g. 'yi-other-tts', 'yi-other-asr') entry ids from search_directory (e.g. 'dicta-iluy'), 'all' for the All tools list, or 'all-products' / 'all-builders' for its two groups. Switches the kind filter if it would hide the target.",
+    description:"Show a section, Yiddish sub-category or single entry to the user: switches to the right tab, clears filters if they would hide the target, scrolls to it and updates the URL. Accepts section ids (e.g. 'yi-bench', 'yi-people', 'torah-typesetting'), sub-category ids (e.g. 'yi-other-tts', 'yi-other-asr') entry ids from search_directory (e.g. 'dicta-iluy'), 'all' for the All tools list, or 'all-sites' / 'all-repos' for its two groups (old ids 'all-products' / 'all-builders' redirect to them). Switches the kind filter if it would hide the target.",
     inputSchema:{type:"object", properties:{ target:{type:"string", description:"Section id, sub-category id, or entry id."} }, required:["target"]},
     annotations:{readOnlyHint:false},
     execute(a){
       let t = String(a && (a.target || a.section_id || a.section) || "").trim();
       if (!t) return err("Provide target.");
-      const listTarget = /^(all|all-products|all-builders)$/i.test(t); if (listTarget) t = t.toLowerCase();
+      const listTarget = /^(all|all-sites|all-repos|all-products|all-builders)$/i.test(t); if (listTarget) t = t.toLowerCase();
       const sec = listTarget ? {bad:true} : resolveSection(t); if (!sec.bad && !T.sectionTab[t]) t = sec.subcat ? "yi-other-"+T.slug(sec.subcat) : sec.section;
       if (!listTarget && !document.getElementById(t) && !T.sectionTab[t] && !/^yi-other-|^yi-bench-|^yi-people-/.test(t)){ const r = findEntry(t); if (r.entry) t = "e-"+r.entry.id; }
       const r = T.navigate(t);

@@ -711,14 +711,14 @@ def apply_plain(sections, entries, people):
     for p in people: p["plain"] = PEOPLE_PLAIN[p["name"]]
 
 # ---------------------------------------------------------------------------
-# Kind of entry (v5): "product" = a ready-to-use app, website or service a
-# non-programmer can use today (free or paid); "builder" = code, models,
-# datasets, libraries, benchmarks or research meant for developers.
-# COST is a short plain price note for products, taken only from the entry's
-# own sources; "Not stated" when we could not find it.
-# KIND_NOTE explains borderline calls.
+# Kind of entry (v6, strict): decided mechanically from the host of the main url.
+#   github.com or huggingface.co (repos, models, datasets, Spaces, orgs) -> "repo"
+#   any other host (company sites, *.github.io pages, arxiv, substack, app stores) -> "site"
+# COST is a short plain price note taken only from the entry's own sources ("Not stated"
+# when we could not find it); entries not listed get a note from their open-source status.
+# WEBSITE: a separate live web page for an entry whose main url is a repo (shown in Details).
 # ---------------------------------------------------------------------------
-PRODUCTS = {
+COST = {
  # Torah: Ask & search
  "dicta-iluy":"Not stated", "dicta-topics":"Not stated", "dicta-bible-search":"Not stated",
  "sefaria-assistant":"Free (account needed)", "sefaria-mcp":"Free; needs a paid AI assistant",
@@ -745,44 +745,27 @@ PRODUCTS = {
  "sicha-to-text":"Free", "jochre3":"Free", "vilnish":"Not stated",
  "ybc":"Not stated", "yivo":"Not stated", "jtech":"Free to read", "chabadlabs":"Free to read",
 }
-KIND_NOTE = {
- "sefaria-mcp":"Ready to use if you already have ChatGPT or Claude; no coding needed.",
- "nakdimon":"Open-source, but its main form is a free website anyone can use.",
- "otzaria":"Open-source, but its main form is a free app anyone can install.",
- "yivo-hunspell":"Installs as a Firefox / OpenOffice spellchecker add-on.",
- "klal-keyboards":"Keyboard layouts you install; downloaded from GitHub.",
- "bookmarklets":"Browser bookmarklets anyone can add; hosted on GitHub.",
- "yiddish-grammar-handbook":"A written guide for writers, hosted on GitHub.",
- "sicha-to-text":"A Mac app distributed through GitHub.",
- "jochre3":"Listed for its public search website; the OCR engine and corpus are also open.",
- "vilnish":"Listed for its recognition service; the model and dataset are also open.",
- "general-llms":"Tips for using everyday chatbots, not a tool itself.",
- "jtech":"A forum discussion to read, not a tool.", "chabadlabs":"A guide to read, not a tool.",
- "ybc":"A library and archive website; Jochre-based search is listed separately.",
- "yivo":"An archive and institute website; no YIVO-run AI tool found.",
- "avremi":"Mainly a downloadable voice model, although it has an online demo.",
- "phonikud-yi-tts":"An online demo of an open model; mainly for builders.",
- "reyd-space":"An online demo of an open model (was not working when checked).",
- "marianmt-he2yid":"An online demo of an open model; mainly for builders.",
- "yt-nllb-onnx":"A model packaged to run in a browser; you need to build the page around it.",
- "yt-whisper-onnx":"A model packaged to run in a browser; you need to build the page around it.",
- "ivrit-ai":"Publishes open models and data; its Hebrew transcription service is not Yiddish.",
- "commonvoice-yi":"Anyone can donate recordings on the website, but the result is a dataset.",
- "koppel-rules":"Essays on how AI Torah tools should behave; mainly for people building them.",
- "rabbai":"Runs in a terminal; needs some technical setup.",
- "clean-transcripts":"A web app for preparing training data.",
+WEBSITE = {
+ "rebbe-asr": ("https://golanbenoni.github.io/rebbe-yiddish-asr/", "Corpus datasheet page (golanbenoni.github.io)"),
+ "ivrit-ai": ("https://www.ivrit.ai/", "ivrit.ai website"),
 }
+REPO_HOSTS = ("github.com", "huggingface.co")
+
+def kind_of(url):
+    from urllib.parse import urlparse
+    host = (urlparse(url).hostname or "").lower()
+    host = host[4:] if host.startswith("www.") else host
+    return "repo" if host in REPO_HOSTS else "site"
 
 def apply_kinds(entries):
     ids = {e["id"] for e in entries}
-    extra = (set(PRODUCTS) | set(KIND_NOTE)) - ids; assert not extra, ("unknown ids in kinds", extra)
+    extra = (set(COST) | set(WEBSITE)) - ids; assert not extra, ("unknown ids in COST/WEBSITE", extra)
     for e in entries:
-        if e["id"] in PRODUCTS:
-            e["kind"] = "product"; e["cost"] = PRODUCTS[e["id"]]
-        else:
-            e["kind"] = "builder"
-            e["cost"] = {"koppel-rules":"Free to read"}.get(e["id"]) or {"yes":"Free (open source)","partial":"Partly open"}.get(e["open_source"], "Not stated")
-        e["kind_note"] = KIND_NOTE.get(e["id"], "")
+        e["kind"] = kind_of(e["url"])
+        e["cost"] = COST.get(e["id"]) or {"koppel-rules":"Free to read"}.get(e["id"]) or {"yes":"Free (open source)","partial":"Partly open"}.get(e["open_source"], "Not stated")
+        if e["id"] in WEBSITE:
+            assert e["kind"] == "repo"
+            e["website"], e["website_label"] = WEBSITE[e["id"]]
 
 def main():
     base=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

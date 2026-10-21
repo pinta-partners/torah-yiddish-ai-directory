@@ -8,10 +8,12 @@
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   const SUBCAT_ORDER = ["TTS","ASR","OCR & HTR","Datasets & corpora","Models & LLMs","Community & orgs",""];
   const TAB_LABEL = {torah:"Torah", yiddish:"Yiddish", all:"All"};
-  const KINDS = ["product","builder","all"];
-  const KIND_LABEL = {product:"Ready-to-use apps", builder:"For builders: code & models", all:"All"};
+  const KINDS = ["site","repo","all"];
+  const KIND_ALIAS = {product:"site", products:"site", sites:"site", builder:"repo", builders:"repo", repos:"repo"};
+  const normKind = k => { k = String(k||"").toLowerCase().trim(); return KIND_ALIAS[k] || k; };
+  const KIND_LABEL = {site:"Sites & apps", repo:"Repos (GitHub & Hugging Face)", all:"All"};
   const reduceMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const state = { tab:"torah", kind:"product", listKind:"all", q:"", status:"", oss:"", hasidic:false, benchType:"All", benchQ:"", sort:{col:null,dir:1} };
+  const state = { tab:"torah", kind:"site", listKind:"all", q:"", status:"", oss:"", hasidic:false, benchType:"All", benchQ:"", sort:{col:null,dir:1} };
 
   // ---------- helpers ----------
   const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
@@ -33,7 +35,7 @@
     if (f.section && !e.sections.includes(f.section)) return false;
     if (f.tab && !e.sections.some(s => SECTION_TAB[s] === f.tab)) return false;
     if (f.subcat && String(e.subcat||"").toLowerCase() !== String(f.subcat).toLowerCase()) return false;
-    if (f.kind && f.kind !== "all" && e.kind !== f.kind) return false;
+    if (f.kind && normKind(f.kind) !== "all" && e.kind !== normKind(f.kind)) return false;
     const t = tokens(f.q); if (!t.length) return true;
     const hay = entryHay(e); return t.every(x => hay.includes(x));
   }
@@ -85,12 +87,13 @@
     if (e.notes) kv.push(["Note", esc(e.notes)]);
     kv.push(["Status", (e.status==="active"?"working now":e.status==="beta"?"in testing":"no longer updated") + " · " + (e.open_source==="yes" ? "open source" : e.open_source==="partial" ? "partly open source" : "closed source")]);
     if (e.unverified) kv.push(["Flag", "not yet confirmed (unverified / unclear)"]);
-    kv.push(["Kind", (e.kind==="product" ? "Ready-to-use app" : "For builders (code, models, data or research)") + (e.kind_note ? " – " + esc(e.kind_note) : "")]);
+    if (e.website) kv.push(["Website", `<a href="${esc(e.website)}" target="_blank" rel="noopener">${esc(e.website_label || host(e.website))}</a>`]);
+    kv.push(["Kind", e.kind==="site" ? "Site (main link is a website or app)" : "Repo (main link is on GitHub or Hugging Face)"]);
     kv.push(["Free or paid", esc(e.cost)]);
     return `<article class="card" id="e-${esc(e.id)}" aria-labelledby="t-${esc(e.id)}">
       <h3 id="t-${esc(e.id)}"><a href="${esc(e.url)}" target="_blank" rel="noopener" dir="auto">${esc(e.name)}</a>${e.name_native?`<span class="native" dir="rtl" lang="${nativeLang(e.name_native)}">${esc(e.name_native)}</span>`:""}</h3>
       <p class="desc" dir="auto">${esc(e.plain || e.description)}</p>
-      <details class="more"><summary>${curKind()==="all" ? `<span class="kind-tag k-${e.kind}">${e.kind==="product"?"App":"Code"}</span>` : ""}${tagsFor(e)}${e.kind==="product" && e.cost && e.cost!=="Not stated" ? `<span class="cost">${esc(e.cost)}</span>` : ""}<span class="toggle">Details${CHEV}</span></summary>
+      <details class="more"><summary>${curKind()==="all" ? `<span class="kind-tag k-${e.kind}">${e.kind==="site"?"Site":"Repo"}</span>` : ""}${tagsFor(e)}${e.kind==="site" && e.cost && e.cost!=="Not stated" ? `<span class="cost">${esc(e.cost)}</span>` : ""}<span class="toggle">Details${CHEV}</span></summary>
         <div class="detail"><p class="orig" dir="auto">${esc(e.description)}</p>
         <dl class="kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
         <p class="sources-h">Sources</p>${srcList(e.sources||[e.url])}</div>
@@ -100,10 +103,11 @@
   const grid = list => `<div class="grid">${list.map(card).join("")}</div>`;
   function emptyNote(n, quiet=false){
     if (!n) return quiet ? "" : `<p class="empty">No entries match the current filters.</p>`;
-    const k = curKind(), other = k==="product" ? "builder" : "product";
-    return `<p class="empty">${quiet ? "" : k==="product" ? "No ready-to-use apps here yet." : "No builder tools here."} <button type="button" class="linkish" data-kind="${other}">Show ${n} ${other==="product" ? (n===1?"ready-to-use app":"ready-to-use apps") : (n===1?"tool for builders":"tools for builders")} →</button></p>`;
+    const k = curKind(), other = k==="site" ? "repo" : "site";
+    const noun = (kind, n) => kind==="site" ? (n===1?"site":"sites") : (n===1?"repo":"repos");
+    return `<p class="empty">${quiet ? "" : k==="site" ? "No sites or apps here yet." : "No repos here."} <button type="button" class="linkish" data-kind="${other}">Show ${n} ${noun(other,n)} →</button></p>`;
   }
-  const moreNote = n => n ? `<p class="more-kind"><button type="button" class="linkish" data-kind="all">+ ${n} more ${curKind()==="product" ? (n===1?"tool for builders":"tools for builders") : (n===1?"ready-to-use app":"ready-to-use apps")} in this section →</button></p>` : "";
+  const moreNote = n => n ? `<p class="more-kind"><button type="button" class="linkish" data-kind="all">+ ${n} more ${curKind()==="site" ? (n===1?"repo":"repos") : (n===1?"site":"sites")} in this section →</button></p>` : "";
   function secHead(sec){
     return `<div class="sec-head"><h2 id="h-${sec.id}">${esc(sec.label||sec.title)}<a class="anchor" href="#${sec.id}" aria-label="Link to this section">#</a></h2><p>${esc(sec.plain||sec.blurb)}</p></div>`;
   }
@@ -129,7 +133,7 @@
         const shown = g.subs.reduce((n,k) => n + (by[k]||[]).length, 0), hidden = total - shown;
         // Entries filed under another group that also do this job (e.g. a transcription app that also reads aloud).
         const also = list.filter(e => (e.also_subcats||[]).some(k => g.subs.includes(k)) && !g.subs.includes(e.subcat));
-        const alsoHtml = also.length ? `<p class="also">${shown ? "Also does this:" : "Apps that also do this (listed under another heading):"} ${also.map(e => `<a href="#e-${esc(e.id)}">${esc(e.name)}</a>`).join(", ")}.</p>` : "";
+        const alsoHtml = also.length ? `<p class="also">${shown ? "Also does this:" : "Tools that also do this (listed under another heading):"} ${also.map(e => `<a href="#e-${esc(e.id)}">${esc(e.name)}</a>`).join(", ")}.</p>` : "";
         const inner = !shown ? alsoHtml + emptyNote(hidden, !!also.length) : alsoHtml + (g.subs.length > 1
           ? g.subs.filter(k => by[k]).map(k => `<h3 class="subcat" id="yi-other-${slug(k)}">${esc(g.subLabels[k])}</h3>${grid(by[k])}`).join("")
           : grid(by[g.subs[0]])) + moreNote(hidden);
@@ -225,8 +229,8 @@
 
   // ---------- page ----------
   function renderStatic(){
-    const np = D.entries.filter(e=>e.kind==="product").length, nb = D.entries.length - np;
-    $("#stats").textContent = `${D.entries.length} tools and resources (${np} ready-to-use apps, ${nb} for builders) · last checked ${friendlyDate(D.generated)}`;
+    const np = D.entries.filter(e=>e.kind==="site").length, nb = D.entries.length - np;
+    $("#stats").textContent = `${D.entries.length} tools and resources (${np} sites & apps, ${nb} repos) · last checked ${friendlyDate(D.generated)}`;
     $$(".gen").forEach(x => x.textContent = D.generated);
     $$(".gen-plain").forEach(x => x.textContent = friendlyDate(D.generated));
   }
@@ -237,11 +241,12 @@
     if (!list.length) return `<p class="empty">No tools match the current filters.</p>`;
     return `<div class="table-wrap"><table class="list"><caption class="sr-only">${esc(caption)}</caption>
       <thead><tr><th scope="col" class="l-name">Name</th><th scope="col" class="l-what">What it does</th><th scope="col" class="l-tab">Torah / Yiddish</th><th scope="col" class="l-kind">Kind</th><th scope="col" class="l-cost">Free or paid</th><th scope="col" class="l-link">Link</th></tr></thead>
-      <tbody>${list.map(e => `<tr id="l-${esc(e.id)}"><td class="l-name"><a href="#e-${esc(e.id)}" dir="auto">${esc(e.name)}</a></td><td class="l-what" dir="auto">${esc(e.plain)}</td><td class="l-tab">${esc(tabsLabel(e))}</td><td class="l-kind">${e.kind==="product"?"App":"Code"}</td><td class="l-cost">${esc(e.cost)}</td><td class="l-link"><a href="${esc(e.url)}" target="_blank" rel="noopener" title="${esc(e.url)}">${esc(host(e.url).split("/")[0])}</a></td></tr>`).join("")}</tbody></table></div>`;
+      <tbody>${list.map(e => `<tr id="l-${esc(e.id)}"><td class="l-name"><a href="#e-${esc(e.id)}" dir="auto">${esc(e.name)}</a></td><td class="l-what" dir="auto">${esc(e.plain)}</td><td class="l-tab">${esc(tabsLabel(e))}</td><td class="l-kind">${e.kind==="site"?"Site":"Repo"}</td><td class="l-cost">${esc(e.cost)}</td><td class="l-link"><a href="${esc(e.url)}" target="_blank" rel="noopener" title="${esc(e.url)}">${esc(host(e.url).split("/")[0])}</a></td></tr>`).join("")}</tbody></table></div>`;
   }
   const LIST_SECS = [
-    {id:"all-products", kind:"product", label:"Ready-to-use apps", plain:"Websites, apps and services you can use today, free or paid."},
-    {id:"all-builders", kind:"builder", label:"For builders: code & models", plain:"Code, AI models, data collections, scoreboards and research for people making new tools."}];
+    {id:"all-sites", kind:"site", label:"Sites & apps", plain:"Everything whose main link is a website, app or service (not GitHub or Hugging Face)."},
+    {id:"all-repos", kind:"repo", label:"Repos (GitHub & Hugging Face)", plain:"Everything whose main link is on GitHub or Hugging Face: code, AI models, datasets and demos."}];
+  const LIST_ALIAS = {"all-products":"all-sites", "all-builders":"all-repos"};
   function renderList(){
     const list = D.entries.filter(matches);
     const head = `<div class="list-intro"><h2 id="h-all">All tools</h2><p>Every tool in this guide in one list. Click a name to see its card with details and sources.</p></div>`;
@@ -264,7 +269,7 @@
       b.setAttribute("aria-pressed", String(b.dataset.kind===k));
       b.querySelector(".n").textContent = D.entries.filter(e => inTab(e) && entryMatches(e, uiFilter(b.dataset.kind))).length;
     });
-    $("#kind-hint").textContent = k==="product" ? "Websites, apps and services you can use today, free or paid." : k==="builder" ? "Code, AI models, data and research for people making new tools." : "Everything: ready-to-use apps and tools for builders.";
+    $("#kind-hint").textContent = k==="site" ? "Websites, apps and services: everything not hosted on GitHub or Hugging Face." : k==="repo" ? "Code, AI models and datasets hosted on GitHub or Hugging Face." : "Everything: sites & apps and repos.";
   }
   function render({animate=false}={}){
     const secs = state.tab==="all" ? [] : D.sections[state.tab];
@@ -287,9 +292,10 @@
     updateBench(); spy();
     document.dispatchEvent(new CustomEvent("tyd:render", {detail:{tab:state.tab, kind:curKind()}}));
   }
-  /** Show ready-to-use apps, builder tools or both (in the current tab or the All tools list). */
+  /** Show sites & apps, repos or both (in the current tab or the All tools list). Old values product/builder are aliases. */
   function setKind(kind){
-    if (!KINDS.includes(kind)) return {ok:false, error:"kind must be 'product', 'builder' or 'all'"};
+    kind = normKind(kind);
+    if (!KINDS.includes(kind)) return {ok:false, error:"kind must be 'site', 'repo' or 'all' (old names 'product' and 'builder' also work)"};
     if (state.tab==="all") state.listKind = kind; else state.kind = kind;
     keepScroll(render);
     return Object.assign({ok:true}, viewSummary());
@@ -310,7 +316,8 @@
     const h = decodeURIComponent(String(raw||"").replace(/^#/,""));
     if (!h) return null;
     if (h==="torah"||h==="yiddish"||h==="all") return {tab:h, id:null};
-    if (h==="all-products"||h==="all-builders") return {tab:"all", id:h};
+    if (LIST_ALIAS[h]) return {tab:"all", id:LIST_ALIAS[h], alias:true};
+    if (h==="all-sites"||h==="all-repos") return {tab:"all", id:h};
     if (/^l-/.test(h)){ const e = D.entries.find(x => "l-"+x.id===h); if (e) return {tab:"all", id:h, entry:e}; }
     if (SECTION_TAB[h]) return {tab:SECTION_TAB[h], id:h};
     const sec = Object.keys(SECTION_TAB).find(s => h.startsWith(s+"-"));
@@ -346,7 +353,8 @@
     if (r.id && !el && !r.entry && r.tab!=="all" && state.kind!=="all"){ state.kind = "all"; render(); el = document.getElementById(r.id); }
     if (r.id && !el){ clearFilters(); render(); el = document.getElementById(r.id); }
     const url = "#" + (r.id || r.tab);
-    if (push && location.hash !== url) history.pushState(null, "", url);
+    if (push && !r.alias && location.hash !== url) history.pushState(null, "", url);
+    else if (r.alias) history.replaceState(null, "", url);
     else if (!push) history.replaceState(null, "", url);
     if (el){
       scrollToEl(el, smooth && !initial);
@@ -432,6 +440,7 @@
   }
   /** Apply filters to the visible page (used by WebMCP tools). */
   function applyFilters(f){
+    if (f.kind) f.kind = normKind(f.kind);
     if (f.kind && KINDS.includes(f.kind)){ if ((f.tab||state.tab)==="all") state.listKind = f.kind; else state.kind = f.kind; }
     if ("q" in f) state.q = String(f.q||""); if ("status" in f) state.status = f.status||""; if ("oss" in f) state.oss = f.oss||""; if ("hasidic" in f) state.hasidic = !!f.hasidic;
     if (state.status || state.oss || state.hasidic) showFilters(true);
@@ -442,7 +451,7 @@
 
   // ---------- boot ----------
   renderStatic(); syncThemeButton();
-  { const k = new URLSearchParams(location.search).get("kind"); if (KINDS.includes(k)){ state.kind = k; state.listKind = k; } }
+  { const k = normKind(new URLSearchParams(location.search).get("kind")); if (KINDS.includes(k)){ state.kind = k; state.listKind = k; } }
   const initial = resolveTarget(location.hash);
   state.tab = initial ? initial.tab : "torah";
   render();

@@ -16,8 +16,9 @@ def jsonld(data):
                  "name": e["name"], "url": e["url"], "description": e["description"],
                  "author": e["by"]}
         if e.get("name_native"): thing["alternateName"] = e["name_native"]
-        thing["additionalProperty"] = [{"@type": "PropertyValue", "name": "kind", "value": "ready-to-use app" if e.get("kind") == "product" else "for builders"},
+        thing["additionalProperty"] = [{"@type": "PropertyValue", "name": "kind", "value": e.get("kind", "site")},
                                        {"@type": "PropertyValue", "name": "free or paid", "value": e.get("cost", "Not stated")}]
+        if e.get("website"): thing["sameAs"] = e["website"]
         if e.get("repo"): thing["codeRepository"] = e["repo"]
         if e.get("license"): thing["license"] = e["license"]
         if thing["@type"] == "SoftwareApplication": thing["applicationCategory"] = e["category"]
@@ -53,8 +54,8 @@ def llms_txt(data):
       "(`torah`/`yiddish` -> list of {id,title,blurb}), `entries`, `benchmarks`, `people`, `link_checks` (url -> {code, checked, manual?}).",
       "- Entry fields: id, sections[], name, name_native, url, by, category, description, sources[], status (active|beta|archived), "
       "open_source (yes|partial|no), repo, dialect, metrics, unverified, notes, license, plain (one plain-language sentence shown on the site), "
-      "kind (product = ready-to-use app, website or service a non-programmer can use, free or paid | builder = code, models, datasets, benchmarks or research for developers), "
-      "kind_note (why a borderline entry got its kind), cost (short free/paid note from the entry's sources, or 'Not stated'), also_subcats (optional: other Yiddish sub-categories the entry also covers, e.g. TTS), subcat (TTS|ASR|OCR & HTR|Datasets & corpora|Models & LLMs|Community & orgs, Yiddish 'other' section only).",
+      "kind (strict rule on the host of the main url: repo = github.com or huggingface.co, incl. HF Spaces, models, datasets and orgs | site = any other host, incl. *.github.io pages, arxiv, substack, app stores, company sites; old values product/builder are accepted as aliases by the WebMCP tools), "
+      "website + website_label (optional: a separate live web page for a repo entry), cost (short free/paid note from the entry's sources, or 'Not stated'), also_subcats (optional: other Yiddish sub-categories the entry also covers, e.g. TTS), subcat (TTS|ASR|OCR & HTR|Datasets & corpora|Models & LLMs|Community & orgs, Yiddish 'other' section only).",
       "- Benchmark fields: type (ASR|TTS|MT/LLM|OCR), system, access, yi (Yiddish support), dialect, metric, value (as published, or 'not published'/'n/a'), test, source.",
       "- People fields: name, role, works_on, plain, links[] (public profiles only), fit, speech (bool), existing (already collaborating).",
       "- Section fields: id, title (technical name), blurb, label (plain name shown on the site), plain (plain intro).",
@@ -67,27 +68,27 @@ def llms_txt(data):
             extra = f", {len(data['benchmarks'])} benchmark rows" if s["id"] == "yi-bench" else f", {len(data['people'])} people/orgs" if s["id"] == "yi-people" else ""
             lines.append(f"- [{tab.title()}: {s.get('label', s['title'])}]({SITE}#{s['id']}): {s['title']}. {s['blurb']} ({n} entries{extra})")
     lines += ["", f"- [All tools list]({SITE}#all): every entry in one table (name, plain description, Torah/Yiddish, kind, free or paid, link), "
-              f"grouped into ready-to-use apps (`#all-products`) and tools for builders (`#all-builders`)."]
+              f"grouped into sites & apps (`#all-sites`) and repos on GitHub/Hugging Face (`#all-repos`); the old anchors `#all-products` / `#all-builders` redirect there."]
     lines += ["", "Any entry can be linked as `#e-<entry id>`; Yiddish sub-categories as `#yi-other-tts`, `#yi-other-asr`, `#yi-other-ocr-htr`, "
               "`#yi-other-datasets-corpora`, `#yi-other-models-llms`, `#yi-other-community-orgs`.", "",
-      "## Ready-to-use apps (kind = product)", ""]
+      "## Sites & apps (kind = site)", ""]
     for tab, ss in secs.items():
         ids = {s["id"] for s in ss}
-        prods = [e for e in data["entries"] if e.get("kind") == "product" and ids & set(e["sections"])]
+        prods = [e for e in data["entries"] if e.get("kind") == "site" and ids & set(e["sections"])]
         lines.append(f"### {tab.title()} ({len(prods)})")
         lines += [f"- [{e['name']}]({e['url']}): {e['plain']} ({e['cost']})" for e in prods]
         lines.append("")
-    nb = sum(1 for e in data["entries"] if e.get("kind") == "builder")
-    lines += [f"The other {nb} entries are tools for builders (code, models, data, research); see data.json or `search_directory(kind='builder')`.", "",
+    nb = sum(1 for e in data["entries"] if e.get("kind") == "repo")
+    lines += [f"The other {nb} entries are repos (main link on github.com or huggingface.co: code, models, datasets, Spaces); see data.json or `search_directory(kind='repo')`.", "",
       "## WebMCP tools (for in-browser agents)", "",
       "The page registers WebMCP tools with `document.modelContext.registerTool()` (W3C Web Machine Learning CG draft, "
       "https://github.com/webmachinelearning/webmcp). In browsers without native WebMCP it loads the MCP-B polyfill (@mcp-b/global). All tools return JSON.", "",
-      "- `search_directory(query?, tab?, kind?, section?, open_source?, status?, dialect?, limit?, apply_to_page?)`: search entries; kind = product|builder|all; results include kind and cost.",
+      "- `search_directory(query?, tab?, kind?, section?, open_source?, status?, dialect?, limit?, apply_to_page?)`: search entries; kind = site|repo|all (product/builder accepted as aliases); results include kind and cost.",
       "- `list_sections()`: tabs, sections, sub-categories and counts.",
       "- `get_entry(id_or_name)`: one full entry with sources and link-check results.",
       "- `get_benchmarks(task?, query?, published_only?, sort_by_value?, show_in_page?)`: Yiddish benchmark rows (asr|tts|translation|llm|ocr|all).",
       "- `list_collaborators(focus?, query?)`: people & orgs (speech|text|all) plus what help is wanted.",
-      "- `switch_tab(tab, kind?)` (tab = torah|yiddish|all), `navigate_to_section(target)`: change what the user sees.",
+      "- `switch_tab(tab, kind?)` (tab = torah|yiddish|all; kind = site|repo|all), `navigate_to_section(target)`: change what the user sees.",
       "- Declarative form tool `filter_directory_view` (the sidebar search form: q, status, open_source, hasidic).", "",
       "## Notes for agents", "",
       "- Metrics are copied as published. Benchmark numbers are only comparable when the test set matches.",

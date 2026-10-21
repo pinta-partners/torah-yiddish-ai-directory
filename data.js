@@ -92,9 +92,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Ask a question about Torah, Talmud or halacha and get an answer with links to the sources it used; this is the new name of Rav Dicta. Dicta says it is a study aid, not a halachic ruling.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "koppel-rules",
@@ -121,9 +120,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Essays by Dicta's founder on how AI Torah tools should behave: always show sources, show every opinion, and don't decide for you.",
-   "kind": "builder",
-   "cost": "Free to read",
-   "kind_note": "Essays on how AI Torah tools should behave; mainly for people building them."
+   "kind": "site",
+   "cost": "Free to read"
   },
   {
    "id": "dicta-topics",
@@ -150,9 +148,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Automatic lists of the topics in each sefer of responsa, so you can see which simanim discuss a subject.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "dicta-bible-search",
@@ -179,9 +176,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Search Tanakh for words, phrases, verses or names.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "sefaria-assistant",
@@ -209,9 +205,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "An experimental chat helper on Sefaria that finds sources with citations, suggests commentaries and can translate texts that have no translation yet; you need to sign in on a computer.",
-   "kind": "product",
-   "cost": "Free (account needed)",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free (account needed)"
   },
   {
    "id": "sefaria-mcp",
@@ -237,9 +232,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Lets AI assistants like ChatGPT and Claude search and quote the Sefaria library; Sefaria says you need a paid AI assistant account.",
-   "kind": "product",
-   "cost": "Free; needs a paid AI assistant",
-   "kind_note": "Ready to use if you already have ChatGPT or Claude; no coding needed."
+   "kind": "site",
+   "cost": "Free; needs a paid AI assistant"
   },
   {
    "id": "bar-ilan-smart",
@@ -266,9 +260,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "A huge paid library of responsa and seforim where you can type a question in everyday words and get relevant sources.",
-   "kind": "product",
-   "cost": "Paid",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Paid"
   },
   {
    "id": "binata",
@@ -295,9 +288,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "A Torah chat that finds sources, explains sugyot and compares opinions; free to start, with paid plans.",
-   "kind": "product",
-   "cost": "Free to start, paid plans",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free to start, paid plans"
   },
   {
    "id": "rabbi-ai",
@@ -323,9 +315,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "A chat app that answers Jewish questions with sources from Torah, Talmud and Midrash, offered in 10 languages.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "torah-ai-org",
@@ -351,9 +342,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "An AI helper for Torah and Talmud study that says it draws on the whole Sefaria library.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "rabbi-ari",
@@ -380,9 +370,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "A phone chat app for questions about Torah, Talmud, halacha and Jewish life.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "ohrbit",
@@ -409,9 +398,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "The Orthodox Union's AI Torah companion, which recommends and discusses shiurim from its own checked library.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "bekiut",
@@ -438,9 +426,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Read the Talmud phrase by phrase, with a study chat helper that is still in testing.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "derekh",
@@ -467,9 +454,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Daily learning (Daf Yomi, Mishnah, Rambam and more) prepared by AI at different depths, with audio and a source for every point; free, with a paid tier.",
-   "kind": "product",
-   "cost": "Free, with a paid tier",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free, with a paid tier"
   },
   {
    "id": "chattorah",
@@ -495,9 +481,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "A Torah learning chat app; you need to sign in or get early access.",
-   "kind": "product",
-   "cost": "Not stated (early access)",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Not stated (early access)"
   },
   {
    "id": "rabbai",
@@ -523,9 +508,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "A free study partner for computer users that runs as a text-only program, giving sourced answers and every side of a disagreement.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": "Runs in a terminal; needs some technical setup."
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "berel",
@@ -552,9 +536,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Free building blocks from Dicta that developers use to make Hebrew and rabbinic-text tools, including adding vowels.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "sofer-ai",
@@ -583,9 +566,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "Turns recorded shiurim into searchable text you can edit, even when they mix English, Hebrew, Yiddish and Aramaic, and can type up scanned seforim; free plan plus paid plans. Users say its Yiddish is so-so.",
-   "kind": "product",
-   "cost": "Free plan, paid plans",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free plan, paid plans"
   },
   {
    "id": "milai",
@@ -614,9 +596,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "license": "",
    "plain": "Upload a shiur or lecture recording and get a typed transcript and captions, even when it mixes Hebrew, Yiddish and Aramaic; it can also type up handwritten pages. Free trial, then paid plans.",
-   "kind": "product",
-   "cost": "Free trial, then paid",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free trial, then paid"
   },
   {
    "id": "chabad-ai",
@@ -645,9 +626,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Ask questions about Chassidus or everyday life and get answers from the Rebbeim's teachings with sources, inside a large library of Chabad seforim; free plan plus paid plans.",
-   "kind": "product",
-   "cost": "Free plan, paid plans",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free plan, paid plans"
   },
   {
    "id": "jemai",
@@ -675,9 +655,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Ask a question and find where the Rebbe speaks about it in JEM's video archive, with a short summary and a link to the exact moment; for JEMClub members only, still in testing.",
-   "kind": "product",
-   "cost": "JEMClub members only",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "JEMClub members only"
   },
   {
    "id": "torahanytime-yeshivish",
@@ -704,9 +683,8 @@ window.DIRECTORY_DATA = {
     "https://huggingface.co/torahanytimecom/whisper-large-v3-yeshivish"
    ],
    "plain": "A free speech-to-text model from TorahAnytime named for Yeshivish speech; how it was trained and how well it works is not stated.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "sefaria",
@@ -733,9 +711,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "subcat": "",
    "plain": "The big free online Torah library, which uses AI to link citations, build topic pages, sort source sheets and help with translations that experts review.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "dicta-library",
@@ -762,9 +739,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "A free library of Talmudic and rabbinic texts that Dicta's tools turned from scans into text, added vowels and punctuation to, and linked to their sources.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "otzar",
@@ -792,9 +768,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "A paid library of about 156,000 scanned seforim, now testing a new tool that turns page scans into text.",
-   "kind": "product",
-   "cost": "Paid",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Paid"
   },
   {
    "id": "alhatorah",
@@ -820,9 +795,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Interactive Tanakh with Mikraot Gedolot, a concordance and learning tools; it does not advertise AI features.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "otzaria",
@@ -849,9 +823,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "A free app for reading and studying seforim on computer and phone, with fast search, commentaries and community proofreading; no AI features listed.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": "Open-source, but its main form is a free app anyone can install."
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "hebrewbooks",
@@ -877,9 +850,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Over 40,000 seforim to download free as PDFs; no AI features listed.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "dicta-nakdan",
@@ -905,9 +877,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Adds nikud (vowels) to Hebrew text automatically as you type, for free.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "dicta-rashi-ocr",
@@ -934,9 +905,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Upload a page in Rashi script and get text you can copy.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "otzar-ocr",
@@ -963,9 +933,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Upload a picture or PDF of a Torah text and get typed text back; 5 free pages a day.",
-   "kind": "product",
-   "cost": "5 free pages a day",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "5 free pages a day"
   },
   {
    "id": "nakdimon",
@@ -992,9 +961,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "subcat": "",
    "plain": "A free tool that adds nikud to Hebrew text right in your browser.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": "Open-source, but its main form is a free website anyone can use."
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "dictabert-menaked",
@@ -1020,9 +988,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "A free AI model that developers can use to add nikud to Hebrew text.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "ravtext",
@@ -1049,9 +1016,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "A Word add-on for laying out seforim, with automatic nikud and finished print files; the makers say it is still being built.",
-   "kind": "product",
-   "cost": "Free basic version, paid license",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free basic version, paid license"
   },
   {
    "id": "ariach",
@@ -1079,9 +1045,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Upload a Word file and get a print-ready sefer laid out in your browser, even a Gemara page with Rashi and Tosafos; an AI helper makes the changes you ask for in plain Hebrew. Free for now while it launches.",
-   "kind": "product",
-   "cost": "Free for now",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free for now"
   },
   {
    "id": "mugah",
@@ -1107,9 +1072,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Proofreads Torah texts in Word and checks that source references are correct; open to testers.",
-   "kind": "product",
-   "cost": "Free to start, then paid credits",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free to start, then paid credits"
   },
   {
    "id": "shefa-layout",
@@ -1136,9 +1100,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "A free tool that turns a sefer's text into a finished, traditionally laid-out page as a PDF.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "ivrit-hw-ocr-lb",
@@ -1165,9 +1128,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "A public scoreboard and test set for reading handwritten Hebrew, useful for manuscripts.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "refoyl",
@@ -1194,9 +1156,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Long-running free Yiddish web tools, including a spellchecker you can paste text into.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "yivo-hunspell",
@@ -1223,9 +1184,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "A Yiddish spellchecker in standard YIVO spelling for Firefox and OpenOffice.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": "Installs as a Firefox / OpenOffice spellchecker add-on."
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "hunspell-yi",
@@ -1251,9 +1211,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "The source files of a Yiddish spelling dictionary; last updated in 2022.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "heimish-geredt",
@@ -1284,9 +1243,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "license": "",
    "plain": "Talk and it types Yiddish, plus read-aloud (in testing) and grammar checks, made for Hasidic Yiddish; 30 days free, then $4 a month.",
-   "kind": "product",
-   "cost": "30 days free, then $4 a month",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "30 days free, then $4 a month"
   },
   {
    "id": "yiddish-py",
@@ -1313,9 +1271,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "A toolkit for programmers that cleans up Yiddish text, converts between spelling styles and writes it in Latin letters.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "hasidifier",
@@ -1342,9 +1299,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Converts standard (YIVO) Yiddish spelling into Hasidic-style spelling.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "klal-keyboards",
@@ -1372,9 +1328,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Standard Yiddish keyboards for Mac, iPhone/iPad and Chromebook.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": "Keyboard layouts you install; downloaded from GitHub."
+   "kind": "repo",
+   "cost": "Free"
   },
   {
    "id": "giellalt-kbd",
@@ -1400,9 +1355,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Yiddish keyboard layouts from the GiellaLT language-tools project, updated October 2026.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "linux-kbd",
@@ -1428,9 +1382,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Yiddish keyboard layouts for Linux computers; not updated since 2022.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "bookmarklets",
@@ -1456,9 +1409,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Browser buttons that give you an on-screen Yiddish keyboard, show any web page in Latin letters, and look up words.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": "Browser bookmarklets anyone can add; hosted on GitHub."
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "meturgaman",
@@ -1484,9 +1436,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Fetches Hebrew, Aramaic and Yiddish texts and writes them in Latin letters using any of eight standard systems.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "yiddish-grammar-handbook",
@@ -1512,9 +1463,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "A free handbook, in Yiddish, for Yiddish writers and proofreaders.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": "A written guide for writers, hosted on GitHub."
+   "kind": "repo",
+   "cost": "Free"
   },
   {
    "id": "tachlisai",
@@ -1540,9 +1490,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "'Kosher' AI you use by text message, with a Yiddish page, for help with writing and everyday questions.",
-   "kind": "product",
-   "cost": "Free to start",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free to start"
   },
   {
    "id": "verterbukh",
@@ -1568,9 +1517,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "A large online Yiddish–English dictionary (not AI).",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "yiddish-tools",
@@ -1608,9 +1556,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "Buy-once Windows programs for Yiddish that work without internet: talk-to-type, translation, nikud and a natural read-aloud voice; you can try them free online first.",
-   "kind": "product",
-   "cost": "Paid (one-time), free online trial",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Paid (one-time), free online trial"
   },
   {
    "id": "google-translate",
@@ -1638,9 +1585,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "Google's translation service, which officially supports Yiddish.",
-   "kind": "product",
-   "cost": "Free (paid cloud service for businesses)",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free (paid cloud service for businesses)"
   },
   {
    "id": "nllb",
@@ -1666,9 +1612,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Meta's free translation models, which include Yiddish (not for commercial use).",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "yt-nllb-onnx",
@@ -1695,9 +1640,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "subcat": "",
    "plain": "A free Yiddish–English translator that runs in your browser; its makers warn it is a draft and can confidently get the names of things wrong.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": "A model packaged to run in a browser; you need to build the page around it."
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "mameloshnlm",
@@ -1726,9 +1670,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "name_native": "",
    "plain": "The first large AI language model trained especially on Yiddish, released by researchers for non-commercial use.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "lingvanex",
@@ -1755,9 +1698,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "subcat": "",
    "plain": "Free ready-made models for translating English into Yiddish and back.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "apertium-yid",
@@ -1783,9 +1725,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Yiddish grammar data for a rule-based translation system (a building block, not an app).",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "marianmt-he2yid",
@@ -1811,9 +1752,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "An online demo that translates Biblical Hebrew into Yiddish.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": "An online demo of an open model; mainly for builders."
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "heimish-translate",
@@ -1839,9 +1779,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Translates English into Heimish Yiddish using Google's Gemini AI.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "yiddishkeit-skill",
@@ -1867,9 +1806,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "An add-on for the Claude AI coding assistant that translates social-media posts into Hasidic Yiddish.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "yiddish-pdf-translator",
@@ -1895,9 +1833,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "A program that translates Yiddish PDF books into English using Claude.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "general-llms",
@@ -1924,9 +1861,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Community tips on everyday AI chatbots: people found Claude best at Yiddish and Qwen good for word-by-word translation; these are opinions, not tests.",
-   "kind": "product",
-   "cost": "Free to read",
-   "kind_note": "Tips for using everyday chatbots, not a tool itself."
+   "kind": "site",
+   "cost": "Free to read"
   },
   {
    "id": "reyd",
@@ -1955,9 +1891,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "name_native": "",
    "plain": "The first Yiddish read-aloud system (2022), trained on about 8 hours of Yiddish Book Center audiobooks read by 3 speakers; its voices and data are free.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "avremi",
@@ -1984,9 +1919,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "name_native": "",
    "plain": "A free Yiddish read-aloud voice that runs on an ordinary computer, built from the REYD recordings, with an online demo.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": "Mainly a downloadable voice model, although it has an online demo."
+   "kind": "site",
+   "cost": "Free (open source)"
   },
   {
    "id": "phonikud-yi-tts",
@@ -2013,9 +1947,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "An online demo of a Hasidic Yiddish read-aloud voice; its notes say the voices come from English speakers, so the vowels sound foreign.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": "An online demo of an open model; mainly for builders."
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "phonikud-yi",
@@ -2041,9 +1974,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/Abe1018776/Phonikud-yi"
    ],
    "plain": "A tool that works out how Hasidic Yiddish words are pronounced, checked by native speakers, built to prepare podcast recordings for training a Yiddish voice.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "phonikud",
@@ -2071,9 +2003,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "A Hebrew pronunciation tool for fast read-aloud voices; the Hasidic Yiddish version is based on it.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free (open source)"
   },
   {
    "id": "yiddishlabs",
@@ -2108,9 +2039,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "A Yiddish writing helper and transcriber: fixes grammar, adds nikud, rephrases and translates, and turns Yiddish recordings into text, on the web or in a Windows app. Free credits to start, then paid plans.",
-   "kind": "product",
-   "cost": "Free credits, then paid",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free credits, then paid"
   },
   {
    "id": "hershy-weights",
@@ -2138,9 +2068,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "Experimental Yiddish voices and a listening-test page; no description provided.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "mendel-csm",
@@ -2166,9 +2095,8 @@ window.DIRECTORY_DATA = {
     "https://huggingface.co/mendelg/yiddish-csm-lora-2c60b4a0"
    ],
    "plain": "An experiment in teaching a speech model Yiddish; no details on data or results.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "reyd-space",
@@ -2194,9 +2122,8 @@ window.DIRECTORY_DATA = {
     "https://huggingface.co/spaces/samadeus/reyd-yiddish-tts"
    ],
    "plain": "An online demo of the REYD Yiddish voice; it was not working when we checked.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": "An online demo of an open model (was not working when checked)."
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "ttsyiddish",
@@ -2222,9 +2149,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/rexelardo/TTSYiddish"
    ],
    "plain": "Personal scripts that cut audio into pieces to build a Yiddish voice; no voice released.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "shmooz-ai",
@@ -2251,9 +2177,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "An AI assistant on WhatsApp and Telegram for Hebrew speakers; no Yiddish support listed.",
-   "kind": "product",
-   "cost": "Paid",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Paid"
   },
   {
    "id": "ivrit-yi-whisper",
@@ -2281,9 +2206,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "name_native": "",
    "plain": "Free Yiddish speech-to-text from ivrit.ai, trained on volunteers' Yiddish recordings; most other free Yiddish transcription builds on it.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "yt-whisper-onnx",
@@ -2310,9 +2234,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "name_native": "",
    "plain": "The ivrit.ai Yiddish transcriber packaged to run in your browser, so your audio never leaves your device.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": "A model packaged to run in a browser; you need to build the page around it."
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "rebbe-asr",
@@ -2339,9 +2262,10 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "A transcriber trained on the Rebbe's farbrengens, with careful published results; the recordings and texts are not public.",
-   "kind": "builder",
+   "kind": "repo",
    "cost": "Partly open",
-   "kind_note": ""
+   "website": "https://golanbenoni.github.io/rebbe-yiddish-asr/",
+   "website_label": "Corpus datasheet page (golanbenoni.github.io)"
   },
   {
    "id": "sicha-to-text",
@@ -2367,9 +2291,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/MMS-HM/sicha-to-text"
    ],
    "plain": "A Mac app that transcribes sichos without internet; it can get stuck repeating itself during niggunim.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": "A Mac app distributed through GitHub."
+   "kind": "repo",
+   "cost": "Free"
   },
   {
    "id": "omniasr",
@@ -2398,9 +2321,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "Meta's free speech-to-text for over 1,600 languages, including Yiddish.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "whisper-stock",
@@ -2427,9 +2349,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "name_native": "",
    "plain": "OpenAI's free speech-to-text, which lists Yiddish, but users say it does poorly on Hasidic speech without extra training.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "dervort",
@@ -2455,9 +2376,8 @@ window.DIRECTORY_DATA = {
     "https://dervort.com/"
    ],
    "plain": "Hold a key and talk, and it types clean Yiddish or English into any app; it also transcribes files, and the site says it is still under construction.",
-   "kind": "product",
-   "cost": "Free to start",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free to start"
   },
   {
    "id": "es2814207",
@@ -2484,9 +2404,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "Community experiments in Yiddish speech-to-text, and a page for collecting Yiddish recordings; few details given.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "w2v-bert-yi",
@@ -2513,9 +2432,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "Two experimental Yiddish speech-to-text models, one for Litvish speech; no description provided.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "ivrit-runpod-yi",
@@ -2541,9 +2459,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/smrtesy/ivrit-runpod-yi"
    ],
    "plain": "A cloud setup that runs Yiddish transcription for an archive of the Rebbe's 'dollars' recordings.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "yi-audio-align",
@@ -2570,9 +2487,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "Tools that line up Yiddish recordings with their written text, plus the home page of the JEM Yiddish transcription project.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "clean-transcripts",
@@ -2598,9 +2514,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/Shloimy15e/clean-yiddish-transcripts"
    ],
    "plain": "A web app that removes titles, notes and timestamps from Yiddish transcripts so they can be used to train transcribers.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": "A web app for preparing training data."
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "jochre3",
@@ -2629,9 +2544,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "name_native": "",
    "plain": "Search the full text of the Yiddish Book Center's scanned library, with volunteers correcting mistakes.",
-   "kind": "product",
-   "cost": "Free",
-   "kind_note": "Listed for its public search website; the OCR engine and corpus are also open."
+   "kind": "site",
+   "cost": "Free"
   },
   {
    "id": "vilnish",
@@ -2659,9 +2573,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "A service that reads handwritten and old printed Yiddish and Hebrew, and can translate it into English or Lithuanian.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": "Listed for its recognition service; the model and dataset are also open."
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "mattingly-ocr",
@@ -2689,9 +2602,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "Free models that read printed and handwritten Yiddish from page images.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "yiddish-synth",
@@ -2718,9 +2630,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "Computer-made pictures of Yiddish text lines, with their text, for training page readers, plus a model trained on them.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "viciebski",
@@ -2746,9 +2657,8 @@ window.DIRECTORY_DATA = {
     "https://huggingface.co/datasets/VItaldob/viciebski-pralietaryj-yiddish"
    ],
    "plain": "2,684 images of text from 1930s Vitebsk Yiddish newspapers, without the typed text.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "marinelives",
@@ -2775,9 +2685,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "Experiments in fixing the mistakes computers make when reading handwritten Yiddish; the demos were not working when we checked.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "ivrit-yi-data",
@@ -2804,9 +2713,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "name_native": "",
    "plain": "Yiddish recordings by volunteers (read aloud and on WhatsApp), the main public data for teaching computers to transcribe Yiddish; access on request.",
-   "kind": "builder",
-   "cost": "Partly open",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Partly open"
   },
   {
    "id": "commonvoice-yi",
@@ -2833,9 +2741,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "name_native": "",
    "plain": "Mozilla's free voice-donation project, where anyone can record Yiddish sentences.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": "Anyone can donate recordings on the website, but the result is a dataset."
+   "kind": "site",
+   "cost": "Free (open source)"
   },
   {
    "id": "williamsburg",
@@ -2861,9 +2768,8 @@ window.DIRECTORY_DATA = {
     "https://huggingface.co/datasets/men-seg-1/williamsburg-hasidic-yiddish"
    ],
    "plain": "A collection of present-day Williamsburg Hasidic Yiddish writing on history, geography and reference topics.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "csye",
@@ -2889,9 +2795,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/YiddishCorpus/CSYE-Transcripts"
    ],
    "plain": "Written transcripts of interviews with Yiddish speakers across Europe, recorded to study dialects.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "ud-yitb",
@@ -2917,9 +2822,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/UniversalDependencies/UD_Yiddish-YiTB"
    ],
    "plain": "Yiddish sentences marked up word by word with their grammar, for language research.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "penn-yiddish",
@@ -2945,9 +2849,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/beatrice57/penn-parsed-corpus-of-historical-yiddish"
    ],
    "plain": "About 200,000 words of historical Yiddish marked up with their grammar.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "intsayt",
@@ -2973,9 +2876,8 @@ window.DIRECTORY_DATA = {
     "https://intsayt-project.github.io/"
    ],
    "plain": "A research project marking up the grammar of Scots and Yiddish texts, with its data and scripts.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free (open source)"
   },
   {
    "id": "yidracor",
@@ -3001,9 +2903,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/dracor-org/yidracor"
    ],
    "plain": "A collection of Yiddish plays prepared for computer research.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "alpaca-yi",
@@ -3029,9 +2930,8 @@ window.DIRECTORY_DATA = {
     "https://huggingface.co/datasets/saillab/alpaca-yiddish-cleaned"
    ],
    "plain": "Example instructions and answers machine-translated into Yiddish, for training chatbots.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "yi-extractor",
@@ -3057,9 +2957,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/Mordy-S/yiddish-extractor"
    ],
    "plain": "Pulls clean Yiddish sentences out of mixed documents, telling Yiddish apart from Hebrew and Aramaic.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "hebrish-sentences",
@@ -3085,9 +2984,8 @@ window.DIRECTORY_DATA = {
     "https://huggingface.co/datasets/Hebrish/Yiddish-Sentences"
    ],
    "plain": "A text collection that needs permission to open, so we could not check what is inside.",
-   "kind": "builder",
-   "cost": "Partly open",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Partly open"
   },
   {
    "id": "hebrew-ml-navigator",
@@ -3113,9 +3011,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/peleg-jpg/hebrew-ml-datasets-navigator"
    ],
    "plain": "A guide listing Hebrew and Yiddish data collections and AI models.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "kakugo",
@@ -3143,9 +3040,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "name_native": "",
    "plain": "A small Yiddish chat model trained on computer-made conversations in Eastern Yiddish.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "goldfish",
@@ -3171,9 +3067,8 @@ window.DIRECTORY_DATA = {
     "https://huggingface.co/goldfish-models/ydd_hebr_full"
    ],
    "plain": "Small Yiddish-only language models from a project covering 350 languages.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "yi-encoders",
@@ -3200,9 +3095,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "Two Yiddish language models for developers, with little description.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "yiddishtag",
@@ -3228,9 +3122,8 @@ window.DIRECTORY_DATA = {
     "https://github.com/skulick/yiddishtag"
    ],
    "plain": "A tool that labels each word in Yiddish text with its part of speech (noun, verb and so on).",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "ivrit-ai",
@@ -3258,9 +3151,10 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "A group releasing free Hebrew and Yiddish recordings and speech-to-text models, and the strongest open source of Yiddish transcription data.",
-   "kind": "builder",
+   "kind": "repo",
    "cost": "Free (open source)",
-   "kind_note": "Publishes open models and data; its Hebrew transcription service is not Yiddish."
+   "website": "https://www.ivrit.ai/",
+   "website_label": "ivrit.ai website"
   },
   {
    "id": "yiddish-nlp",
@@ -3286,9 +3180,8 @@ window.DIRECTORY_DATA = {
     "https://huggingface.co/Yiddish-NLP"
    ],
    "plain": "The research group behind MameLoshnLM and the Kashes Yiddish test collection.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "ybc",
@@ -3315,9 +3208,8 @@ window.DIRECTORY_DATA = {
    "name_native": "",
    "license": "",
    "plain": "The Yiddish Book Center: over 11,000 digitized books, Yiddish audiobooks and oral histories, with full-text search.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": "A library and archive website; Jochre-based search is listed separately."
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "yivo",
@@ -3343,9 +3235,8 @@ window.DIRECTORY_DATA = {
     "https://yivo.org/"
    ],
    "plain": "Home of standard Yiddish spelling; its archive pages helped train a handwriting reader, but it runs no AI tool we found.",
-   "kind": "product",
-   "cost": "Not stated",
-   "kind_note": "An archive and institute website; no YIVO-run AI tool found."
+   "kind": "site",
+   "cost": "Not stated"
   },
   {
    "id": "jtech",
@@ -3371,9 +3262,8 @@ window.DIRECTORY_DATA = {
     "https://jtechforums.org/t/yiddish-transcription-through-ai/5937"
    ],
    "plain": "A forum discussion where users compare AI tools for transcribing Yiddish audio.",
-   "kind": "product",
-   "cost": "Free to read",
-   "kind_note": "A forum discussion to read, not a tool."
+   "kind": "site",
+   "cost": "Free to read"
   },
   {
    "id": "chabadlabs",
@@ -3399,9 +3289,8 @@ window.DIRECTORY_DATA = {
     "https://chabadlabs.ai/wiki-topics-hebrew-yiddish"
    ],
    "plain": "A community wiki with practical tips on tools for Hebrew and Yiddish translation, transcription, scanning and read-aloud.",
-   "kind": "product",
-   "cost": "Free to read",
-   "kind_note": "A guide to read, not a tool."
+   "kind": "site",
+   "cost": "Free to read"
   },
   {
    "id": "kashes",
@@ -3428,9 +3317,8 @@ window.DIRECTORY_DATA = {
    "notes": "",
    "subcat": "",
    "plain": "A set of tests for how well computers handle written Yiddish (translation, grammar, names, questions); it has no speech tests.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "omni-table",
@@ -3456,9 +3344,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "Meta's table of results for each language, including how often its transcriber gets Yiddish letters wrong.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "jochre-corpus",
@@ -3484,9 +3371,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "658 pages of Yiddish with their correct text, used to compare how accurately different tools read scanned pages.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "site",
+   "cost": "Free (open source)"
   },
   {
    "id": "ivrit-he-lb",
@@ -3512,9 +3398,8 @@ window.DIRECTORY_DATA = {
    ],
    "subcat": "",
    "plain": "A public scoreboard for Hebrew transcription tools, a model for a Yiddish one that does not exist yet.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   },
   {
    "id": "ivrit-tts-arena",
@@ -3541,9 +3426,8 @@ window.DIRECTORY_DATA = {
    "license": "",
    "subcat": "",
    "plain": "A site where people vote on which Hebrew voice sounds better, a model for a Yiddish version.",
-   "kind": "builder",
-   "cost": "Free (open source)",
-   "kind_note": ""
+   "kind": "repo",
+   "cost": "Free (open source)"
   }
  ],
  "benchmarks": [
